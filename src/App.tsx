@@ -1,27 +1,55 @@
 import React from 'react';
 import './App.css';
-import Accordion from "./Components/Accordion/Accordion";
-import {Rating} from "./Components/Rating/Rating";
 
-function App() {
-    console.log("App rendering")
+
+const App = () => {
     return (
-        <div>
-            <PageTitle title={"This is APP component"}/>
-            <PageTitle title={"My friends"}/>
-            <Accordion titleValue={"Menu"} collapsed={true}/>
-            <Accordion titleValue={"Users"} collapsed={false}/>
-            <Rating value={1}/>
-            <Rating value={5}/>
+        <div className='app-wrapper'>
+            <header className="header">
+                <img alt="Лого" src="https://i01piccdn.sogoucdn.com/26373061e1112eba"/>
+            </header>
+            <nav className="nav">
+                <div>
+                <a>Profile</a>
+                </div>
+                <div>
+                <a>Messages</a>
+                </div>
+                <div>
+                <a>News</a>
+                </div>
+                <div>
+                <a>Music</a>
+                </div>
+                <div>
+                <a>Settings</a>
+                </div>
+            </nav>
+            <div className="content">
+            <div>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRidCscVYZ6qebSD_kHOsso8EG3Xe7qcyegw&usqp=CAU"/>
+            </div>
+            <div>
+                ava + description
+            </div>
+            <div>
+                My posts
+                    <div>
+                        New post
+                    </div>
+                    <div>
+                        <div>
+                            Post 1
+                        </div>
+                        <div>
+                            Post 2
+                        </div>
+                    </div>
+            </div>
+            </div>
+
         </div>
     );
-}
-
-type PageTitlePropsType = { title: string}
-
-function PageTitle(props: PageTitlePropsType) {
-    console.log("PageTitle rendering")
-    return <h1>{props.title}</h1>
 }
 
 export default App;
