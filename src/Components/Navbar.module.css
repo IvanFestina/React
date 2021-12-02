@@ -1,0 +1,7 @@
+
+.nav {
+  grid-area: n;
+  background-color: #73a24e;
+  border:1px solid black;
+  margin-left: 5px;
+}

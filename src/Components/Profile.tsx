@@ -1,4 +1,5 @@
 import React from "react";
+import './Profile.module.css'
 
 const Profile = () => {
     return (
@@ -7,19 +8,19 @@ const Profile = () => {
             <img
                 src="https://www.pikpng.com/pngl/b/603-6034862_header-banner-png-banner-images-header-png-clipart.png"/>
         </div>
-        <div>
+        <div className="content_ava">
             ava + description
         </div>
-        <div>
+        <div className='content_posts'>
             My posts
-            <div>
+            <div className='content_newPost'>
                 New post
             </div>
             <div>
-                <div>
+                <div className='content_item'>
                     Post 1
                 </div>
-                <div>
+                <div className='content_item'>
                     Post 2
                 </div>
             </div>
