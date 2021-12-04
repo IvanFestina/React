@@ -1,23 +1,25 @@
 import React from "react";
 import s from './Navbar.module.css'
 
-const Navbar = () => {
+console.log(s)
+
+const Navbar = (type: any) => {
     return (
         <nav className={s.nav}>
             <div>
-                <a className={s.nav_item}>Profile</a>
+                <a className={s.item}>Profile</a>
             </div>
             <div>
-                <a className={s.nav}>Messages</a>
+                <a className={ `${s.item} ${s.active}` }>Messages</a>
             </div>
             <div>
-                <a className={s.nav}>News</a>
+                <a className={s.item}>News</a>
             </div>
             <div>
-                <a className={s.nav}>Music</a>
+                <a className={s.item}>Music</a>
             </div>
             <div>
-                <a className={s.nav}>Settings</a>
+                <a className={s.item}>Settings</a>
             </div>
         </nav>
     )
