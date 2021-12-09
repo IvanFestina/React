@@ -1,6 +1,6 @@
 import React from "react";
 
-const Music = (props: any) => {
+export const Music = (props: any) => {
     return (
         <div>
             Music
@@ -8,4 +8,3 @@ const Music = (props: any) => {
     )
 }
 
-export default Music

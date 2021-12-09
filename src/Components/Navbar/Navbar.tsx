@@ -2,35 +2,29 @@ import React from "react";
 import s from './Navbar.module.css'
 import {NavLink} from "react-router-dom";
 
-let activeStyle: any = {
-    color: 'deeppink'
-};
-
-const Navbar = (props: any) => {
+export const Navbar = (props: any) => {
     return (
         <nav className={s.nav}>
-            <div className={s.item}>
-                <NavLink to={'/profile'} style={({isActive}) =>
-                    isActive ? activeStyle : undefined}>Profile</NavLink>
+            <div>
+                <NavLink to={'/profile'} className={({isActive}) =>
+                    isActive ? s.activeStyle : s.item}>Profile</NavLink>
             </div>
-            <div className={`${s.item} ${s.active}`}>
-                <NavLink to={'/dialogs'} style={({isActive}) =>
-                    isActive ? activeStyle : undefined}>Messages</NavLink>
+            <div>
+                <NavLink to={'/dialogs'} className={({isActive}) =>
+                    isActive ? s.activeStyle : s.item}>Messages</NavLink>
             </div>
-            <div className={s.item}>
-                <NavLink to={'/news'} style={({isActive}) =>
-                    isActive ? activeStyle : undefined}>News</NavLink>
+            <div>
+                <NavLink to={'/news'} className={({isActive}) =>
+                    isActive ? s.activeStyle : s.item}>News</NavLink>
             </div>
-            <div className={s.item}>
-                <NavLink to={'/music'} style={({isActive}) =>
-                    isActive ? activeStyle : undefined}>Music</NavLink>
+            <div>
+                <NavLink to={'/music'} className={({isActive}) =>
+                    isActive ? s.activeStyle : s.item}>Music</NavLink>
             </div>
-            <div className={s.item}>
-                <NavLink to={'/settings'} style={({isActive}) =>
-                    isActive ? activeStyle : undefined}>Settings</NavLink>
+            <div>
+                <NavLink to={'/settings'} className={({isActive}) =>
+                    isActive ? s.activeStyle : s.item}>Settings</NavLink>
             </div>
         </nav>
     )
 }
-
-export default Navbar
