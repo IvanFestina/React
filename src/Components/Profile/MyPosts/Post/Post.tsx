@@ -8,7 +8,7 @@ export const Post = (props: PostPropsType) => {
             <img alt='ava' src='https://i.pinimg.com/originals/f1/08/a3/f108a3f0a39c70b8f7e56c642edb9327.png'/>
             { props.message }
             <div>
-                <span>like</span> {props.likesCount}
+                <span>like: {props.likesCount}</span>
             </div>
         </div>
     )

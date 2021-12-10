@@ -10,10 +10,9 @@ import {Music} from "./Components/Music/Music";
 import {News} from "./Components/News/News";
 
 
-const App = () => {
+const App = (props: any) => {
     return (
         <BrowserRouter>
-
             <div className='app-wrapper'>
                 <Header/>
                 <Navbar/>
@@ -27,7 +26,6 @@ const App = () => {
                     </Routes>
                 </div>
             </div>
-
         </BrowserRouter>
     );
 }
