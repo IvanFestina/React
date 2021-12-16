@@ -1,20 +1,28 @@
 .dialogs {
     display: grid;
     grid-template-columns: 2fr 10fr;
+
 }
 
 .dialogsItems {
-padding: 10px;
+    padding: 10px;
+
 }
 
-.dialogsItems .active {
-color: #fc887e;
+.messages {
+    padding: 10px;
 }
 
-.messages{
-padding: 10px;
+.typeAndSend {
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
-/*.messages {*/
+.textarea {
 
-/*}*/
+}
+
+.button {
+}

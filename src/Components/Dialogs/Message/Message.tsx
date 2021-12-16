@@ -1,8 +1,12 @@
 import React from 'react';
-import s from './../Dialogs.module.css'
+import s from './Message.module.css'
 
+type MessagePropsType = { message: string; img: string; isYou: boolean }
 
-type MessagePropsType = { message: string }
 export const Message = (props: MessagePropsType) => {
-    return <div className={s.dialog}>{props.message}</div>
+    return <div className={props.isYou ? s.youStyle : s.theyStyle}>
+        <img alt="" src={props.img}/>
+        <p style={{color: "black"}}>{props.message}</p>
+
+    </div>
 }
