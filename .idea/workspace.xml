@@ -2,16 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d90b8b67-63e7-42dc-a385-09d76ba6110b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/render.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Dialogs/DialogItem/DialogItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Dialogs/DialogItem/DialogItem.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Dialogs/Dialogs.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Dialogs/Dialogs.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Dialogs/Dialogs.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Dialogs/Dialogs.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Dialogs/Message/Message.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Dialogs/Message/Message.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Navbar/Navbar.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Navbar/Navbar.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Navbar/Navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Navbar/Navbar.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Profile/MyPosts/MyPosts.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Profile/MyPosts/MyPosts.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Profile/MyPosts/Post/Post.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Profile/MyPosts/Post/Post.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Profile/Profile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Profile/Profile.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
     </list>
@@ -47,16 +44,17 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Components/Navbar/Friends" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="yarn" />
-    <property name="settings.editor.selected.configurable" value="MTHome" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
     <property name="ts.external.directory.path" value="C:\Users\IVanf\IT\social-network\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\IVanf\IT\social-network\src" />
       <recent name="C:\Users\IVanf\IT\ts-react-social-network\src\Components\Navbar\Friends" />
       <recent name="C:\Users\IVanf\IT\ts-react-social-network\src\Components\Dialogs\Message" />
       <recent name="C:\Users\IVanf\IT\ts-react-social-network\src\Components\Dialogs\DialogItem" />
@@ -93,11 +91,25 @@
       <workItem from="1639123189226" duration="23728000" />
       <workItem from="1639216761518" duration="7099000" />
       <workItem from="1639322500201" duration="15067000" />
-      <workItem from="1639678341729" duration="5085000" />
+      <workItem from="1639678341729" duration="17108000" />
+      <workItem from="1640026230166" duration="3902000" />
+      <workItem from="1640094396961" duration="4792000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

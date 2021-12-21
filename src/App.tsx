@@ -4,53 +4,19 @@ import {Header} from "./Components/Header/Header";
 import {Navbar} from "./Components/Navbar/Navbar";
 import {Profile} from "./Components/Profile/Profile";
 import {Dialogs} from "./Components/Dialogs/Dialogs";
-import {BrowserRouter, Route, Routes} from "react-router-dom";
+import { Route, Routes} from "react-router-dom";
 import {Settings} from "./Components/Settings/Settings";
 import {Music} from "./Components/Music/Music";
 import {News} from "./Components/News/News";
+import {RootStateType} from "./redux/state";
 
-type dialogObjectType = {
-    id: string;
-    name: string
-}
-type messageObjectType = {
-    id: string;
-    message: string
-    img: string
-    isYou: boolean
-}
-type postsObjectType = {
-    id: string;
-    message: string
-    likesCount: number
-}
-type friendsObjectType = {
-    id: string
-    name: string
-    img: string
-}
-type sideBarType = {
-    friends: Array<friendsObjectType>
-}
-type profilePageType = {
-    posts: Array<postsObjectType>
-}
-type messagesPageType = {
-    messages: Array<messageObjectType>
-    dialogs: Array<dialogObjectType>
-}
-type navType = {
-    profilePage: profilePageType
-    dialogsPage: messagesPageType
-    sideBar: sideBarType
-}
-type stateType = {
-    state: navType
+type AppPropsType = {
+    state: RootStateType,
+    addPost: (message: string) => void
 }
 
-const App = (props: stateType) => {
+const App = (props: AppPropsType) => {
     return (
-        <BrowserRouter>
             <div className='app-wrapper'>
                 <Header/>
                 <Navbar friends={props.state.sideBar.friends}/>
@@ -62,14 +28,15 @@ const App = (props: stateType) => {
                                    message={props.state.dialogsPage.messages}/>}/>
                         <Route path='/profile'
                                element={<Profile
-                                   posts={props.state.profilePage.posts}/>}/>
+                                   profilePage={props.state.profilePage}
+                                   addPost={props.addPost}
+                                   />}/>
                         <Route path='/news' element={<News/>}/>
                         <Route path='/music' element={<Music/>}/>
                         <Route path='/settings' element={<Settings/>}/>
                     </Routes>
                 </div>
             </div>
-        </BrowserRouter>
     );
 }
 

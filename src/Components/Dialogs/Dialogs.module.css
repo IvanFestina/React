@@ -1,12 +1,19 @@
 .dialogs {
     display: grid;
     grid-template-columns: 2fr 10fr;
+    height: 100%;
 
 }
 
 .dialogsItems {
     padding: 10px;
 
+}
+
+.dialogsContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .messages {
@@ -18,6 +25,7 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+    justify-self: flex-end;
 }
 
 .textarea {

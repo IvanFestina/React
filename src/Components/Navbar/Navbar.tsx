@@ -3,12 +3,8 @@ import s from './Navbar.module.css'
 import {NavLink} from "react-router-dom";
 import {Message} from "../Dialogs/Message/Message";
 import {Friends} from "./Friends/Friends";
+import {friendsObjectType} from "../../redux/state";
 
-type friendsObjectType = {
-    id: string
-    name: string
-    img: string
-}
 type sideBarType = {
     friends: Array<friendsObjectType>
 }

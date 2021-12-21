@@ -24,7 +24,7 @@ export const Dialogs = (props: PropsType) => {
 
     let sendRef = React.createRef<HTMLTextAreaElement>()
     const send = () => {
-
+        alert(sendRef.current?.value)
     }
 
     return (
@@ -32,9 +32,10 @@ export const Dialogs = (props: PropsType) => {
             <div className={s.dialogsItems}>
                 {dialogElements}
             </div>
-            <div className={s.messages}>
-                {messageElements}
-
+            <div className={s.dialogsContent}>
+                <div className={s.messages}>
+                    {messageElements}
+                </div>
                 <div className={s.typeAndSend}>
                     <div>
                         <textarea ref={sendRef}> </textarea>
@@ -43,9 +44,7 @@ export const Dialogs = (props: PropsType) => {
                         <button onClick={send}>send</button>
                     </div>
                 </div>
-
             </div>
-
         </div>
     )
 }
