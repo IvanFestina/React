@@ -13,7 +13,7 @@ import {RootStateType} from "./redux/state";
 type AppPropsType = {
     state: RootStateType,
     addPostCallback:(postMessage: string) => void
-    changeNewTextCallback:(newText: string) => void
+    updateNewPostTextCallback:(newText: string) => void
 }
 
 const App = (props: AppPropsType) => {
@@ -31,7 +31,7 @@ const App = (props: AppPropsType) => {
                            element={<Profile
                                profilePage={props.state.profilePage}
                                addPostCallback={props.addPostCallback}
-                               changeNewTextCallback={props.changeNewTextCallback}
+                               changeNewTextCallback={props.updateNewPostTextCallback}
                            />}/>
                     <Route path='/news' element={<News/>}/>
                     <Route path='/music' element={<Music/>}/>
