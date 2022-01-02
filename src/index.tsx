@@ -10,8 +10,7 @@ export const onChange = () => {
         <BrowserRouter>
             <App
                 state={store.getState()}
-                addPostCallback={store.addPost.bind(store)}
-                updateNewPostTextCallback={store.updateNewPostText.bind(store)}
+                dispatch={store.dispatch.bind(store)}
             />
         </BrowserRouter>,
         document.getElementById('root')

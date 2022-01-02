@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d90b8b67-63e7-42dc-a385-09d76ba6110b" name="Changes" comment="37OPP">
+    <list default="true" id="d90b8b67-63e7-42dc-a385-09d76ba6110b" name="Changes" comment="38-episod">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -89,7 +88,7 @@
       <workItem from="1640026230166" duration="3902000" />
       <workItem from="1640094396961" duration="14190000" />
       <workItem from="1640453939196" duration="5644000" />
-      <workItem from="1641071971133" duration="7171000" />
+      <workItem from="1641071971133" duration="12104000" />
     </task>
     <task id="LOCAL-00001" summary="...">
       <created>1640117091538</created>
@@ -105,7 +104,14 @@
       <option name="project" value="LOCAL" />
       <updated>1640526440050</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="38-episod">
+      <created>1641123962387</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1641123962387</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -127,6 +133,7 @@
     <MESSAGE value="..." />
     <MESSAGE value="37ОПП" />
     <MESSAGE value="37OPP" />
-    <option name="LAST_COMMIT_MESSAGE" value="37OPP" />
+    <MESSAGE value="38-episod" />
+    <option name="LAST_COMMIT_MESSAGE" value="38-episod" />
   </component>
 </project>
