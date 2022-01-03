@@ -8,12 +8,13 @@ import {Route, Routes} from "react-router-dom";
 import {Settings} from "./Components/Settings/Settings";
 import {Music} from "./Components/Music/Music";
 import {News} from "./Components/News/News";
-import {RootStateType} from "./redux/state";
+import {AddPostActionType, RootStateType, updateNewPostTextActionType} from "./redux/state";
 
 type AppPropsType = {
-    state: RootStateType,
-    addPostCallback:(postMessage: string) => void
-    updateNewPostTextCallback:(newText: string) => void
+    state: RootStateType
+    dispatch: (action: AddPostActionType | updateNewPostTextActionType) => void
+    // addPostCallback:(postMessage: string) => void
+    // updateNewPostTextCallback:(newText: string) => void
 }
 
 const App = (props: AppPropsType) => {
@@ -30,8 +31,7 @@ const App = (props: AppPropsType) => {
                     <Route path='/profile'
                            element={<Profile
                                profilePage={props.state.profilePage}
-                               addPostCallback={props.addPostCallback}
-                               changeNewTextCallback={props.updateNewPostTextCallback}
+                               dispatch={props.dispatch}
                            />}/>
                     <Route path='/news' element={<News/>}/>
                     <Route path='/music' element={<Music/>}/>

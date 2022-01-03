@@ -1,13 +1,12 @@
 import React, {ChangeEvent} from "react";
 import s from './MyPosts.module.css'
 import {Post} from "./Post/Post";
-import {postsObjectType} from "../../../redux/state";
+import {AddPostActionType, postsObjectType, updateNewPostTextActionType} from "../../../redux/state";
 
 type PropsType = {
     posts: Array<postsObjectType>
     messageForNewPost: string
-    addPostCallback: (message: string) => void
-    changeNewTextCallback: (newText:string) => void
+    dispatch: (action: AddPostActionType | updateNewPostTextActionType) => void
 }
 
 export const MyPosts = (props: PropsType) => {
@@ -16,10 +15,11 @@ export const MyPosts = (props: PropsType) => {
 
 
     const addPost = () => {
-            props.addPostCallback(props.messageForNewPost)
+        props.dispatch({type: "ADD-POST", messageForNewPost: props.messageForNewPost})
     }
-    const newTextChandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
-        props.changeNewTextCallback(e.currentTarget.value)
+    const newTextHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
+        let text = e.currentTarget.value
+        props.dispatch({type: "UPDATE-NEW-POST-TEXT", newText: text})
     }
 
     return (
@@ -27,7 +27,7 @@ export const MyPosts = (props: PropsType) => {
             <h3>My posts</h3>
             <div>
                 <div>
-                    <textarea onChange={newTextChandler} value={props.messageForNewPost} />
+                    <textarea onChange={newTextHandler} value={props.messageForNewPost}/>
                 </div>
                 <div>
                     <button onClick={addPost}>Add post</button>
