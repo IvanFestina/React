@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d90b8b67-63e7-42dc-a385-09d76ba6110b" name="Changes" comment="38-episod">
+    <list default="true" id="d90b8b67-63e7-42dc-a385-09d76ba6110b" name="Changes" comment="39-episodStart">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Dialogs/Dialogs.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Dialogs/Dialogs.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Profile/MyPosts/MyPosts.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Profile/MyPosts/MyPosts.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Profile/Profile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Profile/Profile.tsx" afterDir="false" />
     </list>
@@ -91,7 +92,8 @@
       <workItem from="1640094396961" duration="14190000" />
       <workItem from="1640453939196" duration="5644000" />
       <workItem from="1641071971133" duration="12131000" />
-      <workItem from="1641201052806" duration="4153000" />
+      <workItem from="1641201052806" duration="4176000" />
+      <workItem from="1641675550073" duration="8958000" />
     </task>
     <task id="LOCAL-00001" summary="...">
       <created>1640117091538</created>
@@ -121,7 +123,14 @@
       <option name="project" value="LOCAL" />
       <updated>1641154920424</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="39-episodStart">
+      <created>1641205828601</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1641205828601</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -144,6 +153,7 @@
     <MESSAGE value="37ОПП" />
     <MESSAGE value="37OPP" />
     <MESSAGE value="38-episod" />
-    <option name="LAST_COMMIT_MESSAGE" value="38-episod" />
+    <MESSAGE value="39-episodStart" />
+    <option name="LAST_COMMIT_MESSAGE" value="39-episodStart" />
   </component>
 </project>
