@@ -27,6 +27,7 @@ export const MyPosts = (props: PropsType) => {
         props.dispatch(updateNewPostTextAC(text))
     }
 
+
     return (
         <div className={s.postsBlock}>
             <h3>My posts</h3>я
