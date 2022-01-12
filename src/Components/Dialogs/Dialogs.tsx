@@ -4,11 +4,10 @@ import {DialogItem} from "./DialogItem/DialogItem";
 import {Message} from "./Message/Message";
 import {
     ActionsTypes,
-    addNewMessageAC,
     dialogObjectType,
-    messageObjectType,
-    updateNewMessageTextAC
-} from "../../redux/state";
+    messageObjectType
+} from "../../redux/store";
+import {addNewMessageAC, updateNewMessageTextAC} from "../../redux/dialogs-reducer";
 
 type DialogsPropsType = {
     dialogs: Array<dialogObjectType>
