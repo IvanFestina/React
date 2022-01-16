@@ -2,14 +2,15 @@ import React from "react";
 import s from './Navbar.module.css'
 import {NavLink} from "react-router-dom";
 import {Friends} from "./Friends/Friends";
-import {friendsObjectType} from "../../redux/store";
+import {StoreType} from "../../redux/store";
 
 type sideBarType = {
-    friends: Array<friendsObjectType>
+    store: StoreType
 }
 
-export const Navbar = (props: sideBarType) => {
-    let friendsElements = props.friends.map(f => <Friends name={f.name} img={f.img}/>)
+export const Navbar = ({store, ...props}: sideBarType) => {
+    const state = store.getState()
+    let friendsElements = state.sideBar.friends.map(f => <Friends name={f.name} img={f.img}/>)
 
     return (
         <nav className={s.nav}>

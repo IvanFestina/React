@@ -3,36 +3,31 @@ import './App.css';
 import {Header} from "./Components/Header/Header";
 import {Navbar} from "./Components/Navbar/Navbar";
 import {Profile} from "./Components/Profile/Profile";
-import {Dialogs} from "./Components/Dialogs/Dialogs";
 import {Route, Routes} from "react-router-dom";
 import {Settings} from "./Components/Settings/Settings";
 import {Music} from "./Components/Music/Music";
 import {News} from "./Components/News/News";
-import {RootStateType, ActionsTypes} from "./redux/store";
+import {StoreType} from "./redux/store";
+import {DialogsContainer} from "./Components/Dialogs/DialogsContainer";
 
 type AppPropsType = {
-    state: RootStateType
-    dispatch: (action: ActionsTypes) => void
+    store: StoreType
 }
 
 const App = (props: AppPropsType) => {
     return (
         <div className='app-wrapper'>
             <Header/>
-            <Navbar friends={props.state.sideBar.friends}/>
+            <Navbar store={props.store}/>
             <div className='app-wrapper-content'>
                 <Routes>
                     <Route path='/dialogs'
-                           element={<Dialogs
-                               dialogs={props.state.dialogsPage.dialogs}
-                               messages={props.state.dialogsPage.messages}
-                               textForMessageInDialog={props.state.dialogsPage.textForMessageInDialog}
-                               dispatch={props.dispatch}
-                               />}/>
+                           element={<DialogsContainer
+                               store={props.store}
+                           />}/>
                     <Route path='/profile'
                            element={<Profile
-                               profilePage={props.state.profilePage}
-                               dispatch={props.dispatch}
+                               store={props.store}
                            />}/>
                     <Route path='/news' element={<News/>}/>
                     <Route path='/music' element={<Music/>}/>
