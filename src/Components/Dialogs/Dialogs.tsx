@@ -5,21 +5,21 @@ import {Message} from "./Message/Message";
 import {
     dialogObjectType,
     messageObjectType
-} from "../../redux/store";
+} from "../../redux/old-store";
 type DialogsPropsType = {
     dialogs: Array<dialogObjectType>
     messages: Array<messageObjectType>
     textForMessageInDialog: string
-    addNewMessage: () => void
+    addNewMessage: (textForMessageInDialog: string) => void
     updateNewMessageText: (text: string) => void
 }
 
 export const Dialogs = (props: DialogsPropsType) => {
-    let dialogElements = props.dialogs.map((d) => <DialogItem name={d.name} id={d.id}/>)
-    let messageElements = props.messages.map(m => <Message message={m.message} img={m.img} isYou={m.isYou}/>)
+    let dialogElements = props.dialogs.map((d) => <DialogItem name={d.name} key={d.id} id={d.id}/>)
+    let messageElements = props.messages.map(m => <Message message={m.message} img={m.img} isYou={m.isYou} key={m.id}/>)
 
     const onClickButtonHandler = () => {
-    props.addNewMessage()
+    props.addNewMessage(props.textForMessageInDialog)
     }
     const onChangeTextAreaHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
     props.updateNewMessageText(e.currentTarget.value)

@@ -3,7 +3,7 @@ import s from './MyPosts.module.css'
 import {Post} from "./Post/Post";
 import {
     postsObjectType,
-} from "../../../redux/store";
+} from "../../../redux/old-store";
 
 type PropsType = {
     posts: Array<postsObjectType>

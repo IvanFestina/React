@@ -1,4 +1,4 @@
-import {ActionsTypes, sideBarType} from "./store";
+import {ActionsTypes, sideBarType} from "./old-store";
 
 const initialState = {
 friends: [

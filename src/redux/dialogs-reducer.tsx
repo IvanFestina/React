@@ -1,41 +1,46 @@
 import {v1} from "uuid";
-import {ActionsTypes, dialogsPageType, messageObjectType} from "./store";
+import {ActionsTypes, dialogsPageType, messageObjectType} from "./old-store";
 
 
 const initialState = {
-      messages: [
-                {
-                    id: '1',
-                    isYou: false,
-                    message: 'Hello',
-                    img: "https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes-thumbnail.png"
-                },
-                {
-                    id: '2',
-                    isYou: true,
-                    message: "Hi, I'm Ivan, I have a proposal for you!",
-                    img: 'https://www.nicepng.com/png/detail/914-9142519_doge-meme-dog-doggo-funny-sticker-momo-png.png'
-                },
-                {
-                    id: '3',
-                    isYou: false,
-                    message: "Yea? What's up with a proposal?!",
-                    img: 'https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes-thumbnail.png'
-                },
-            ],
-            textForMessageInDialog: '',
-            dialogs: [
-                {id: '1', name: 'Sergey'},
-                {id: '2', name: 'Mark'},
-                {id: '3', name: 'Alexandr'},
-                {id: '4', name: 'Mike'},
-                {id: '5', name: 'John'},
-                {id: '6', name: 'Fill'}
-            ]
+    messages: [
+        {
+            id: '1',
+            isYou: false,
+            message: 'Hello',
+            img: "https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes-thumbnail.png"
+        },
+        {
+            id: '2',
+            isYou: true,
+            message: "Hi, I'm Ivan, I have a proposal for you!",
+            img: 'https://www.nicepng.com/png/detail/914-9142519_doge-meme-dog-doggo-funny-sticker-momo-png.png'
+        },
+        {
+            id: '3',
+            isYou: false,
+            message: "Yea? What's up with a proposal?!",
+            img: 'https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes-thumbnail.png'
+        },
+    ],
+    textForMessageInDialog: '',
+    dialogs: [
+        {id: '1', name: 'Sergey'},
+        {id: '2', name: 'Mark'},
+        {id: '3', name: 'Alexandr'},
+        {id: '4', name: 'Mike'},
+        {id: '5', name: 'John'},
+        {id: '6', name: 'Fill'}
+    ]
 }
 
 
 export const dialogsReducer = (state: dialogsPageType = initialState, action: ActionsTypes): dialogsPageType => {
+
+    const stateCopy = {
+        ...state,
+        messages: [...state.messages]
+    };
 
     switch (action.type) {
         case "ADD-NEW-MESSAGE":
@@ -45,12 +50,12 @@ export const dialogsReducer = (state: dialogsPageType = initialState, action: Ac
                 message: action.newMessage,
                 img: 'https://www.nicepng.com/png/detail/914-9142519_doge-meme-dog-doggo-funny-sticker-momo-png.png'
             }
-            state.messages.push(newMessage)
-            state.textForMessageInDialog = '';
-            return state;
+            stateCopy.messages.push(newMessage)
+            stateCopy.textForMessageInDialog = '';
+            return stateCopy;
         case "UPDATE-NEW-MESSAGE-TEXT":
-            state.textForMessageInDialog = action.newText
-            return state;
+            stateCopy.textForMessageInDialog = action.newText
+            return stateCopy;
         default:
             return state
     }

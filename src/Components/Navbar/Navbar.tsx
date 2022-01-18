@@ -2,7 +2,7 @@ import React from "react";
 import s from './Navbar.module.css'
 import {NavLink} from "react-router-dom";
 import {Friends} from "./Friends/Friends";
-import {StoreType} from "../../redux/store";
+import {StoreType} from "../../redux/old-store";
 
 type sideBarType = {
     store: StoreType
