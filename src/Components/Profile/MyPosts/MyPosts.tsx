@@ -7,16 +7,16 @@ import {
 
 type PropsType = {
     posts: Array<postsObjectType>
-    messageForNewPost: string
+    textForNewPost: string
     updateNewPostText: (text: string) => void
-    addPost: () => void
+    addPost: (textForNewPost: string) => void
 }
 
 export const MyPosts = (props: PropsType) => {
     const postsElements = props.posts.map(p => <Post key={p.id} message={p.message} likesCount={p.likesCount}/>)
 
     const addPostOnClickHandler = () => {
-        props.addPost();
+        props.addPost(props.textForNewPost);
     }
     const textareaOnChangeHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
         let text = e.currentTarget.value
@@ -29,7 +29,7 @@ export const MyPosts = (props: PropsType) => {
             <h3>My posts</h3>
             <div>
                 <div>
-                    <textarea onChange={textareaOnChangeHandler} value={props.messageForNewPost}/>
+                    <textarea onChange={textareaOnChangeHandler} value={props.textForNewPost}/>
                 </div>
                 <div>
                     <button onClick={addPostOnClickHandler}>Add post</button>

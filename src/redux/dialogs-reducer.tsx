@@ -37,11 +37,6 @@ const initialState = {
 
 export const dialogsReducer = (state: dialogsPageType = initialState, action: ActionsTypes): dialogsPageType => {
 
-    const stateCopy = {
-        ...state,
-        messages: [...state.messages]
-    };
-
     switch (action.type) {
         case "ADD-NEW-MESSAGE":
             const newMessage: messageObjectType = {
@@ -50,12 +45,13 @@ export const dialogsReducer = (state: dialogsPageType = initialState, action: Ac
                 message: action.newMessage,
                 img: 'https://www.nicepng.com/png/detail/914-9142519_doge-meme-dog-doggo-funny-sticker-momo-png.png'
             }
-            stateCopy.messages.push(newMessage)
-            stateCopy.textForMessageInDialog = '';
-            return stateCopy;
+            return {
+                ...state,
+                messages: [...state.messages, {...newMessage}],
+                textForMessageInDialog: '',
+            };
         case "UPDATE-NEW-MESSAGE-TEXT":
-            stateCopy.textForMessageInDialog = action.newText
-            return stateCopy;
+            return  {...state, textForMessageInDialog: action.newText};
         default:
             return state
     }

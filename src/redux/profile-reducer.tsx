@@ -7,7 +7,7 @@ const initialState = {
         {id: '2', message: "I'm fine, thanks", likesCount: 22},
         {id: '3', message: "I'm not fine", likesCount: 202},
     ],
-    messageForNewPost: ''
+    textForNewPost: ''
 }
 
 export const profileReducer = (state: profilePageType = initialState, action: ActionsTypes): profilePageType => {
@@ -16,19 +16,17 @@ export const profileReducer = (state: profilePageType = initialState, action: Ac
         case 'ADD-POST': {
             const newPost = {
                 id: v1(),
-                message: action.messageForNewPost,
+                message: action.textForNewPost,
                 likesCount: 0,
             }
-            const stateCopy = {...state};
-            stateCopy.posts = {...state.posts};
-            stateCopy.posts.push(newPost);
-            stateCopy.messageForNewPost = '';
-            return stateCopy;
+            return {
+                ...state,
+                posts: [...state.posts, newPost],
+                textForNewPost: ''
+            };
         }
         case 'UPDATE-NEW-POST-TEXT': {
-            const stateCopy = {...state};
-            stateCopy.messageForNewPost = action.newText;
-            return stateCopy;
+            return {...state, textForNewPost: action.newText};
         }
         default:
             return state
@@ -39,7 +37,7 @@ export const profileReducer = (state: profilePageType = initialState, action: Ac
 export const addPostAC = (messageForNewPost: string) => {
     return {
         type: "ADD-POST",
-        messageForNewPost: messageForNewPost
+        textForNewPost: messageForNewPost
     } as const
 }
 

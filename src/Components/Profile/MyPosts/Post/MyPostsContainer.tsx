@@ -7,12 +7,12 @@ import {connect} from "react-redux";
 const mapStateToProps = (state: RootStateType) => {
     return {
         posts: state.profilePage.posts,
-        messageForNewPost: state.profilePage.messageForNewPost
+        textForNewPost: state.profilePage.textForNewPost
     }
 }
 const mapDispatchToProps = (dispatch:(actions: ActionsTypes) => void)  => {
     return {
-        addPost: (messageForNewPost: string) => dispatch(addPostAC(messageForNewPost)),
+        addPost: (textForNewPost: string) => dispatch(addPostAC(textForNewPost)),
         updateNewPostText: (text: string) => dispatch(updateNewPostTextAC(text)),
     }
 }
