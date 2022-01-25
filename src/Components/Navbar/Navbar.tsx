@@ -34,6 +34,10 @@ export const Navbar = ({store, ...props}: sideBarType) => {
                 <NavLink to={'/settings'} className={({isActive}) =>
                     isActive ? s.activeStyle : s.item}>Settings</NavLink>
             </div>
+             <div>
+                <NavLink to={'/users'} className={({isActive}) =>
+                    isActive ? s.activeStyle : s.item}>Users</NavLink>
+            </div>
             <div>
             <h1>Friends</h1>
             <div className={s.friendsBlock}>

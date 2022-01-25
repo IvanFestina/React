@@ -9,6 +9,7 @@ import {Music} from "./Components/Music/Music";
 import {News} from "./Components/News/News";
 import {StoreType} from "./redux/old-store";
 import {DialogsContainer} from "./Components/Dialogs/DialogsContainer";
+import {UsersContainer} from "./Components/Users/UsersContainer"
 
 type AppPropsType = {
     store: StoreType
@@ -21,13 +22,12 @@ const App = (props: AppPropsType) => {
             <Navbar store={props.store}/>
             <div className='app-wrapper-content'>
                 <Routes>
-                    <Route path='/dialogs'
-                           element={<DialogsContainer />}/>
-                    <Route path='/profile'
-                           element={<Profile />}/>
+                    <Route path='/dialogs' element={<DialogsContainer />}/>
+                    <Route path='/profile' element={<Profile />}/>
                     <Route path='/news' element={<News/>}/>
                     <Route path='/music' element={<Music/>}/>
                     <Route path='/settings' element={<Settings/>}/>
+                    <Route path='/users' element={<UsersContainer/>}/>
                 </Routes>
             </div>
         </div>

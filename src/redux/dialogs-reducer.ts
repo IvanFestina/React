@@ -1,6 +1,15 @@
 import {v1} from "uuid";
-import {ActionsTypes, dialogsPageType, messageObjectType} from "./old-store";
 
+export type dialogObjectType = {
+    id: string;
+    name: string
+}
+export type messageObjectType = {
+    id: string;
+    message: string
+    img: string
+    isYou: boolean
+}
 
 const initialState = {
     messages: [
@@ -22,7 +31,7 @@ const initialState = {
             message: "Yea? What's up with a proposal?!",
             img: 'https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes-thumbnail.png'
         },
-    ],
+    ] as Array<MessageType>,
     textForMessageInDialog: '',
     dialogs: [
         {id: '1', name: 'Sergey'},
@@ -31,11 +40,13 @@ const initialState = {
         {id: '4', name: 'Mike'},
         {id: '5', name: 'John'},
         {id: '6', name: 'Fill'}
-    ]
+    ]   DialogType[],
 }
 
+export type InitialStateType = typeof initialState
 
-export const dialogsReducer = (state: dialogsPageType = initialState, action: ActionsTypes): dialogsPageType => {
+
+export const dialogsReducer = (state: InitialStateType = initialState, action: ActionsTypes): InitialStateType  => {
 
     switch (action.type) {
         case "ADD-NEW-MESSAGE":
