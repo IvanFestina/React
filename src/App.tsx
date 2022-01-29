@@ -1,28 +1,24 @@
 import React from 'react';
 import './App.css';
 import {Header} from "./Components/Header/Header";
-import {Navbar} from "./Components/Navbar/Navbar";
+import {Sidebar} from "./Components/Navbar/Sidebar";
 import {Profile} from "./Components/Profile/Profile";
 import {Route, Routes} from "react-router-dom";
 import {Settings} from "./Components/Settings/Settings";
 import {Music} from "./Components/Music/Music";
 import {News} from "./Components/News/News";
-import {StoreType} from "./redux/old-store";
 import {DialogsContainer} from "./Components/Dialogs/DialogsContainer";
 import {UsersContainer} from "./Components/Users/UsersContainer"
 
-type AppPropsType = {
-    store: StoreType
-}
 
-const App = (props: AppPropsType) => {
+const App = () => {
     return (
         <div className='app-wrapper'>
             <Header/>
-            <Navbar store={props.store}/>
+            <Sidebar />
             <div className='app-wrapper-content'>
                 <Routes>
-                    <Route path='/dialogs' element={<DialogsContainer />}/>
+                    <Route path='/dialogs' element={<DialogsContainer/>}/>
                     <Route path='/profile' element={<Profile />}/>
                     <Route path='/news' element={<News/>}/>
                     <Route path='/music' element={<Music/>}/>

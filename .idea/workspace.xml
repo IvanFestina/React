@@ -1,20 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d90b8b67-63e7-42dc-a385-09d76ba6110b" name="Changes" comment="49 episod start">
-      <change afterPath="$PROJECT_DIR$/src/Components/Users/Users.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Users/Users.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Users/UsersContainer.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/redux/users-reducer.ts" afterDir="false" />
+    <list default="true" id="d90b8b67-63e7-42dc-a385-09d76ba6110b" name="Changes" comment="49 episod end, not working">
+      <change afterPath="$PROJECT_DIR$/src/redux/dialogReducer/action.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redux/dialogReducer/reducer.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redux/dialogReducer/types.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redux/profileReducer/action.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redux/profileReducer/types.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redux/sidebarReduser/action.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redux/sidebarReduser/reducer.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redux/sidebarReduser/types.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redux/usersReducer/action.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redux/usersReducer/reducer.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redux/usersReducer/types.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Dialogs/Dialogs.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Dialogs/Dialogs.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Dialogs/DialogsContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Dialogs/DialogsContainer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Navbar/Navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Navbar/Navbar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Navbar/Navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Navbar/Sidebar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Profile/MyPosts/MyPosts.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Profile/MyPosts/MyPosts.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Profile/MyPosts/Post/MyPostsContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Profile/MyPosts/Post/MyPostsContainer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/dialogs-reducer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/dialogs-reducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/profile-reducer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/profile-reducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/redux-store.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/redux-store.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/side-bar-reducer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/side-bar-reducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Profile/Profile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Profile/Profile.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Users/Users.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Users/Users.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Users/UsersContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Users/UsersContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/dialogs-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/profileReducer/reducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/profile-reducer.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/redux-store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/redux-store.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/side-bar-reducer.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/users-reducer.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,9 +39,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript File" />
         <option value="TypeScript JSX File" />
         <option value="CSS File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -50,7 +65,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Components/Dialogs" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/redux/usersReducer" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -61,11 +76,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\IVanf\IT\social-network\src\redux\usersReducer" />
+      <recent name="C:\Users\IVanf\IT\social-network\src\redux\profileReducer" />
+      <recent name="C:\Users\IVanf\IT\social-network\src\redux\sidebarReduser" />
       <recent name="C:\Users\IVanf\IT\social-network\src\Components\Dialogs" />
       <recent name="C:\Users\IVanf\IT\social-network\src\Components\Profile\ProfileInfo" />
-      <recent name="C:\Users\IVanf\IT\social-network\src\Components\Profile\MyPosts\Post" />
-      <recent name="C:\Users\IVanf\IT\social-network\src" />
-      <recent name="C:\Users\IVanf\IT\ts-react-social-network\src\Components\Navbar\Friends" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\IVanf\IT\ts-react-social-network\src\redux" />
@@ -113,7 +128,10 @@
       <workItem from="1642284987780" duration="3474000" />
       <workItem from="1642335205303" duration="39000" />
       <workItem from="1642360277254" duration="13432000" />
-      <workItem from="1643029243726" duration="16604000" />
+      <workItem from="1643029243726" duration="16948000" />
+      <workItem from="1643138190629" duration="122000" />
+      <workItem from="1643193616707" duration="5285000" />
+      <workItem from="1643484365699" duration="5977000" />
     </task>
     <task id="LOCAL-00001" summary="...">
       <created>1640117091538</created>
@@ -192,7 +210,14 @@
       <option name="project" value="LOCAL" />
       <updated>1642512650436</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="49 episod end, not working">
+      <created>1643122774826</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1643122774826</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -222,6 +247,7 @@
     <MESSAGE value="45 episod" />
     <MESSAGE value="48 episod" />
     <MESSAGE value="49 episod start" />
-    <option name="LAST_COMMIT_MESSAGE" value="49 episod start" />
+    <MESSAGE value="49 episod end, not working" />
+    <option name="LAST_COMMIT_MESSAGE" value="49 episod end, not working" />
   </component>
 </project>
