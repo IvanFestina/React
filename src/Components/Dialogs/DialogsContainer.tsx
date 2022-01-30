@@ -19,7 +19,7 @@ const mapStateToProps = (state: AppStateType): MapStatePropsType => {
         dialogsPage: state.dialogsPage
     }
 }
-const mapDispatchToProps = (dispatch: Dispatch):MapDispatchPropsType => {
+const mapDispatchToProps = (dispatch: Dispatch): MapDispatchPropsType => {
     return {
         addNewMessage: (textForMessageInDialog: string) => dispatch(addNewMessageAC(textForMessageInDialog)),
         updateNewMessageText: (text: string) => dispatch(updateNewMessageTextAC(text)),

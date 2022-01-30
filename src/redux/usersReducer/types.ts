@@ -9,9 +9,9 @@ export type UserObjectType = {
     id: number
     photoUrl: string
     followed: boolean
-    fullName: string
+    name: string
     status: string
-    location: LocationObjectType
+    location?: LocationObjectType
 }
 
 export type InitialStateType = {

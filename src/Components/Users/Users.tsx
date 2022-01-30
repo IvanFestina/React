@@ -1,49 +1,49 @@
 import React from "react";
 import s from './Users.module.css';
-import {UsersPropsType} from "./UsersContainer";
 import axios from "axios";
+import userPhoto from '../../assets/images/userPhoto.png'
 
-export const Users = (props: UsersPropsType) => {
-    if (props.usersPage.users.length === 0) {
+export class Users extends React.Component<any, any> {
+   //если конструктор не делает ничего, кроме как перебрасывает свое управление SuperClass от которого он наследуется
+   // который мы расширяем, то констр. можно не писать, это происходит за кадром
 
+    componentDidMount() {
         axios.get('https://social-network.samuraijs.com/api/1.0/users').then(response => {
-            props.setUsers()
+            this.props.setUsers(response.data.items)
         })
-
-
     }
 
-
-    return (
-        <div>
-            {props.usersPage.users.map(u => <div key={u.id}>
+//наша компонента делает что-то свое, контруирование объекта происходит один раз.
+    render = () => {
+        return (
+            <div>
+                {this.props.usersPage.users.map(u => <div key={u.id}>
             <span>
                 <div>
-                    <img src={u.photoUrl} className={s.userPhoto} alt={''}/>
+                    <img src={u.photos.small != null ? u.photos.small : userPhoto} className={s.userPhoto} alt={''}/>
                 </div>
                  <div>
                     {u.followed
                         ? <button onClick={() => {
-                            props.unFollow(u.id)
+                            this.props.unFollow(u.id)
                         }}>Unfollow</button>
                         : <button onClick={() => {
-                            props.follow(u.id)
+                            this.props.follow(u.id)
                         }}>Follow</button>}
                 </div>
             </span>
+                    <span>
                 <span>
-                <span>
-                    <div>{u.fullName}</div>
+                    <div>{u.name}</div>
                     <div>{u.status}</div>
-
                 </span>
                 <span>
-                    <div>{u.location.country}</div>
-                    <div>{u.location.city}</div>
+                    <div>{"u.location.country"}</div>
+                    <div>{"u.location.city"}</div>
                 </span>
             </span>
-
-            </div>)}
-        </div>
-    );
+                </div>)}
+            </div>
+        );
+    }
 }

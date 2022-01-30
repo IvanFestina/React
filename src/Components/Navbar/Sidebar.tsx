@@ -22,6 +22,10 @@ export const Sidebar = () => {
                     isActive ? s.activeStyle : s.item}>Messages</NavLink>
             </div>
             <div>
+                <NavLink to={'/users'} className={({isActive}) =>
+                    isActive ? s.activeStyle : s.item}>Users</NavLink>
+            </div>
+            <div>
                 <NavLink to={'/news'} className={({isActive}) =>
                     isActive ? s.activeStyle : s.item}>News</NavLink>
             </div>
@@ -33,15 +37,11 @@ export const Sidebar = () => {
                 <NavLink to={'/settings'} className={({isActive}) =>
                     isActive ? s.activeStyle : s.item}>Settings</NavLink>
             </div>
-             <div>
-                <NavLink to={'/users'} className={({isActive}) =>
-                    isActive ? s.activeStyle : s.item}>Users</NavLink>
-            </div>
             <div>
-            <h1>Friends</h1>
-            <div className={s.friendsBlock}>
-             {friendsElements}
-            </div>
+                <h1>Friends</h1>
+                <div className={s.friendsBlock}>
+                    {friendsElements}
+                </div>
             </div>
         </nav>
     )
