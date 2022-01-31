@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d90b8b67-63e7-42dc-a385-09d76ba6110b" name="Changes" comment="49 episod end, not working">
+    <list default="true" id="d90b8b67-63e7-42dc-a385-09d76ba6110b" name="Changes" comment="55 episod end">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Dialogs/DialogsContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Dialogs/DialogsContainer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Navbar/Sidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Navbar/Sidebar.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Users/Users.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Users/Users.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Users/UsersContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Users/UsersContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/usersReducer/action.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/usersReducer/action.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/usersReducer/reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/usersReducer/reducer.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux/usersReducer/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/usersReducer/types.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -110,7 +110,7 @@
       <workItem from="1643138190629" duration="122000" />
       <workItem from="1643193616707" duration="5285000" />
       <workItem from="1643484365699" duration="5977000" />
-      <workItem from="1643541302150" duration="11143000" />
+      <workItem from="1643541302150" duration="20660000" />
     </task>
     <task id="LOCAL-00001" summary="...">
       <created>1640117091538</created>
@@ -196,7 +196,14 @@
       <option name="project" value="LOCAL" />
       <updated>1643122774826</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="55 episod end">
+      <created>1643585417619</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1643585417619</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -227,6 +234,7 @@
     <MESSAGE value="48 episod" />
     <MESSAGE value="49 episod start" />
     <MESSAGE value="49 episod end, not working" />
-    <option name="LAST_COMMIT_MESSAGE" value="49 episod end, not working" />
+    <MESSAGE value="55 episod end" />
+    <option name="LAST_COMMIT_MESSAGE" value="55 episod end" />
   </component>
 </project>

@@ -1,7 +1,10 @@
 import {InitialStateType, UsersActionType} from "./types";
 
 const initialState: InitialStateType = {
-    users: []
+    users: [],
+    pageSize: 5,
+    totalUsersCount: 0,
+    currentPage: 1
 }
 
 
@@ -16,7 +19,13 @@ export const usersReducer = (state: InitialStateType = initialState, action: Use
             return {...state, users: state.users.map(u => u.id === action.userID ? {...u, followed: false} : u)}
         }
         case 'SET-USERS': {
-            return { ...state, users: [...state.users,...action.users]}
+            return { ...state, users: action.users}
+        }
+        case "SET-CURRENT-PAGE": {
+            return {...state, currentPage: action.currentPage}
+        }
+        case "SET-TOTAL-USERS-COUNT": {
+            return {...state, totalUsersCount: action.count}
         }
         default:
             return state

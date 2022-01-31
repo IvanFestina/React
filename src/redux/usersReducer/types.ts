@@ -1,13 +1,18 @@
-import {followAC, setUsersAC, unFollowAC} from "./action";
+import {followAC, setCurrentPageAC, setUsersAC, setUsersTotalCountAC, unFollowAC} from "./action";
 
 export type LocationObjectType = {
     city: string
     country: string
 }
 
+type Photos = {
+large: string
+small: string
+}
+
 export type UserObjectType = {
     id: number
-    photoUrl: string
+    photos: Photos
     followed: boolean
     name: string
     status: string
@@ -15,10 +20,15 @@ export type UserObjectType = {
 }
 
 export type InitialStateType = {
-    users: UserObjectType[]
+    users: UserObjectType[],
+    pageSize: number
+    totalUsersCount: number
+    currentPage: number
 }
 
 
 export type UsersActionType = ReturnType<typeof followAC>
     | ReturnType<typeof unFollowAC>
     | ReturnType<typeof setUsersAC>
+    | ReturnType<typeof setCurrentPageAC>
+    | ReturnType<typeof setUsersTotalCountAC>

@@ -19,3 +19,15 @@ export const setUsersAC = (users: UserObjectType[]) => {
         users
     } as const
 }
+export const setCurrentPageAC = (currentPage: number) => {
+    return {
+        type: "SET-CURRENT-PAGE",
+        currentPage
+    } as const
+}
+export const setUsersTotalCountAC = (totalUsersCount: number) => {
+    return {
+        type: "SET-TOTAL-USERS-COUNT",
+        count: totalUsersCount
+    } as const
+}
