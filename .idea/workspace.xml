@@ -2,9 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d90b8b67-63e7-42dc-a385-09d76ba6110b" name="Changes" comment="55 episod end">
+      <change afterPath="$PROJECT_DIR$/src/Components/Profile/ProfileContainer.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/common/Preloader.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/images/preloader.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Profile/Profile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Profile/Profile.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Profile/ProfileInfo/ProfileInfo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Profile/ProfileInfo/ProfileInfo.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Users/Users.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Users/Users.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Users/UsersContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Users/UsersContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/profileReducer/action.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/profileReducer/action.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/profileReducer/reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/profileReducer/reducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/profileReducer/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/profileReducer/types.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux/usersReducer/action.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/usersReducer/action.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux/usersReducer/reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/usersReducer/reducer.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux/usersReducer/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/usersReducer/types.ts" afterDir="false" />
@@ -17,9 +27,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript JSX File" />
         <option value="CSS File" />
         <option value="TypeScript File" />
+        <option value="TypeScript JSX File" />
       </list>
     </option>
   </component>
@@ -43,7 +53,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Components/Users" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/assets/images" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -54,11 +64,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\IVanf\IT\social-network\src\assets\images" />
       <recent name="C:\Users\IVanf\IT\social-network\src\Components\Users" />
       <recent name="C:\Users\IVanf\IT\social-network\src\redux\usersReducer" />
       <recent name="C:\Users\IVanf\IT\social-network\src\redux\profileReducer" />
       <recent name="C:\Users\IVanf\IT\social-network\src\redux\sidebarReduser" />
-      <recent name="C:\Users\IVanf\IT\social-network\src\Components\Dialogs" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\IVanf\IT\ts-react-social-network\src\redux" />
@@ -110,7 +120,10 @@
       <workItem from="1643138190629" duration="122000" />
       <workItem from="1643193616707" duration="5285000" />
       <workItem from="1643484365699" duration="5977000" />
-      <workItem from="1643541302150" duration="20660000" />
+      <workItem from="1643541302150" duration="20694000" />
+      <workItem from="1644258293886" duration="8970000" />
+      <workItem from="1644304354964" duration="15279000" />
+      <workItem from="1644333973408" duration="1659000" />
     </task>
     <task id="LOCAL-00001" summary="...">
       <created>1640117091538</created>
@@ -203,7 +216,14 @@
       <option name="project" value="LOCAL" />
       <updated>1643585417619</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="55 episod end">
+      <created>1643643240140</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1643643240140</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

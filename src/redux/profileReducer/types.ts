@@ -1,4 +1,4 @@
-import {addPostAC, updateNewPostTextAC} from "./action";
+import {addPostAC, setUserProfile, updateNewPostTextAC} from "./action";
 
 export type postsObjectType = {
     id: string;
@@ -7,7 +7,32 @@ export type postsObjectType = {
 }
 export type profilePageType = {
     posts: Array<postsObjectType>
-    textForNewPost: string
+    textForNewPost: string,
+    profile: ProfileType | string
 }
 
-export type ProfileActionsTypes =  ReturnType<typeof addPostAC> | ReturnType<typeof updateNewPostTextAC>
+export type ProfileType = {
+    userId: number
+    lookingForAJob: boolean
+    lookingForAJobDescription: string
+    fullName: string
+    contacts: object
+    github: string
+    vk: string
+    facebook: string
+    instagram: string
+    twitter: string
+    website: string
+    youtube: string
+    mainLink: string
+    photos: PhotosType
+}
+export type PhotosType = {
+    small: string
+    large: string
+}
+
+
+export type ProfileActionsTypes = ReturnType<typeof addPostAC>
+    | ReturnType<typeof updateNewPostTextAC>
+    | ReturnType<typeof setUserProfile>

@@ -1,55 +1,54 @@
 import React from "react";
-import s from './Users.module.css';
-import axios from "axios";
-import userPhoto from '../../assets/images/userPhoto.png'
-import {UsersPropsType} from "./UsersContainer";
+import s from "./Users.module.css";
+import userPhoto from "../../assets/images/userPhoto.png";
+import {InitialStateType} from "../../redux/usersReducer/types";
+import {NavLink} from "react-router-dom";
 
-export class Users extends React.Component<UsersPropsType, {}> {
-    //если конструктор не делает ничего, кроме как перебрасывает свое управление SuperClass от которого он наследуется
-    // который мы расширяем, то констр. можно не писать, это происходит за кадром
+export type UsersPropsType = {
+    followAC: (userID: number) => void
+    unFollowAC: (userID: number) => void
+    setUsersTotalCountAC: (totalCount: number) => void
+    onPageChanged: (pageNumber: number) => void
+    usersPage: InitialStateType
 
-    componentDidMount() {
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?Page=${this.props.usersPage.currentPage}&count=${this.props.usersPage.pageSize}`)
-            .then(response => {
-                this.props.setUsers(response.data.items);
-                this.props.setTotalUsersCount(response.data.totalCount)
-            })
+
+}
+export const Users = (props: UsersPropsType) => {
+
+    let pageCount = Math.ceil(props.usersPage.totalUsersCount / props.usersPage.pageSize)
+    let pages = [];
+    for (let i = 1; i <= pageCount; i++) {
+        pages.push(i);
     }
 
-    onPageChanged = (pageNumber: number) => {
-        this.props.setCurrentPage(pageNumber)
-    }
-//наша компонента делает что-то свое, контруирование объекта происходит один раз.
-    render = () => {
-        let pageCount = Math.ceil(this.props.usersPage.totalUsersCount / this.props.usersPage.pageSize)
-        let pages = [];
-        for (let i = 1; i <= pageCount; i++) {
-            pages.push(i);
-        }
-        return (
+
+    return (
+        <div>
             <div>
-                <div>
-                    {
-                        pages.map(p => <span className={this.props.usersPage.currentPage === p ? s.selectedPage : ''}
-                                             onClick={(e) => this.onPageChanged(p)}>{p}</span>)
-                    }
-                </div>
-                {this.props.usersPage.users.map(u => <div key={u.id}>
+                {
+                    pages.map(p => <span className={props.usersPage.currentPage === p ? s.selectedPage : ''}
+                                         onClick={(e) => props.onPageChanged(p)}>{p}</span>)
+                }
+            </div>
+            {
+            props.usersPage.users.map(u => <div key={u.id}>
             <span>
                 <div>
+                    <NavLink to={'/profile/' + u.id}>
                     <img src={u.photos.small != null ? u.photos.small : userPhoto} className={s.userPhoto} alt={''}/>
+                    </NavLink>
                 </div>
                  <div>
                     {u.followed
                         ? <button onClick={() => {
-                            this.props.unFollow(u.id)
+                            props.unFollowAC(u.id)
                         }}>Unfollow</button>
                         : <button onClick={() => {
-                            this.props.follow(u.id)
+                            props.followAC(u.id)
                         }}>Follow</button>}
                 </div>
             </span>
-                    <span>
+                <span>
                 <span>
                     <div>{u.name}</div>
                     <div>{u.status}</div>
@@ -59,8 +58,8 @@ export class Users extends React.Component<UsersPropsType, {}> {
                     <div>{"u.location.city"}</div>
                 </span>
             </span>
-                </div>)}
-            </div>
-        );
-    }
+            </div>)
+            }
+        </div>
+    )
 }

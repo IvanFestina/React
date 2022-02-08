@@ -31,3 +31,8 @@ export const setUsersTotalCountAC = (totalUsersCount: number) => {
         count: totalUsersCount
     } as const
 }
+export const setToggleIsFetchingAC = (isFetching: boolean) => {
+    return {
+    type: "TOGGLE-IS-FETCHING", isFetching
+    } as const
+}

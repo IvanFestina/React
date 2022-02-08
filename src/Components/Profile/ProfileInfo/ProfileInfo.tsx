@@ -1,7 +1,17 @@
 import React from "react";
 import s from './ProfileInfo.module.css'
+import {Preloader} from "../../common/Preloader";
+import {ProfileType} from "../../../redux/profileReducer/types";
 
-export const ProfileInfo = (props: any) => {
+
+type ProfileInfoPropsType = {
+    profile: ProfileType
+}
+
+export const ProfileInfo = (props: ProfileInfoPropsType) => {
+    if (!props.profile) {
+        <Preloader/>
+    }
     return (
         <div>
             <div className={s.background}>
@@ -13,6 +23,7 @@ export const ProfileInfo = (props: any) => {
                      src='https://www.nicepng.com/png/detail/914-9142519_doge-meme-dog-doggo-funny-sticker-momo-png.png'/>
             </div>
             <div className={s.descriptionBlock}>
+                <img alt={'avatar'} src={props.profile.photos.large}/>
                 ava + description
             </div>
         </div>

@@ -1,4 +1,11 @@
-import {followAC, setCurrentPageAC, setUsersAC, setUsersTotalCountAC, unFollowAC} from "./action";
+import {
+    followAC,
+    setCurrentPageAC,
+    setToggleIsFetchingAC,
+    setUsersAC,
+    setUsersTotalCountAC,
+    unFollowAC
+} from "./action";
 
 export type LocationObjectType = {
     city: string
@@ -24,6 +31,7 @@ export type InitialStateType = {
     pageSize: number
     totalUsersCount: number
     currentPage: number
+    isFetching: boolean
 }
 
 
@@ -32,3 +40,5 @@ export type UsersActionType = ReturnType<typeof followAC>
     | ReturnType<typeof setUsersAC>
     | ReturnType<typeof setCurrentPageAC>
     | ReturnType<typeof setUsersTotalCountAC>
+    | ReturnType<typeof setToggleIsFetchingAC>
+
