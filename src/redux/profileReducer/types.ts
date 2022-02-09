@@ -16,7 +16,10 @@ export type ProfileType = {
     lookingForAJob: boolean
     lookingForAJobDescription: string
     fullName: string
-    contacts: object
+    contacts: ContactsPropsType
+    photos: PhotosType
+}
+export type ContactsPropsType = {
     github: string
     vk: string
     facebook: string
@@ -25,7 +28,6 @@ export type ProfileType = {
     website: string
     youtube: string
     mainLink: string
-    photos: PhotosType
 }
 export type PhotosType = {
     small: string

@@ -7,7 +7,7 @@ import {
     setUsersTotalCountAC,
     unFollowAC
 } from "../../redux/usersReducer/action";
-import {AppStateType} from "../../redux/redux-store";
+import {RootState} from "../../redux/redux-store";
 import {InitialStateType, UserObjectType} from "../../redux/usersReducer/types";
 import axios from "axios";
 import {Users} from "./Users";
@@ -63,7 +63,7 @@ export class UsersAPIComponent extends React.Component<UsersPropsType> {
     }
 }
 
-const mapStateToProps = (state: AppStateType): MapStatePropsType => {
+const mapStateToProps = (state: RootState): MapStatePropsType => {
     return {
         usersPage: state.usersPage
     }
