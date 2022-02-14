@@ -5,12 +5,12 @@ import {ProfileType} from "../../../redux/profileReducer/types";
 
 
 type ProfileInfoPropsType = {
-    profile: ProfileType
+     profile: ProfileType | null
 }
 
 export const ProfileInfo = (props: ProfileInfoPropsType) => {
     if (!props.profile) {
-        <Preloader/>
+        return <Preloader/>
     }
     return (
         <div>

@@ -8,7 +8,7 @@ export type postsObjectType = {
 export type profilePageType = {
     posts: Array<postsObjectType>
     textForNewPost: string,
-    profile: ProfileType | string
+    profile: ProfileType | null
 }
 
 export type ProfileType = {

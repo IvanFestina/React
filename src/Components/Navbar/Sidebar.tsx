@@ -14,29 +14,27 @@ export const Sidebar = () => {
     return (
         <nav className={s.nav}>
             <div>
-                <NavLink to={'/profile'} className={({isActive}) =>
-                    isActive ? s.activeStyle : s.item}>Profile</NavLink>
+                <NavLink to={'/profile'} activeClassName={s.activeStyle}>Profile</NavLink>
             </div>
             <div>
-                <NavLink to={'/dialogs'} className={({isActive}) =>
-                    isActive ? s.activeStyle : s.item}>Messages</NavLink>
+                <NavLink to={'/dialogs'}  activeClassName={s.activeStyle}>Messages</NavLink>
             </div>
             <div>
-                <NavLink to={'/users'} className={({isActive}) =>
-                    isActive ? s.activeStyle : s.item}>Users</NavLink>
+                <NavLink to={'/users'} activeClassName={s.activeStyle}>Users</NavLink>
             </div>
             <div>
-                <NavLink to={'/news'} className={({isActive}) =>
-                    isActive ? s.activeStyle : s.item}>News</NavLink>
+                <NavLink to={'/news'}  activeClassName={s.activeStyle}>News</NavLink>
             </div>
             <div>
-                <NavLink to={'/music'} className={({isActive}) =>
-                    isActive ? s.activeStyle : s.item}>Music</NavLink>
+                <NavLink to={'/music'}  activeClassName={s.activeStyle}>Music</NavLink>
             </div>
             <div>
-                <NavLink to={'/settings'} className={({isActive}) =>
-                    isActive ? s.activeStyle : s.item}>Settings</NavLink>
+                <NavLink to={'/settings'} activeClassName={s.activeStyle}>Settings</NavLink>
             </div>
+            {/* <div>*/}
+            {/*    <NavLink to={'/settings'} className={({isActive}) =>*/}
+            {/*        isActive ? s.activeStyle : s.item}>Settings</NavLink>*/}
+            {/*</div>*/}
             <div>
                 <h1>Friends</h1>
                 <div className={s.friendsBlock}>

@@ -54,8 +54,8 @@ export const Users = (props: UsersPropsType) => {
                     <div>{u.status}</div>
                 </span>
                 <span>
-                    <div>{"u.location.country"}</div>
-                    <div>{"u.location.city"}</div>
+                    <div>{u.location?.country}</div>
+                    <div>{u.location?.city}</div>
                 </span>
             </span>
             </div>)

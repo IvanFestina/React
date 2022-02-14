@@ -8,11 +8,10 @@ const initialState = {
         {id: '3', message: "I'm not fine", likesCount: 202},
     ],
     textForNewPost: '',
-    profile: '',
+    profile: null,
 }
 
 export const profileReducer = (state: profilePageType = initialState, action: ProfileActionsTypes): profilePageType => {
-
     switch (action.type) {
         case 'ADD-POST': {
             const newPost = {
