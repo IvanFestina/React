@@ -2,16 +2,16 @@ import React from "react";
 import {connect} from "react-redux";
 import {
     followAC,
-    setCurrentPageAC, setToggleIsFetchingAC,
+    setCurrentPageAC, setToggleFollowingProgressAC, setToggleIsFetchingAC,
     setUsersAC,
     setUsersTotalCountAC,
     unFollowAC
 } from "../../redux/usersReducer/action";
 import {RootState} from "../../redux/redux-store";
 import {InitialStateType, UserObjectType} from "../../redux/usersReducer/types";
-import axios from "axios";
 import {Users} from "./Users";
 import {Preloader} from "../common/Preloader";
+import {getUsers} from "../../api/api";
 
 type MapStatePropsType = {
     usersPage: InitialStateType
@@ -23,6 +23,8 @@ type MapDispatchPropsType = {
     setCurrentPageAC: (pageNumber: number) => void
     setUsersTotalCountAC: (totalCount: number) => void
     setToggleIsFetchingAC: (isFetching: boolean) => void
+    setToggleFollowingProgressAC: (isFetching: boolean, userId: number) => void
+
 }
 export type UsersPropsType = MapStatePropsType & MapDispatchPropsType
 
@@ -32,22 +34,24 @@ export class UsersAPIComponent extends React.Component<UsersPropsType> {
 // Error Boundary HOC
     componentDidMount() {
         this.props.setToggleIsFetchingAC(true)
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?Page=${this.props.usersPage.currentPage}&count=${this.props.usersPage.pageSize}`)
-            .then(response => {
-                this.props.setToggleIsFetchingAC(false)
-                this.props.setUsersAC(response.data.items);
-                this.props.setUsersTotalCountAC(response.data.totalCount)
-            })
+
+        getUsers(this.props.usersPage.currentPage, this.props.usersPage.pageSize).then(data => { //axios
+            this.props.setToggleIsFetchingAC(false)
+            this.props.setUsersAC(data.items);
+            this.props.setUsersTotalCountAC(data.totalCount)
+        })
     }
+
     onPageChanged = (pageNumber: number) => {
         this.props.setCurrentPageAC(pageNumber)
         this.props.setToggleIsFetchingAC(true)
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?Page=${this.props.usersPage.currentPage}&count=${this.props.usersPage.pageSize}`)
-            .then(response => {
+
+        getUsers(pageNumber, this.props.usersPage.pageSize) //axios
+            .then(data => {
                 this.props.setToggleIsFetchingAC(false)
-                this.props.setUsersAC(response.data.items);
+                this.props.setUsersAC(data.items);
             })
-            }
+    }
 //наша компонента делает что-то свое, контруирование объекта происходит один раз.
     render = () => {
 
@@ -58,6 +62,7 @@ export class UsersAPIComponent extends React.Component<UsersPropsType> {
                    setUsersTotalCountAC={this.props.setUsersTotalCountAC}
                    usersPage={this.props.usersPage}
                    onPageChanged={this.onPageChanged}
+                   setToggleFollowingProgressAC={this.props.setToggleFollowingProgressAC}
             />
         </>
     }
@@ -74,5 +79,6 @@ export const UsersContainer = connect(mapStateToProps, {
     setUsersAC,
     setCurrentPageAC,
     setUsersTotalCountAC,
-    setToggleIsFetchingAC
+    setToggleIsFetchingAC,
+    setToggleFollowingProgressAC,
 })(UsersAPIComponent);

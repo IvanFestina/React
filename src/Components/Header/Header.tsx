@@ -11,7 +11,8 @@ export const Header = (props: HeaderPropsType) => {
              src="https://images.squarespace-cdn.com/content/v1/575a6067b654f9b902f452f4/1552683653140-0UUVQSSUEWVC73AWAEQG/300Logo.png"/>
         <div className={s.loginBlock}>
             {props.auth.isAuth ? props.auth.login
-                : <NavLink to={'/login'}>Login</NavLink>} //если isAuth === ture тогда логин отображается, если нет - кнопка
+                : <NavLink to={'/login'}>Login</NavLink>} {/*если isAuth === ture тогда логин отображается, если нет - кнопка*/}
+
         </div>
 
     </header>

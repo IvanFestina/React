@@ -3,6 +3,7 @@ import s from "./Users.module.css";
 import userPhoto from "../../assets/images/userPhoto.png";
 import {InitialStateType} from "../../redux/usersReducer/types";
 import {NavLink} from "react-router-dom";
+import {deleteFollow, postFollow} from "../../api/api";
 
 export type UsersPropsType = {
     followAC: (userID: number) => void
@@ -10,6 +11,7 @@ export type UsersPropsType = {
     setUsersTotalCountAC: (totalCount: number) => void
     onPageChanged: (pageNumber: number) => void
     usersPage: InitialStateType
+    setToggleFollowingProgressAC: (isFetching: boolean, userId: number) => void
 
 
 }
@@ -31,7 +33,7 @@ export const Users = (props: UsersPropsType) => {
                 }
             </div>
             {
-            props.usersPage.users.map(u => <div key={u.id}>
+                props.usersPage.users.map(u => <div key={u.id}>
             <span>
                 <div>
                     <NavLink to={'/profile/' + u.id}>
@@ -40,15 +42,36 @@ export const Users = (props: UsersPropsType) => {
                 </div>
                  <div>
                     {u.followed
-                        ? <button onClick={() => {
-                            props.unFollowAC(u.id)
-                        }}>Unfollow</button>
-                        : <button onClick={() => {
-                            props.followAC(u.id)
-                        }}>Follow</button>}
+                        //если хоть одна id из массива равна id пользователя - тогда disabled
+                        ?
+                        <button disabled={props.usersPage.followingInProgress.some(id => id === u.id)}
+                                onClick={() => {
+                                    props.setToggleFollowingProgressAC(true, u.id)
+                                    deleteFollow(u.id)  //axios
+                                        .then(data => {
+                                            if (data.resultCode === 0) {
+                                                props.unFollowAC(u.id);
+                                            }
+                                            props.setToggleFollowingProgressAC(false, u.id)
+
+                                        })
+
+                                }}>Unfollow</button>
+                        : <button disabled={props.usersPage.followingInProgress.some(id => id === u.id)}
+                                  onClick={() => {
+                                      props.setToggleFollowingProgressAC(true, u.id)
+                                      postFollow(u.id)   //axios
+                                          .then(data => {
+                                              if (data.resultCode === 0) {
+                                                  props.followAC(u.id);
+                                              }
+                                              props.setToggleFollowingProgressAC(false, u.id)
+
+                                          })
+                                  }}>Follow</button>}
                 </div>
             </span>
-                <span>
+                    <span>
                 <span>
                     <div>{u.name}</div>
                     <div>{u.status}</div>
@@ -58,7 +81,7 @@ export const Users = (props: UsersPropsType) => {
                     <div>{u.location?.city}</div>
                 </span>
             </span>
-            </div>)
+                </div>)
             }
         </div>
     )

@@ -1,4 +1,5 @@
 import {addPostAC, setUserProfile, updateNewPostTextAC} from "./action";
+import {setToggleFollowingProgressAC} from "../usersReducer/action";
 
 export type postsObjectType = {
     id: string;
@@ -38,3 +39,4 @@ export type PhotosType = {
 export type ProfileActionsTypes = ReturnType<typeof addPostAC>
     | ReturnType<typeof updateNewPostTextAC>
     | ReturnType<typeof setUserProfile>
+    | ReturnType<typeof setToggleFollowingProgressAC>

@@ -1,6 +1,6 @@
 import {
     followAC,
-    setCurrentPageAC,
+    setCurrentPageAC, setToggleFollowingProgressAC,
     setToggleIsFetchingAC,
     setUsersAC,
     setUsersTotalCountAC,
@@ -32,7 +32,9 @@ export type InitialStateType = {
     totalUsersCount: number
     currentPage: number
     isFetching: boolean
+    followingInProgress: number[]
 }
+
 
 
 export type UsersActionType = ReturnType<typeof followAC>
@@ -41,4 +43,5 @@ export type UsersActionType = ReturnType<typeof followAC>
     | ReturnType<typeof setCurrentPageAC>
     | ReturnType<typeof setUsersTotalCountAC>
     | ReturnType<typeof setToggleIsFetchingAC>
+    | ReturnType<typeof setToggleFollowingProgressAC>
 

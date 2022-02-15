@@ -6,6 +6,9 @@ const initialState: InitialStateType = {
     totalUsersCount: 0,
     currentPage: 1,
     isFetching: false,
+    followingInProgress: []  // в этот массив мы будем помещать id пользователя, которого мы нажимыем fallow/unfollow
+    //будем накапливать те процессы, которые идут у нас в таком варианте
+    //задача, когда идет подписка - надо id пользователя сюда закидывать, когда идет отписка, важно id отсюда забирать.
 }
 
 
@@ -24,7 +27,12 @@ export const usersReducer = (state: InitialStateType = initialState, action: Use
             return {...state, totalUsersCount: action.count}
         case "TOGGLE-IS-FETCHING":
             return {...state, isFetching: action.isFetching}
-
+        case "TOGGLE-IS-FOLLOWING-PROGRESS":  //мы будем получать id пользователя и значение fetching
+            return {...state,
+            followingInProgress: action.isFetching
+            ? [...state.followingInProgress, action.userId]
+            : state.followingInProgress.filter(id => id !== action.userId)
+            }
         default:
             return state
     }
