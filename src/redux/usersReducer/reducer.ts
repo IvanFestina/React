@@ -1,4 +1,13 @@
 import {InitialStateType, UsersActionType} from "./types";
+import {
+    followSuccessAC, unfollowSuccessAC,
+    setToggleFollowingProgressAC,
+    setToggleIsFetchingAC,
+    setUsersAC,
+    setUsersTotalCountAC
+} from "./action";
+import {Dispatch} from "redux";
+import {usersAPI} from "../../api/api";
 
 const initialState: InitialStateType = {
     users: [],
@@ -28,12 +37,53 @@ export const usersReducer = (state: InitialStateType = initialState, action: Use
         case "TOGGLE-IS-FETCHING":
             return {...state, isFetching: action.isFetching}
         case "TOGGLE-IS-FOLLOWING-PROGRESS":  //мы будем получать id пользователя и значение fetching
-            return {...state,
-            followingInProgress: action.isFetching
-            ? [...state.followingInProgress, action.userId]
-            : state.followingInProgress.filter(id => id !== action.userId)
+            return {
+                ...state,
+                followingInProgress: action.isFetching
+                    ? [...state.followingInProgress, action.userId]
+                    : state.followingInProgress.filter(id => id !== action.userId)
             }
         default:
             return state
+    }
+}
+
+//ThunckCreator функция, которая может что-то принимать и возвращать Thunk
+export const getUsersTC = (currentPage: number, pageSize: number) => {
+    return (dispatch: Dispatch) => {
+        dispatch(setToggleIsFetchingAC(true))
+        usersAPI.getUsers(currentPage, pageSize)
+            .then(data => { //axios
+                dispatch(setToggleIsFetchingAC(false))
+                dispatch(setUsersAC(data.items));
+                dispatch(setUsersTotalCountAC(data.totalCount))
+            })
+    }
+}
+export const followTC = (userId: number) => {
+    return (dispatch: Dispatch) => {
+        dispatch(setToggleFollowingProgressAC(true, userId))
+        usersAPI.follow(userId)   //axios
+            .then(data => {
+                console.log(data)
+                if (data.resultCode === 0) {
+                    dispatch(followSuccessAC(userId));
+                }
+                dispatch(setToggleFollowingProgressAC(false, userId))
+            })
+    }
+}
+
+export const unFollowTC = (userID: number) => {
+    return (dispatch: Dispatch) => {
+        dispatch(setToggleFollowingProgressAC(true, userID))
+        usersAPI.unfollow(userID)  //axios
+            .then(data => {
+                if (data.resultCode === 0) {
+                    dispatch(unfollowSuccessAC(userID));
+                }
+                dispatch(setToggleFollowingProgressAC(false, userID))
+            })
+
     }
 }

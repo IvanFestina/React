@@ -1,5 +1,8 @@
 import {ProfileActionsTypes, profilePageType} from './types';
 import {v1} from "uuid";
+import {setUserProfileAC} from "./action";
+import {Dispatch} from "redux";
+import {usersAPI} from "../../api/api";
 
 const initialState = {
     posts: [
@@ -33,4 +36,12 @@ export const profileReducer = (state: profilePageType = initialState, action: Pr
         default:
             return state
     }
+}
+
+export const getUserProfileTC = (userId: string) => (dispatch: Dispatch) => {
+//описываем тип, который возвращается из userId - PathParamsType
+    return usersAPI.getProfile(userId)
+        .then(response => {
+            dispatch(setUserProfileAC(response.data))
+        })
 }

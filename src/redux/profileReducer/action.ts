@@ -13,7 +13,7 @@ export const updateNewPostTextAC = (newText: string) => {
         newText: newText
     } as const
 }
-export const setUserProfile = (profile: ProfileType | null) => {
+export const setUserProfileAC = (profile: ProfileType | null) => {
     return {
         type: "SET-USER-PROFILE",
         profile,

@@ -3,7 +3,25 @@
   <component name="ChangeListManager">
     <list default="true" id="d90b8b67-63e7-42dc-a385-09d76ba6110b" name="Changes" comment="64 episod end">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Dialogs/DialogsContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Dialogs/DialogsContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Header/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Header/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Header/HeaderContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Header/HeaderContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Navbar/Sidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Navbar/Sidebar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Profile/MyPosts/Post/MyPostsContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Profile/MyPosts/Post/MyPostsContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Profile/ProfileContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Profile/ProfileContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Users/Users.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Users/Users.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Users/UsersContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Users/UsersContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/api.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/auth-reducer/auth-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/auth-reducer/auth-reducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/profileReducer/action.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/profileReducer/action.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/profileReducer/reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/profileReducer/reducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/profileReducer/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/profileReducer/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/redux-store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/redux-store.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/usersReducer/action.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/usersReducer/action.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/usersReducer/reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/usersReducer/reducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/usersReducer/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/usersReducer/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +57,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../React-projects/ToDoList" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -117,7 +135,12 @@
       <workItem from="1644829363376" duration="8360000" />
       <workItem from="1644855319374" duration="20358000" />
       <workItem from="1645817970089" duration="76000" />
-      <workItem from="1646155981681" duration="378000" />
+      <workItem from="1646155981681" duration="622000" />
+      <workItem from="1646244863983" duration="673000" />
+      <workItem from="1646319564491" duration="33000" />
+      <workItem from="1646388904649" duration="6092000" />
+      <workItem from="1646426882966" duration="2467000" />
+      <workItem from="1646470992219" duration="19574000" />
     </task>
     <task id="LOCAL-00001" summary="...">
       <created>1640117091538</created>
@@ -252,7 +275,14 @@
       <option name="project" value="LOCAL" />
       <updated>1645818029032</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="64 episod end">
+      <created>1646156599910</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1646156599910</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

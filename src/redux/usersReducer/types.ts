@@ -1,10 +1,10 @@
 import {
-    followAC,
+    followSuccessAC,
     setCurrentPageAC, setToggleFollowingProgressAC,
     setToggleIsFetchingAC,
     setUsersAC,
     setUsersTotalCountAC,
-    unFollowAC
+    unfollowSuccessAC
 } from "./action";
 
 export type LocationObjectType = {
@@ -37,8 +37,8 @@ export type InitialStateType = {
 
 
 
-export type UsersActionType = ReturnType<typeof followAC>
-    | ReturnType<typeof unFollowAC>
+export type UsersActionType = ReturnType<typeof followSuccessAC>
+    | ReturnType<typeof unfollowSuccessAC>
     | ReturnType<typeof setUsersAC>
     | ReturnType<typeof setCurrentPageAC>
     | ReturnType<typeof setUsersTotalCountAC>

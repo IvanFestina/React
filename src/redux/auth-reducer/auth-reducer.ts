@@ -1,3 +1,6 @@
+import {Dispatch} from "redux";
+import {authAPI, usersAPI} from "../../api/api";
+
 const authInitialState: authInitialStateType = {
     userId: null,
     email: null,
@@ -19,7 +22,6 @@ export const authReducer = (state = authInitialState, action: ActionType): authI
             return {
                 ...state, ...action.data, isAuth: true
             }
-
         default:
             return state
     }
@@ -27,25 +29,34 @@ export const authReducer = (state = authInitialState, action: ActionType): authI
 
 type setUserDataACType = {
     type: 'SET-USER-DATA'
-    data: { userId: number | null, email: string | null, login: string | null, isAuth: boolean },
-
-
+    data: { userId: number | null, email: string | null, login: string | null, isAuth?: boolean },
 }
+
 type ActionType = setUserDataACType
 
-export const setAuthUserDataAC = (userId: number | null, email: string | null, login: string | null, isAuth: boolean): setUserDataACType => {
+export const setAuthUserDataAC = (userId: number | null, email: string | null, login: string | null, isAuth?: boolean): setUserDataACType => {
     return {
         type: 'SET-USER-DATA',
         data: {
-        userId,
-        email,
-        login,
-        isAuth,
+            userId,
+            email,
+            login,
+            isAuth,
+        }
     }
 }
+
+export const setAuthUserDataTC = () => (dispatch: Dispatch) => {
+    return authAPI.me()
+        .then(data => {  //axios
+            if (data.resultCode === 0) {
+                let {id, email, login} = data.data //на сервере приходит id, а у нас в action userId
+                dispatch(setAuthUserDataAC(id, email, login))
+            }
+        })
+    //теперь наш Header знает, что мы авторизованы,
+    // нужно эту информацию из data задиспачить в authReducer
 }
-
-
 
 
 

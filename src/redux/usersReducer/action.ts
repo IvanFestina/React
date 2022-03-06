@@ -1,13 +1,13 @@
 import {UserObjectType} from "./types";
 
-export const followAC = (userID: number) => {
+export const followSuccessAC = (userID: number) => {
     return {
         type: "FOLLOW",
         userID
     } as const
 }
 
-export const unFollowAC = (userID: number) => {
+export const unfollowSuccessAC = (userID: number) => {
     return {
         type: "UNFOLLOW",
         userID

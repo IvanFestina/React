@@ -1,4 +1,4 @@
-import {addPostAC, setUserProfile, updateNewPostTextAC} from "./action";
+import {addPostAC, setUserProfileAC, updateNewPostTextAC} from "./action";
 import {setToggleFollowingProgressAC} from "../usersReducer/action";
 
 export type postsObjectType = {
@@ -38,5 +38,5 @@ export type PhotosType = {
 
 export type ProfileActionsTypes = ReturnType<typeof addPostAC>
     | ReturnType<typeof updateNewPostTextAC>
-    | ReturnType<typeof setUserProfile>
+    | ReturnType<typeof setUserProfileAC>
     | ReturnType<typeof setToggleFollowingProgressAC>
