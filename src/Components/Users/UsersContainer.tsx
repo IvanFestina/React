@@ -7,7 +7,10 @@ import {AppStateType} from "../../redux/redux-store";
 import {InitialStateType} from "../../redux/usersReducer/types";
 import {Users} from "./Users";
 import {Preloader} from "../common/Preloader";
-import {followTC, getUsersTC, unFollowTC} from "../../redux/usersReducer/reducer";
+import {followTC, getUsersTC, unFollowTC} from "../../redux/usersReducer/userReducer";
+import {compose} from "redux";
+import {withRouter} from "react-router-dom";
+import {withAuthRedirect} from "../../HOC/WithAuthRedirect";
 
 type MapStatePropsType = {
     usersPage: InitialStateType
@@ -27,6 +30,7 @@ export class UsersAPIComponent extends React.Component<UsersPropsType> {
     componentDidMount() {
         this.props.getUsersTC(this.props.usersPage.currentPage, this.props.usersPage.pageSize)
     }
+
     onPageChanged = (pageNumber: number) => {
         this.props.getUsersTC(pageNumber, this.props.usersPage.pageSize)
     }
@@ -36,10 +40,10 @@ export class UsersAPIComponent extends React.Component<UsersPropsType> {
         return <>
             {this.props.usersPage.isFetching ? <Preloader/> : null}
             <Users
-                   usersPage={this.props.usersPage}
-                   onPageChanged={this.onPageChanged}
-                   followTC={this.props.followTC}
-                   unFollowTC={this.props.followTC}
+                usersPage={this.props.usersPage}
+                onPageChanged={this.onPageChanged}
+                followTC={this.props.followTC}
+                unFollowTC={this.props.followTC}
             />
         </>
     }
@@ -50,10 +54,14 @@ const mapStateToProps = (state: AppStateType): MapStatePropsType => {
         usersPage: state.usersPage
     }
 }
-export const UsersContainer = connect(mapStateToProps, {
 
-    setCurrentPageAC,
-    getUsersTC,
-    followTC,
-    unFollowTC
-})(UsersAPIComponent);
+export default compose<React.ComponentType>(
+    connect(mapStateToProps, {
+        setCurrentPageAC,
+        getUsersTC,
+        followTC,
+        unFollowTC
+    }),
+    withRouter,
+    withAuthRedirect,
+    )(UsersAPIComponent)

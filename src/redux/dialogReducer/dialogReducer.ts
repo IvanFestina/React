@@ -1,4 +1,3 @@
-import {ActionsDialogTypes, InitialStateDialogsType, messageObjectType} from "./types";
 import {v1} from "uuid";
 
 const initialState = {
@@ -33,8 +32,9 @@ const initialState = {
     ]
 }
 
+//REDUCER
 
-export const dialogsReducer = (state: InitialStateDialogsType = initialState, action: ActionsDialogTypes): InitialStateDialogsType  => {
+export const dialogsReducer = (state: InitialStateDialogsType = initialState, action: ActionsDialogTypes): InitialStateDialogsType => {
 
     switch (action.type) {
         case "ADD-NEW-MESSAGE":
@@ -50,8 +50,44 @@ export const dialogsReducer = (state: InitialStateDialogsType = initialState, ac
                 textForMessageInDialog: '',
             };
         case "UPDATE-NEW-MESSAGE-TEXT":
-            return  {...state, textForMessageInDialog: action.newText};
+            return {...state, textForMessageInDialog: action.newText};
         default:
             return state
     }
 }
+
+//ACTION
+
+export const addNewMessageAC = (newMessage: string) => {
+    return {
+        type: "ADD-NEW-MESSAGE",
+        newMessage: newMessage
+    } as const
+}
+export const updateNewMessageTextAC = (newText: string) => {
+    return {
+        type: "UPDATE-NEW-MESSAGE-TEXT",
+        newText: newText
+    } as const
+}
+
+//THUNK
+
+//TYPES
+export type InitialStateDialogsType = typeof initialState
+
+// export type dialogObjectType = {
+//     id: string;
+//     name: string
+// }
+export type messageObjectType = {
+    id: string;
+    message: string
+    img: string
+    isYou: boolean
+}
+
+
+export type ActionsDialogTypes = ReturnType<typeof addNewMessageAC>
+    | ReturnType<typeof updateNewMessageTextAC>
+

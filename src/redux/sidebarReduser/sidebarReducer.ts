@@ -1,6 +1,3 @@
-import {InitStateFriendsType} from "./types";
-import {ActionSideBarReducerType} from "./action";
-
 
 const initialState = {
     friends: [
@@ -22,13 +19,27 @@ const initialState = {
     ]
 }
 
-
-
-export const sideBarReducer = (state: InitStateFriendsType = initialState, action: ActionSideBarReducerType): InitStateFriendsType => {
+//REDUCER
+export const sideBarReducer = (state: InitialStateFriendsType = initialState, action: ActionSideBarReducerType): InitialStateFriendsType => {
     switch (action.type) {
 
         default: {
             return state
         }
     }
+}
+
+//ACTIONS
+export type ActionSideBarReducerType = any
+
+//THUNKS
+
+//TYPES
+export type InitialStateFriendsType = {
+    friends: friends[]
+}
+export type friends = {
+    id: string
+    name: string
+    img: string
 }

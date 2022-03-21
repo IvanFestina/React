@@ -2,9 +2,11 @@ import React, {ChangeEvent} from 'react';
 import s from './Dialogs.module.css'
 import {DialogItem} from "./DialogItem/DialogItem";
 import {Message} from "./Message/Message";
-import {InitialStateDialogsType} from "../../redux/dialogReducer/types";
+import {InitialStateDialogsType} from "../../redux/dialogReducer/dialogReducer";
+
 type DialogsPropsType = {
     dialogsPage: InitialStateDialogsType
+    isAuth: boolean
     addNewMessage: (textForMessageInDialog: string) => void
     updateNewMessageText: (text: string) => void
 }
@@ -19,7 +21,6 @@ export const Dialogs = (props: DialogsPropsType) => {
     const onChangeTextAreaHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
     props.updateNewMessageText(e.currentTarget.value)
     }
-
 
     return (
         <div className={s.dialogs}>

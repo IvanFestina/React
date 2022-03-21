@@ -1,15 +1,7 @@
-import {InitialStateType, UsersActionType} from "./types";
-import {
-    followSuccessAC, unfollowSuccessAC,
-    setToggleFollowingProgressAC,
-    setToggleIsFetchingAC,
-    setUsersAC,
-    setUsersTotalCountAC
-} from "./action";
 import {Dispatch} from "redux";
 import {usersAPI} from "../../api/api";
 
-const initialState: InitialStateType = {
+const initialState: InitialStateUserType = {
     users: [],
     pageSize: 5,
     totalUsersCount: 0,
@@ -20,8 +12,9 @@ const initialState: InitialStateType = {
     //задача, когда идет подписка - надо id пользователя сюда закидывать, когда идет отписка, важно id отсюда забирать.
 }
 
+//REDUCER
 
-export const usersReducer = (state: InitialStateType = initialState, action: UsersActionType): InitialStateType => {
+export const usersReducer = (state: InitialStateUserType = initialState, action: UsersActionType): InitialStateUserType => {
 
     switch (action.type) {
         case 'FOLLOW':
@@ -48,6 +41,18 @@ export const usersReducer = (state: InitialStateType = initialState, action: Use
     }
 }
 
+//ACTIONS
+
+export const followSuccessAC = (userID: number) => ({type: "FOLLOW", userID} as const)
+export const unfollowSuccessAC = (userID: number) => ({type: "UNFOLLOW", userID} as const)
+export const setUsersAC = (users: UserObjectType[]) => ({type: "SET-USERS", users} as const)
+export const setCurrentPageAC = (currentPage: number) => ({type: "SET-CURRENT-PAGE", currentPage} as const)
+export const setUsersTotalCountAC = (totalUsersCount: number) => ({type: "SET-TOTAL-USERS-COUNT", count: totalUsersCount} as const)
+export const setToggleIsFetchingAC = (isFetching: boolean) => ({type: "TOGGLE-IS-FETCHING", isFetching} as const)
+export const setToggleFollowingProgressAC = (isFetching: boolean, userId: number) => ({type: "TOGGLE-IS-FOLLOWING-PROGRESS", isFetching, userId} as const)
+
+//THUNKS
+
 //ThunckCreator функция, которая может что-то принимать и возвращать Thunk
 export const getUsersTC = (currentPage: number, pageSize: number) => {
     return (dispatch: Dispatch) => {
@@ -65,7 +70,6 @@ export const followTC = (userId: number) => {
         dispatch(setToggleFollowingProgressAC(true, userId))
         usersAPI.follow(userId)   //axios
             .then(data => {
-                console.log(data)
                 if (data.resultCode === 0) {
                     dispatch(followSuccessAC(userId));
                 }
@@ -87,3 +91,42 @@ export const unFollowTC = (userID: number) => {
 
     }
 }
+
+// TYPES
+
+export type LocationObjectType = {
+    city: string
+    country: string
+}
+
+type Photos = {
+    large: string
+    small: string
+}
+
+export type UserObjectType = {
+    id: number
+    photos: Photos
+    followed: boolean
+    name: string
+    status: string
+    location?: LocationObjectType
+}
+
+export type InitialStateUserType = {
+    users: UserObjectType[],
+    pageSize: number
+    totalUsersCount: number
+    currentPage: number
+    isFetching: boolean
+    followingInProgress: number[]
+}
+
+export type UsersActionType = ReturnType<typeof followSuccessAC>
+    | ReturnType<typeof unfollowSuccessAC>
+    | ReturnType<typeof setUsersAC>
+    | ReturnType<typeof setCurrentPageAC>
+    | ReturnType<typeof setUsersTotalCountAC>
+    | ReturnType<typeof setToggleIsFetchingAC>
+    | ReturnType<typeof setToggleFollowingProgressAC>
+

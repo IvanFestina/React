@@ -48,9 +48,9 @@ export const setAuthUserDataAC = (userId: number | null, email: string | null, l
 
 export const setAuthUserDataTC = () => (dispatch: Dispatch) => {
     return authAPI.me()
-        .then(data => {  //axios
-            if (data.resultCode === 0) {
-                let {id, email, login} = data.data //на сервере приходит id, а у нас в action userId
+        .then(response => {  //axios
+            if (response.resultCode === 0) {
+                let {id, email, login} = response.data //на сервере приходит id, а у нас в action userId
                 dispatch(setAuthUserDataAC(id, email, login))
             }
         })
