@@ -1,7 +1,7 @@
 import {v1} from "uuid";
 import {Dispatch} from "redux";
 import {usersAPI} from "../../api/api";
-import {setToggleFollowingProgressAC} from "../usersReducer/action";
+import {setToggleFollowingProgressAC} from "../usersReducer/userReducer";
 
 const initialState = {
     posts: [

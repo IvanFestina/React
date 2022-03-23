@@ -1,7 +1,7 @@
 import React, {ChangeEvent} from "react";
 import s from './MyPosts.module.css'
 import {Post} from "./Post/Post";
-import {postsObjectType} from "../../../redux/profileReducer/types";
+import {postsObjectType} from "../../../redux/profileReducer/profileReducer";
 
 type PropsType = {
     posts: Array<postsObjectType>
@@ -10,15 +10,15 @@ type PropsType = {
     addPost: (textForNewPost: string) => void
 }
 
-export const MyPosts = (props: PropsType) => {
-    const postsElements = props.posts.map(p => <Post key={p.id} message={p.message} likesCount={p.likesCount}/>)
+export const MyPosts = ({addPost, textForNewPost, updateNewPostText, posts}: PropsType) => {
+    const postsElements = posts.map(p => <Post key={p.id} message={p.message} likesCount={p.likesCount}/>)
 
     const addPostOnClickHandler = () => {
-        props.addPost(props.textForNewPost);
+        addPost(textForNewPost);
     }
     const textareaOnChangeHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
         let text = e.currentTarget.value
-        props.updateNewPostText(text)
+        updateNewPostText(text)
     }
 
 
@@ -27,7 +27,7 @@ export const MyPosts = (props: PropsType) => {
             <h3>My posts</h3>
             <div>
                 <div>
-                    <textarea onChange={textareaOnChangeHandler} value={props.textForNewPost}/>
+                    <textarea onChange={textareaOnChangeHandler} value={textForNewPost}/>
                 </div>
                 <div>
                     <button onClick={addPostOnClickHandler}>Add post</button>

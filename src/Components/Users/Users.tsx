@@ -1,12 +1,12 @@
 import React from "react";
 import s from "./Users.module.css";
 import userPhoto from "../../assets/images/userPhoto.png";
-import {InitialStateType} from "../../redux/usersReducer/types";
 import {NavLink} from "react-router-dom";
+import {InitialStateUserType} from "../../redux/usersReducer/userReducer";
 
 export type UsersPropsType = {
     onPageChanged: (pageNumber: number) => void
-    usersPage: InitialStateType
+    usersPage: InitialStateUserType
     followTC: (userId: number) => void
     unFollowTC: (userId: number) => void
 }

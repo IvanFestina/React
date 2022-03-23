@@ -4,7 +4,7 @@ import {NavLink} from "react-router-dom";
 import {Friends} from "./Friends/Friends";
 import {useSelector} from "react-redux";
 import {AppStateType} from "../../redux/redux-store";
-import {friends} from "../../redux/sidebarReduser/types";
+import {friends} from "../../redux/sidebarReduser/sidebarReducer";
 
 export const Sidebar = () => {
     const friends = useSelector<AppStateType, friends[]>(state => state.sideBar.friends)

@@ -1,19 +1,21 @@
 import React from "react";
 import {connect} from "react-redux";
-import {
-    setCurrentPageAC,
-} from "../../redux/usersReducer/action";
 import {AppStateType} from "../../redux/redux-store";
-import {InitialStateType} from "../../redux/usersReducer/types";
 import {Users} from "./Users";
 import {Preloader} from "../common/Preloader";
-import {followTC, getUsersTC, unFollowTC} from "../../redux/usersReducer/userReducer";
+import {
+    followTC,
+    getUsersTC,
+    InitialStateUserType,
+    setCurrentPageAC,
+    unFollowTC
+} from "../../redux/usersReducer/userReducer";
 import {compose} from "redux";
 import {withRouter} from "react-router-dom";
 import {withAuthRedirect} from "../../HOC/WithAuthRedirect";
 
 type MapStatePropsType = {
-    usersPage: InitialStateType
+    usersPage: InitialStateUserType
 }
 type MapDispatchPropsType = {
     setCurrentPageAC: (pageNumber: number) => void
@@ -64,4 +66,4 @@ export default compose<React.ComponentType>(
     }),
     withRouter,
     withAuthRedirect,
-    )(UsersAPIComponent)
+)(UsersAPIComponent)
