@@ -1,6 +1,6 @@
 import {v1} from "uuid";
 import {Dispatch} from "redux";
-import {usersAPI} from "../../api/api";
+import {profileApi, usersAPI} from "../../api/api";
 import {setToggleFollowingProgressAC} from "../usersReducer/userReducer";
 
 const initialState = {
@@ -11,6 +11,7 @@ const initialState = {
     ],
     textForNewPost: '',
     profile: null,
+    status: '',
 }
 
 //REDUCER
@@ -34,6 +35,8 @@ export const profileReducer = (state: initialStateProfilePageType = initialState
         }
         case "SET-USER-PROFILE":
             return {...state, profile: action.profile}
+        case "SET-STATUS":
+            return {...state, status: action.status}
         default:
             return state
     }
@@ -44,14 +47,31 @@ export const profileReducer = (state: initialStateProfilePageType = initialState
 export const addPostAC = (messageForNewPost: string) => ({type: "ADD-POST", textForNewPost: messageForNewPost} as const)
 export const updateNewPostTextAC = (newText: string) => ({type: "UPDATE-NEW-POST-TEXT", newText} as const)
 export const setUserProfileAC = (profile: ProfileType | null) => ({type: "SET-USER-PROFILE", profile,} as const)
+export const setStatusAC = (status: string) => ({type: "SET-STATUS", status,} as const)
 
 //THUNKS
 
-export const getUserProfileTC = (userId: string) => (dispatch: Dispatch) => {
+export const getUserProfileTC = (userId: number) => (dispatch: Dispatch) => {
 //описываем тип, который возвращается из userId - PathParamsType
     return usersAPI.getProfile(userId)
         .then(response => {
             dispatch(setUserProfileAC(response.data))
+        })
+}
+
+export const getStatusTC = (userId: number) => (dispatch: Dispatch) => {
+    return profileApi.getStatus(userId)
+        .then(response => {
+            dispatch(setStatusAC(response.data))
+        })
+}
+
+export const updateStatusTC = (status: string) => (dispatch: Dispatch) => {
+    return profileApi.updateStatus(status)
+        .then(response => {
+        if(response.data.resultCode === 0) {
+        dispatch(setStatusAC(status))
+        }
         })
 }
 
@@ -67,9 +87,11 @@ export type initialStateProfilePageType = {
     posts: Array<postsObjectType>
     textForNewPost: string,
     profile: ProfileType | null
+    status: string
 }
 
 export type ProfileType = {
+    aboutMe: string
     userId: number
     lookingForAJob: boolean
     lookingForAJobDescription: string
@@ -96,3 +118,4 @@ export type ProfileActionsTypes = ReturnType<typeof addPostAC>
     | ReturnType<typeof updateNewPostTextAC>
     | ReturnType<typeof setUserProfileAC>
     | ReturnType<typeof setToggleFollowingProgressAC>
+    | ReturnType<typeof setStatusAC>
