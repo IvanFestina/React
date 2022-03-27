@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d90b8b67-63e7-42dc-a385-09d76ba6110b" name="Changes" comment="Refactoring...">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Login/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Login/Login.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HOC/WithAuthRedirect.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/HOC/WithAuthRedirect.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/auth-reducer/auth-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/auth-reducer/auth-reducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
-    </list>
+    <list default="true" id="d90b8b67-63e7-42dc-a385-09d76ba6110b" name="Changes" comment="React-Hook-Form" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -141,7 +131,7 @@
       <workItem from="1647964022072" duration="1263000" />
       <workItem from="1647965423394" duration="13050000" />
       <workItem from="1648239328717" duration="9711000" />
-      <workItem from="1648316941672" duration="19039000" />
+      <workItem from="1648316941672" duration="19162000" />
     </task>
     <task id="LOCAL-00001" summary="...">
       <created>1640117091538</created>
@@ -318,7 +308,14 @@
       <option name="project" value="LOCAL" />
       <updated>1648328193149</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="React-Hook-Form">
+      <created>1648414691009</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1648414691010</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -355,6 +352,7 @@
     <MESSAGE value="64 episod end" />
     <MESSAGE value="67 episod end" />
     <MESSAGE value="Refactoring..." />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactoring..." />
+    <MESSAGE value="React-Hook-Form" />
+    <option name="LAST_COMMIT_MESSAGE" value="React-Hook-Form" />
   </component>
 </project>
