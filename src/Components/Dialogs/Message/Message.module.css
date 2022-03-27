@@ -1,0 +1,18 @@
+.youStyle {
+ display: flex;
+ align-items: center;
+    justify-content: end;
+    flex-direction: row-reverse;
+}
+
+.theyStyle {
+ display: flex;
+ align-items: center;
+    justify-content: start;
+}
+
+img {
+    width: 70px;
+    height: 70px
+}
+

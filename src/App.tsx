@@ -25,7 +25,6 @@ const App = () => {
                     <Route path='/settings' render={() => <Settings/>}/>
                     <Route path='/users' render={() => <UsersContainer/>}/>
                     <Route path='/login' render={() => <Login/>}/>
-
                 </Switch>
             </div>
         </div>

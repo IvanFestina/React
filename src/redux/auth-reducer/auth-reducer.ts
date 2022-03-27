@@ -50,6 +50,7 @@ export const setAuthUserDataTC = () => (dispatch: Dispatch) => {
     return authAPI.me()
         .then(response => {  //axios
             if (response.resultCode === 0) {
+                console.log('auth success')
                 let {id, email, login} = response.data //на сервере приходит id, а у нас в action userId
                 dispatch(setAuthUserDataAC(id, email, login))
             }
