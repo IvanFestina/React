@@ -37,13 +37,12 @@ class ProfileContainer extends React.Component<ProfileContainerPropsType> {
     render() {
 
         return (
-            <div>
-                <h1>hello</h1>
+            <>
                 <Profile {...this.props}
                 profile={this.props.profile}
                 status={this.props.status}
                 updateStatusTC={this.props.updateStatusTC}/>
-            </div>
+            </>
         );
     }
 }

@@ -1,5 +1,5 @@
 import React from 'react'
-import {useForm, SubmitHandler, Controller} from "react-hook-form";
+import {useForm, SubmitHandler, Controller, FormProvider} from "react-hook-form";
 import Grid from "@material-ui/core/Grid";
 import FormControl from "@material-ui/core/FormControl";
 import FormGroup from "@material-ui/core/FormGroup";
@@ -9,21 +9,24 @@ import Button from "@material-ui/core/Button";
 import Checkbox from "@material-ui/core/Checkbox";
 import Avatar from '@material-ui/core/Avatar';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-
+import * as yup from 'yup';
+import {yupResolver} from "@hookform/resolvers/yup";
 
 type IFormInputs = {
     email: string
     password: string
-    Checkbox: string
 }
+const schema = yup.object().shape({
+    email: yup.string().email("Invalid email address").required("Required"),
+    password: yup.string().min(4, "Must be longer than 2 characters").max(20).required("Required")
+})
 
 export const Login = (props: any) => {
     const {
-        register, // like a reference
         handleSubmit,
         control,
         formState: {errors}
-    } = useForm<IFormInputs>()
+    } = useForm<IFormInputs>({resolver: yupResolver(schema)})
 
     const formSubmitHandler: SubmitHandler<IFormInputs> = (data: IFormInputs) => {
         alert(JSON.stringify(data))
@@ -35,29 +38,31 @@ export const Login = (props: any) => {
                 <Avatar>
                     <LockOutlinedIcon color={"action"}/>
                 </Avatar>
-                <FormControl>
+                <form onSubmit={handleSubmit(formSubmitHandler)}>
                     <FormGroup>
-                        <TextField label="Email" margin="normal"/>
-                        <TextField type="password" label="Password"
-                                   margin="normal"
-                        />
-                        <FormControlLabel label={'Remember me'} control={
-                            <Controller
-                                name="Checkbox"
-                                control={control}
-                                render={({field: {value}}) => (
-                                    <Checkbox
-                                        onChange={(e) => field.onChange(e.target.checked)}
-                                        checked={field.value}
-                                    />
-                                )}
-                            />
-                        }/>
+                        <Controller name={'email'} control={control}
+                                    render={({field}) => (
+                                        <TextField {...field} label="Email"
+                                                   type='email'
+                                                   margin="normal"
+                                                   error={!!errors.email}
+                                                   helperText={errors?.email ? errors?.email?.message : ''}
+                                        />)}/>
+                        <Controller name={'password'} control={control}
+                                    render={({field}) => (
+                                        <TextField {...field} type="password"
+                                                   label="Password"
+                                                   margin="normal"
+                                                   error={!!errors.email}
+                                                   helperText={errors?.password ? errors?.password?.message : ''}
+
+                                        />)}/>
+                        <FormControlLabel label={'Remember me'} control={<Checkbox/>}/>
                         <Button type={'submit'} variant={'contained'} color={'primary'}>
                             Sign in
                         </Button>
                     </FormGroup>
-                </FormControl>
+                </form>
             </Grid>
         </Grid>
     )
