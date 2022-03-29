@@ -61,7 +61,7 @@ export const dialogsReducer = (state: InitialStateDialogsType = initialState, ac
 export const addNewMessageAC = (newMessage: string) => {
     return {
         type: "ADD-NEW-MESSAGE",
-        newMessage: newMessage
+        newMessage
     } as const
 }
 export const updateNewMessageTextAC = (newText: string) => {
