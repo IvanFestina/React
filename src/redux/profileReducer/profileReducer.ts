@@ -9,7 +9,6 @@ const initialState = {
         {id: '2', message: "I'm fine, thanks", likesCount: 22},
         {id: '3', message: "I'm not fine", likesCount: 202},
     ],
-    textForNewPost: '',
     profile: null,
     status: '',
 }
@@ -27,11 +26,7 @@ export const profileReducer = (state: initialStateProfilePageType = initialState
             return {
                 ...state,
                 posts: [...state.posts, newPost],
-                textForNewPost: ''
             };
-        }
-        case 'UPDATE-NEW-POST-TEXT': {
-            return {...state, textForNewPost: action.newText};
         }
         case "SET-USER-PROFILE":
             return {...state, profile: action.profile}
@@ -45,7 +40,6 @@ export const profileReducer = (state: initialStateProfilePageType = initialState
 //ACTIONS
 
 export const addPostAC = (messageForNewPost: string) => ({type: "ADD-POST", textForNewPost: messageForNewPost} as const)
-export const updateNewPostTextAC = (newText: string) => ({type: "UPDATE-NEW-POST-TEXT", newText} as const)
 export const setUserProfileAC = (profile: ProfileType | null) => ({type: "SET-USER-PROFILE", profile,} as const)
 export const setStatusAC = (status: string) => ({type: "SET-STATUS", status,} as const)
 
@@ -55,14 +49,15 @@ export const getUserProfileTC = (userId: number) => (dispatch: Dispatch) => {
 //описываем тип, который возвращается из userId - PathParamsType
     return usersAPI.getProfile(userId)
         .then(response => {
-            dispatch(setUserProfileAC(response.data))
+        console.log(response)
+            dispatch(setUserProfileAC(response))
         })
 }
 
 export const getStatusTC = (userId: number) => (dispatch: Dispatch) => {
     return profileApi.getStatus(userId)
         .then(response => {
-            dispatch(setStatusAC(response.data))
+            dispatch(setStatusAC(response))
         })
 }
 
@@ -85,7 +80,6 @@ export type postsObjectType = {
 }
 export type initialStateProfilePageType = {
     posts: Array<postsObjectType>
-    textForNewPost: string,
     profile: ProfileType | null
     status: string
 }
@@ -115,7 +109,6 @@ export type PhotosType = {
 }
 
 export type ProfileActionsTypes = ReturnType<typeof addPostAC>
-    | ReturnType<typeof updateNewPostTextAC>
     | ReturnType<typeof setUserProfileAC>
     | ReturnType<typeof setToggleFollowingProgressAC>
     | ReturnType<typeof setStatusAC>

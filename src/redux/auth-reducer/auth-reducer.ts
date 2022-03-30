@@ -1,5 +1,5 @@
 import {Dispatch} from "redux";
-import {authAPI, usersAPI} from "../../api/api";
+import {authAPI} from "../../api/api";
 
 const authInitialState: authInitialStateType = {
     userId: null,
@@ -8,59 +8,73 @@ const authInitialState: authInitialStateType = {
     isAuth: false
 }
 
-export type authInitialStateType = {
-    userId: number | null
-    email: string | null
-    login: string | null
-    isAuth: boolean
-
-}
-
-export const authReducer = (state = authInitialState, action: ActionType): authInitialStateType => {
+// REDUCER
+export const authReducer = (state = authInitialState, action: ActionAuthType): authInitialStateType => {
     switch (action.type) {
         case 'SET-USER-DATA':
             return {
-                ...state, ...action.data, isAuth: true
+                ...state, ...action.payload, isAuth: true
             }
         default:
             return state
     }
 }
 
-type setUserDataACType = {
-    type: 'SET-USER-DATA'
-    data: { userId: number | null, email: string | null, login: string | null, isAuth?: boolean },
-}
 
-type ActionType = setUserDataACType
-
-export const setAuthUserDataAC = (userId: number | null, email: string | null, login: string | null, isAuth?: boolean): setUserDataACType => {
+//ACTIONS
+export const setAuthUserDataAC = (userId: number | null, email: string | null, login: string | null, isAuth: boolean) => {
     return {
         type: 'SET-USER-DATA',
-        data: {
+        payload: {
             userId,
             email,
             login,
             isAuth,
         }
-    }
+    } as const
 }
-
-export const setAuthUserDataTC = () => (dispatch: Dispatch) => {
+//THUNKS
+export const getAuthUserDataTC = () => (dispatch: Dispatch) => {
     return authAPI.me()
         .then(response => {  //axios
             if (response.resultCode === 0) {
                 console.log('auth success')
                 let {id, email, login} = response.data //на сервере приходит id, а у нас в action userId
-                dispatch(setAuthUserDataAC(id, email, login))
+                dispatch(setAuthUserDataAC(id, email, login, true))
             }
         })
     //теперь наш Header знает, что мы авторизованы,
     // нужно эту информацию из data задиспачить в authReducer
 }
 
+export const loginTC = (email: string, password: string, rememberMe: boolean) => (dispatch: Dispatch) => {
+    authAPI.login(email, password, rememberMe)
+        .then(response => {
+            if (response.resultCode === 0) {
+                dispatch(getAuthUserDataTC() as any)
+            }
+        })
+}
+
+export const logoutTC = () => (dispatch: Dispatch) => {
+    authAPI.logout()
+        .then(response => {
+            if (response.resultCode === 0) {
+                dispatch(setAuthUserDataAC(null, null, null, false))
+            }
+        })
+}
 
 
+//TYPES
 
 
+export type authInitialStateType = {
+    userId: number | null
+    email: string | null
+    login: string | null
+    isAuth: boolean
+}
 
+
+export type ActionAuthType = ReturnType<typeof setAuthUserDataAC>

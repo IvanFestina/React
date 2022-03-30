@@ -21,7 +21,6 @@ const initialState = {
             img: 'https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes-thumbnail.png'
         },
     ],
-    textForMessageInDialog: '',
     dialogs: [
         {id: '1', name: 'Sergey'},
         {id: '2', name: 'Mark'},
@@ -47,10 +46,7 @@ export const dialogsReducer = (state: InitialStateDialogsType = initialState, ac
             return {
                 ...state,
                 messages: [...state.messages, {...newMessage}],
-                textForMessageInDialog: '',
             };
-        case "UPDATE-NEW-MESSAGE-TEXT":
-            return {...state, textForMessageInDialog: action.newText};
         default:
             return state
     }
@@ -62,12 +58,6 @@ export const addNewMessageAC = (newMessage: string) => {
     return {
         type: "ADD-NEW-MESSAGE",
         newMessage
-    } as const
-}
-export const updateNewMessageTextAC = (newText: string) => {
-    return {
-        type: "UPDATE-NEW-MESSAGE-TEXT",
-        newText: newText
     } as const
 }
 
@@ -89,5 +79,4 @@ export type messageObjectType = {
 
 
 export type ActionsDialogTypes = ReturnType<typeof addNewMessageAC>
-    | ReturnType<typeof updateNewMessageTextAC>
 

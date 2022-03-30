@@ -7,8 +7,7 @@ import {withRouter} from "react-router-dom";
 import {withAuthRedirect} from "../../HOC/WithAuthRedirect";
 import {
     addNewMessageAC,
-    InitialStateDialogsType,
-    updateNewMessageTextAC
+    InitialStateDialogsType
 } from "../../redux/dialogReducer/dialogReducer";
 
 type MapStatePropsType = {
@@ -16,8 +15,7 @@ type MapStatePropsType = {
     isAuth: boolean
 }
 type MapDispatchPropsType = {
-    addNewMessage: (textForMessageInDialog: string) => void
-    updateNewMessageText: (text: string) => void
+    addNewMessageAC: (textForMessageInDialog: string) => void
 }
 export type DialogsPropsType = MapStatePropsType & MapDispatchPropsType
 
@@ -29,7 +27,7 @@ const mapStateToProps = (state: AppStateType): MapStatePropsType => {
 }
 
 export default compose<React.ComponentType>(
-    connect(mapStateToProps, {addNewMessageAC, updateNewMessageTextAC}),
+    connect(mapStateToProps, {addNewMessageAC}),
     withRouter,
     withAuthRedirect,
-    )(Dialogs)
+)(Dialogs)

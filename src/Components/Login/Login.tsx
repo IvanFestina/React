@@ -11,10 +11,15 @@ import Avatar from '@material-ui/core/Avatar';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import * as yup from 'yup';
 import {yupResolver} from "@hookform/resolvers/yup";
+import {useDispatch, useSelector} from "react-redux";
+import {loginTC} from "../../redux/auth-reducer/auth-reducer";
+import {AppStateType} from "../../redux/redux-store";
+import {Redirect} from "react-router-dom";
 
 type IFormInputs = {
     email: string
     password: string
+    rememberMe: boolean
 }
 const schema = yup.object().shape({
     email: yup.string().email("Invalid email address").required("Required"),
@@ -22,6 +27,11 @@ const schema = yup.object().shape({
 })
 
 export const Login = (props: any) => {
+
+    const dispatch = useDispatch()
+    const isAuth = useSelector<AppStateType, boolean>(state => state.auth.isAuth)
+
+    const methods = useForm()
     const {
         handleSubmit,
         control,
@@ -29,7 +39,13 @@ export const Login = (props: any) => {
     } = useForm<IFormInputs>({resolver: yupResolver(schema)})
 
     const formSubmitHandler: SubmitHandler<IFormInputs> = (data: IFormInputs) => {
-        alert(JSON.stringify(data))
+        console.log(data)
+        // alert(JSON.stringify(data))
+        dispatch(loginTC(data.email, data.password, data.rememberMe))
+    }
+
+    if(isAuth) {
+    return <Redirect to={"/profile"}/>
     }
 
     return (
@@ -38,6 +54,7 @@ export const Login = (props: any) => {
                 <Avatar>
                     <LockOutlinedIcon color={"action"}/>
                 </Avatar>
+                <FormProvider {...methods} >
                 <form onSubmit={handleSubmit(formSubmitHandler)}>
                     <FormGroup>
                         <Controller name={'email'} control={control}
@@ -53,55 +70,22 @@ export const Login = (props: any) => {
                                         <TextField {...field} type="password"
                                                    label="Password"
                                                    margin="normal"
-                                                   error={!!errors.email}
+                                                   error={!!errors.password}
                                                    helperText={errors?.password ? errors?.password?.message : ''}
 
                                         />)}/>
-                        <FormControlLabel label={'Remember me'} control={<Checkbox/>}/>
+                        <Controller name={'rememberMe'} render={({field}) => (
+                            <FormControlLabel label={'Remember me'} control={<Checkbox {...field} />}/>
+                        )} />
+
+
                         <Button type={'submit'} variant={'contained'} color={'primary'}>
                             Sign in
                         </Button>
                     </FormGroup>
                 </form>
+                </FormProvider>
             </Grid>
         </Grid>
     )
 }
-
-// type IFormInputs = {
-//     email: string
-//     password: string
-// }
-//
-// export const Login = (props: any) => {
-//     const {
-//         register, // like a reference
-//         handleSubmit,
-//         watch,
-//         formState: {errors}
-//     } = useForm<IFormInputs>()
-//
-//     const formSubmitHandler: SubmitHandler<IFormInputs> = (data: IFormInputs) => {
-//         alert(JSON.stringify(data))
-//     }
-//
-//     return (
-//         <div style={{color: "black"}}>
-//             <h1>Authorisation Page</h1>
-//             <form onSubmit={handleSubmit(formSubmitHandler)}>
-//                 <input defaultValue='example@test.com'
-//                        {...register('email', {
-//                            required: true,
-//                            minLength: 5
-//                        })}/> {/*this input is referencing 'email' key*/}
-//                 <br/>
-//                 <input type='password'
-//                        {...register('password', {required: true})}/>
-//                 <br/>
-//                 {errors.password && <span>This field is required</span>}
-//                 <br/>
-//                 <input type='submit'/>
-//             </form>
-//         </div>
-//     )
-// }

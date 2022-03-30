@@ -1,29 +1,27 @@
-import React, {ChangeEvent} from "react";
+import React, {ChangeEvent, useEffect} from "react";
 import s from './MyPosts.module.css'
 import {Post} from "./Post/Post";
-import {addPostAC, postsObjectType} from "../../../redux/profileReducer/profileReducer";
+import {postsObjectType} from "../../../redux/profileReducer/profileReducer";
 import FormGroup from "@material-ui/core/FormGroup";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import {SubmitHandler, useForm, Controller} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import {useDispatch} from "react-redux";
 
 type PropsType = {
     posts: Array<postsObjectType>
-    textForNewPost: string
-    updateNewPostText: (text: string) => void
-    addPost: (textForNewPost: string) => void
+    addPostAC: (textForNewPost: string) => void
+
 }
 
-export const MyPosts = ({posts, textForNewPost, updateNewPostText, addPost}: PropsType) => {
+export const MyPosts = ({posts, addPostAC}: PropsType) => {
     const postsElements = posts.map(p => <Post key={p.id} message={p.message} likesCount={p.likesCount}/>)
 
     return (
         <div className={s.postsBlock}>
             <h3>My posts</h3>
-            <AddPostForm addPost={addPost} updateNewPostText={updateNewPostText} textForNewPost={textForNewPost}/>
+            <AddPostForm addPostAC={addPostAC}/>
             <div className={s.posts}>
                 {postsElements}
             </div>
@@ -33,16 +31,13 @@ export const MyPosts = ({posts, textForNewPost, updateNewPostText, addPost}: Pro
 
 // NEW COMPONENT
 type AddPostFormPropsType = {
-    textForNewPost: string
-    updateNewPostText: (text: string) => void
-    addPost: (textForNewPost: string) => void
+    addPostAC: (textForNewPost: string) => void
 }
 type IFormInputs = {
     'post_area': string
 }
 
-export const AddPostForm = ({textForNewPost, updateNewPostText, addPost}: AddPostFormPropsType) => {
-    const dispatch = useDispatch()
+export const AddPostForm = ({addPostAC}: AddPostFormPropsType) => {
 
     const schema = yup.object().shape({
         post_area: yup.string().required("Required"),
@@ -51,11 +46,15 @@ export const AddPostForm = ({textForNewPost, updateNewPostText, addPost}: AddPos
     const {
         handleSubmit,
         control,
-        formState: {errors}
+        formState: {errors, isSubmitSuccessful},
+        reset
     } = useForm<IFormInputs>({resolver: yupResolver(schema)})
 
+        useEffect(() => {
+        reset({post_area: ''})}, [isSubmitSuccessful, reset])
+
     const formSubmitHandler: SubmitHandler<any> = (data: IFormInputs) => {
-        dispatch(addPostAC(data.post_area))
+        addPostAC(data.post_area)
     }
 
     return (
@@ -66,6 +65,8 @@ export const AddPostForm = ({textForNewPost, updateNewPostText, addPost}: AddPos
                                 <TextField {...field} label="Type your post here"
                                            type='text'
                                            margin="normal"
+                                           error={!!errors.post_area}
+
                                 />)}/>
                 <Button type='submit' variant={"contained"}>Add post</Button>
             </FormGroup>
