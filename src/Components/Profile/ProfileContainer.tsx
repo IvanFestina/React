@@ -53,7 +53,6 @@ const mapStateToProps = (state: AppStateType): MapStatePropsType => ({
     status: state.profilePage.status
 })
 
-
 export default compose<React.ComponentType>(
     connect(mapStateToProps, {getUserProfileTC, getStatusTC, updateStatusTC}),
     withRouter,

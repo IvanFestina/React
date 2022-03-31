@@ -23,7 +23,8 @@ type IFormInputs = {
 }
 const schema = yup.object().shape({
     email: yup.string().email("Invalid email address").required("Required"),
-    password: yup.string().min(4, "Must be longer than 2 characters").max(20).required("Required")
+    password: yup.string().min(4, "Must be longer than 2 characters").max(20).required("Required"),
+    rememberMe: yup.boolean()
 })
 
 export const Login = (props: any) => {
@@ -31,11 +32,10 @@ export const Login = (props: any) => {
     const dispatch = useDispatch()
     const isAuth = useSelector<AppStateType, boolean>(state => state.auth.isAuth)
 
-    const methods = useForm()
     const {
         handleSubmit,
         control,
-        formState: {errors}
+        formState: {errors},
     } = useForm<IFormInputs>({resolver: yupResolver(schema)})
 
     const formSubmitHandler: SubmitHandler<IFormInputs> = (data: IFormInputs) => {
@@ -44,8 +44,8 @@ export const Login = (props: any) => {
         dispatch(loginTC(data.email, data.password, data.rememberMe))
     }
 
-    if(isAuth) {
-    return <Redirect to={"/profile"}/>
+    if (isAuth) {
+        return <Redirect to={"/profile"}/>
     }
 
     return (
@@ -54,7 +54,6 @@ export const Login = (props: any) => {
                 <Avatar>
                     <LockOutlinedIcon color={"action"}/>
                 </Avatar>
-                <FormProvider {...methods} >
                 <form onSubmit={handleSubmit(formSubmitHandler)}>
                     <FormGroup>
                         <Controller name={'email'} control={control}
@@ -62,6 +61,7 @@ export const Login = (props: any) => {
                                         <TextField {...field} label="Email"
                                                    type='email'
                                                    margin="normal"
+
                                                    error={!!errors.email}
                                                    helperText={errors?.email ? errors?.email?.message : ''}
                                         />)}/>
@@ -72,19 +72,18 @@ export const Login = (props: any) => {
                                                    margin="normal"
                                                    error={!!errors.password}
                                                    helperText={errors?.password ? errors?.password?.message : ''}
-
                                         />)}/>
-                        <Controller name={'rememberMe'} render={({field}) => (
-                            <FormControlLabel label={'Remember me'} control={<Checkbox {...field} />}/>
-                        )} />
-
-
+                        <FormControlLabel label={'Remember me'} control={
+                            <Controller name={'rememberMe'} control={control} render={
+                                ({field}) => (<Checkbox {...field}/>)
+                            }/>
+                        }
+                        />
                         <Button type={'submit'} variant={'contained'} color={'primary'}>
                             Sign in
                         </Button>
                     </FormGroup>
                 </form>
-                </FormProvider>
             </Grid>
         </Grid>
     )
