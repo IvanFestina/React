@@ -5,7 +5,8 @@ const authInitialState: authInitialStateType = {
     userId: null,
     email: null,
     login: null,
-    isAuth: false
+    isAuth: false,
+    error: null,
 }
 
 // REDUCER
@@ -14,6 +15,10 @@ export const authReducer = (state = authInitialState, action: ActionAuthType): a
         case 'SET-USER-DATA':
             return {
                 ...state, ...action.payload
+            }
+        case 'APP/SET-ERROR':
+            return {
+                ...state, error: action.error
             }
         default:
             return state
@@ -33,6 +38,8 @@ export const setAuthUserDataAC = (userId: number | null, email: string | null, l
         }
     } as const
 }
+export const setAppErrorAC = (error: string | null) => ({type: 'APP/SET-ERROR', error} as const)
+
 //THUNKS
 export const getAuthUserDataTC = () => (dispatch: Dispatch) => {
     return authAPI.me()
@@ -52,6 +59,11 @@ export const loginTC = (email: string, password: string, rememberMe: boolean) =>
         .then(response => {
             if (response.resultCode === 0) {
                 dispatch(getAuthUserDataTC() as any)
+            }
+            if (response.messages.length) {
+                dispatch(setAppErrorAC(response.messages[0]))
+            } else {
+                dispatch(setAppErrorAC('Some error occurred'))
             }
         })
 }
@@ -74,7 +86,11 @@ export type authInitialStateType = {
     email: string | null
     login: string | null
     isAuth: boolean
+    error: string | null
+
 }
 
+export type SetAppErrorActionType = ReturnType<typeof setAppErrorAC>
 
 export type ActionAuthType = ReturnType<typeof setAuthUserDataAC>
+    | SetAppErrorActionType

@@ -10,10 +10,12 @@ import HeaderContainer from "./Components/Header/HeaderContainer";
 import {Login} from "./Components/Login/Login";
 import UsersContainer from "./Components/Users/UsersContainer";
 import DialogsContainer from "./Components/Dialogs/DialogsContainer";
+import {ErrorSnackbar} from "./Components/common/ErrorSnackbar";
 
 const App = () => {
     return (
         <div className='app-wrapper'>
+            <ErrorSnackbar/>
             <HeaderContainer/>
             <Sidebar/>
             <div className='app-wrapper-content'>
