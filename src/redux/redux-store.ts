@@ -6,6 +6,7 @@ import {sideBarReducer} from "./sidebarReduser/sidebarReducer";
 import {usersReducer} from "./usersReducer/userReducer";
 import {authReducer} from "./auth-reducer/auth-reducer";
 import thunk from "redux-thunk";
+import {appReducer} from "./app-reducer/app-reducer";
 
 // declare global {
 //     interface  Window {
@@ -19,6 +20,7 @@ const rootReducer = combineReducers({
     sideBar: sideBarReducer,
     usersPage: usersReducer,
     auth: authReducer,
+    app: appReducer
     // form: formReducer
 })
 

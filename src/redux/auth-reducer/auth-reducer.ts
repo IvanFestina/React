@@ -55,7 +55,7 @@ export const getAuthUserDataTC = () => (dispatch: Dispatch) => {
 }
 
 export const loginTC = (email: string, password: string, rememberMe: boolean) => (dispatch: Dispatch) => {
-    authAPI.login(email, password, rememberMe)
+    return authAPI.login(email, password, rememberMe)
         .then(response => {
             if (response.resultCode === 0) {
                 dispatch(getAuthUserDataTC() as any)
@@ -69,7 +69,7 @@ export const loginTC = (email: string, password: string, rememberMe: boolean) =>
 }
 
 export const logoutTC = () => (dispatch: Dispatch) => {
-    authAPI.logout()
+    return authAPI.logout()
         .then(response => {
             if (response.resultCode === 0) {
                 dispatch(setAuthUserDataAC(null, null, null, false))
@@ -91,6 +91,7 @@ export type authInitialStateType = {
 }
 
 export type SetAppErrorActionType = ReturnType<typeof setAppErrorAC>
+export type SetAuthUserDataActionType = ReturnType<typeof setAuthUserDataAC>
 
-export type ActionAuthType = ReturnType<typeof setAuthUserDataAC>
+export type ActionAuthType = SetAuthUserDataActionType
     | SetAppErrorActionType
