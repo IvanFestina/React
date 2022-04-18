@@ -64,10 +64,11 @@ export const setToggleFollowingProgressAC = (isFetching: boolean, userId: number
 //THUNKS
 
 //ThunckCreator функция, которая может что-то принимать и возвращать Thunk
-export const getUsersTC = (currentPage: number, pageSize: number) => {
+export const getUsersTC = (page: number, pageSize: number) => {
     return (dispatch: Dispatch) => {
         dispatch(setToggleIsFetchingAC(true))
-        usersAPI.getUsers(currentPage, pageSize)
+        dispatch(setCurrentPageAC(page))
+        usersAPI.getUsers(page, pageSize)
             .then(response => { //axios
                 dispatch(setToggleIsFetchingAC(false))
                 dispatch(setUsersAC(response.items));

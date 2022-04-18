@@ -5,7 +5,7 @@ import {Settings} from "./Components/Settings/Settings";
 import {Music} from "./Components/Music/Music";
 import {News} from "./Components/News/News";
 import ProfileContainer from "./Components/Profile/ProfileContainer";
-import {Route, Switch, withRouter} from 'react-router-dom';
+import {BrowserRouter, Route, Switch, withRouter} from 'react-router-dom';
 import HeaderContainer from "./Components/Header/HeaderContainer";
 import {Login} from "./Components/Login/Login";
 import UsersContainer from "./Components/Users/UsersContainer";
@@ -14,30 +14,38 @@ import {ErrorSnackbar} from "./Components/common/ErrorSnackbar";
 import {connect} from "react-redux";
 import {getAuthUserDataTC} from "./redux/auth-reducer/auth-reducer";
 import {AppStateType} from "./redux/redux-store";
-import {compose} from "redux";
 import {initializeAppTC} from "./redux/app-reducer/app-reducer";
 import {Preloader} from "./Components/common/Preloader";
+import {compose} from "redux";
 
-type AppType = mapDispatchToPropsType & mapStateToProps
-
-type mapDispatchToPropsType = {
+type AppType = {
     getAuthUserDataTC: () => void
+    initializeAppTC: () => void
+    initialized: boolean
 }
-type mapStateToProps = { initialized: boolean }
+
+type MapDispatchToPropsType = {
+    getAuthUserDataTC: () => void
+    initializeAppTC: () => void
+}
+type MapStateToPropsType = {
+    initialized: boolean
+}
 
 class App extends React.Component<AppType> {
 
     componentDidMount() {
-        this.props.getAuthUserDataTC()
+        // this.props.getAuthUserDataTC()
+        this.props.initializeAppTC()
         //теперь наш Header знает, что мы авторизованы,
         // нужно эту информацию из data задиспачить в authReducer
     }
+
 
     render() {
         if (!this.props.initialized) {
             return <Preloader/>
         }
-
         return (
             <div className='app-wrapper'>
                 <ErrorSnackbar/>
@@ -59,11 +67,14 @@ class App extends React.Component<AppType> {
     }
 }
 
-const mapStateToProps = (state: AppStateType): mapStateToProps => ({
+const mapStateToProps = (state: AppStateType): MapStateToPropsType => ({
     initialized: state.app.initialized
 })
 
-export default compose(
+export const AppContainer = compose<React.ComponentType>(
     withRouter,
-    connect<mapStateToProps, mapDispatchToPropsType, AppStateType>(mapStateToProps, {getAuthUserDataTC, initializeAppTC}))(App);
+    connect<MapStateToPropsType, MapDispatchToPropsType, {}, AppStateType>(mapStateToProps, {
+        getAuthUserDataTC,
+        initializeAppTC
+    }))(App)
 

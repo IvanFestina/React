@@ -1,6 +1,12 @@
 import {v1} from "uuid";
 
-const initialState = {
+export type MessageType = { id: string, isYou: boolean, message: string, img: string }
+export type DialogType = { id: string, name: string }
+export type DialogReducerInitStateType = {
+    messages: Array<MessageType>
+    dialogs: Array<DialogType>
+}
+const initialState: DialogReducerInitStateType = {
     messages: [
         {
             id: '1',
@@ -20,7 +26,7 @@ const initialState = {
             message: "Yea? What's up with a proposal?!",
             img: 'https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes-thumbnail.png'
         },
-    ],
+    ] as Array<MessageType>,
     dialogs: [
         {id: '1', name: 'Sergey'},
         {id: '2', name: 'Mark'},
@@ -28,12 +34,12 @@ const initialState = {
         {id: '4', name: 'Mike'},
         {id: '5', name: 'John'},
         {id: '6', name: 'Fill'}
-    ]
+    ] as Array<DialogType>
 }
 
 //REDUCER
 
-export const dialogsReducer = (state: InitialStateDialogsType = initialState, action: ActionsDialogTypes): InitialStateDialogsType => {
+export const dialogsReducer = (state = initialState, action: ActionsDialogTypes): DialogReducerInitStateType => {
 
     switch (action.type) {
         case "ADD-NEW-MESSAGE":
@@ -64,7 +70,7 @@ export const addNewMessageAC = (newMessage: string) => {
 //THUNK
 
 //TYPES
-export type InitialStateDialogsType = typeof initialState
+// export type InitialStateDialogsType = typeof initialState
 
 // export type dialogObjectType = {
 //     id: string;

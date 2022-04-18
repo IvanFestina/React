@@ -10,6 +10,7 @@ type ProfilePropsType = {
 }
 
 export const Profile = ({profile, status, updateStatusTC}: ProfilePropsType) => {
+
     return (
         <>
             <ProfileInfo profile={profile}
@@ -17,6 +18,7 @@ export const Profile = ({profile, status, updateStatusTC}: ProfilePropsType) => 
                          updateStatusTC={updateStatusTC}
 
             />
+             {/*@ts-ignore*/}
             <MyPostsContainer/>
         </>
     )

@@ -13,6 +13,7 @@ import {
 import {compose} from "redux";
 import {withRouter} from "react-router-dom";
 import {withAuthRedirect} from "../../HOC/WithAuthRedirect";
+import {getUserPage} from "./users-selectors";
 
 type MapStatePropsType = {
     usersPage: InitialStateUserType
@@ -53,7 +54,7 @@ export class UsersAPIComponent extends React.Component<UsersPropsType> {
 
 const mapStateToProps = (state: AppStateType): MapStatePropsType => {
     return {
-        usersPage: state.usersPage
+        usersPage: getUserPage(state)
     }
 }
 

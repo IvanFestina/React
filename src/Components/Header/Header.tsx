@@ -10,8 +10,8 @@ type HeaderPropsType = {
     logoutTC: () => void
 }
 
-export const Header = ({logoutTC,...props}: HeaderPropsType) => {
-const dispatch = useDispatch()
+export const Header = ({logoutTC, ...props}: HeaderPropsType) => {
+    const dispatch = useDispatch()
 
     return <header className={s.header}>
         <img alt="Лого"

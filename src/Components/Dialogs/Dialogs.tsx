@@ -2,7 +2,7 @@ import React, {ChangeEvent, useEffect} from 'react';
 import s from './Dialogs.module.css'
 import {DialogItem} from "./DialogItem/DialogItem";
 import {Message} from "./Message/Message";
-import {InitialStateDialogsType} from "../../redux/dialogReducer/dialogReducer";
+import {DialogType,  MessageType} from "../../redux/dialogReducer/dialogReducer";
 import * as yup from "yup";
 import {Controller, SubmitHandler, useForm} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup";
@@ -10,15 +10,16 @@ import FormGroup from "@material-ui/core/FormGroup";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 
-type DialogsPropsType = {
-    dialogsPage: InitialStateDialogsType
+type PropsType = {
+    messages: Array<MessageType>
+    dialogs: Array<DialogType>
     isAuth: boolean
     addNewMessageAC: (textForMessageInDialog: string) => void
 }
 
-export const Dialogs = ({addNewMessageAC, dialogsPage, ...props}: DialogsPropsType) => {
-    let dialogElements = dialogsPage.dialogs.map((d) => <DialogItem name={d.name} key={d.id} id={d.id}/>)
-    let messageElements = dialogsPage.messages.map(m => <Message message={m.message} img={m.img} isYou={m.isYou}
+export const Dialogs = ({addNewMessageAC, dialogs,messages, ...props}: PropsType) => {
+    let dialogElements = dialogs.map((d) => <DialogItem name={d.name} key={d.id} id={d.id}/>)
+    let messageElements = messages.map(m => <Message message={m.message} img={m.img} isYou={m.isYou}
                                                                  key={m.id}/>)
 
 

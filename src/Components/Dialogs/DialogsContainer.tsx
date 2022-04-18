@@ -1,33 +1,34 @@
 import {Dialogs} from "./Dialogs";
 import {connect} from "react-redux";
-import {compose, Dispatch} from "redux";
+import {compose} from "redux";
 import {AppStateType} from "../../redux/redux-store";
 import React from "react";
 import {withRouter} from "react-router-dom";
 import {withAuthRedirect} from "../../HOC/WithAuthRedirect";
 import {
-    addNewMessageAC,
-    InitialStateDialogsType
+    addNewMessageAC, DialogType, MessageType
 } from "../../redux/dialogReducer/dialogReducer";
 
 type MapStatePropsType = {
-    dialogsPage: InitialStateDialogsType
+    messages: Array<MessageType>
+    dialogs: Array<DialogType>
     isAuth: boolean
 }
 type MapDispatchPropsType = {
     addNewMessageAC: (textForMessageInDialog: string) => void
 }
-export type DialogsPropsType = MapStatePropsType & MapDispatchPropsType
+
 
 const mapStateToProps = (state: AppStateType): MapStatePropsType => {
     return {
-        dialogsPage: state.dialogsPage,
+        dialogs: state.dialogsPage.dialogs,
+        messages: state.dialogsPage.messages,
         isAuth: state.auth.isAuth
     }
 }
 
 export default compose<React.ComponentType>(
-    connect(mapStateToProps, {addNewMessageAC}),
     withRouter,
+    connect<MapStatePropsType, MapDispatchPropsType, {}, AppStateType>(mapStateToProps, {addNewMessageAC}),
     withAuthRedirect,
 )(Dialogs)
