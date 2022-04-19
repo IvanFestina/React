@@ -37,7 +37,7 @@ class App extends React.Component<AppType> {
     componentDidMount() {
         // this.props.getAuthUserDataTC()
         this.props.initializeAppTC()
-        //теперь наш Header знает, что мы авторизованы,
+        //теперь наш App знает, что мы авторизованы,
         // нужно эту информацию из data задиспачить в authReducer
     }
 
