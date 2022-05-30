@@ -1,4 +1,10 @@
-.userPhoto {
-    width: 100px;
-    height: 100px;
+.pagination {
+    margin-bottom: 15px;
+}
+.usersList {
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    text-align: center;
 }

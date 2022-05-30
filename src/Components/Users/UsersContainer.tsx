@@ -2,14 +2,14 @@ import React from "react";
 import {connect} from "react-redux";
 import {AppStateType} from "../../redux/redux-store";
 import {Users} from "./Users";
-import {Preloader} from "../common/Preloader";
+import {Preloader} from "../common/Preloader/Preloader";
 import {
     followTC,
     getUsersTC,
     InitialStateUserType,
     setCurrentPageAC,
     unFollowTC
-} from "../../redux/usersReducer/userReducer";
+} from "../../redux/userReducer";
 import {compose} from "redux";
 import {withRouter} from "react-router-dom";
 import {withAuthRedirect} from "../../HOC/WithAuthRedirect";
@@ -34,7 +34,7 @@ export class UsersAPIComponent extends React.Component<UsersPropsType> {
         this.props.getUsersTC(this.props.usersPage.currentPage, this.props.usersPage.pageSize)
     }
 
-    onPageChanged = (pageNumber: number) => {
+    onPageChanged = (event: React.ChangeEvent<unknown>, pageNumber: number) => {
         this.props.getUsersTC(pageNumber, this.props.usersPage.pageSize)
     }
 //наша компонента делает что-то свое, контруирование объекта происходит один раз.
@@ -46,7 +46,7 @@ export class UsersAPIComponent extends React.Component<UsersPropsType> {
                 usersPage={this.props.usersPage}
                 onPageChanged={this.onPageChanged}
                 followTC={this.props.followTC}
-                unFollowTC={this.props.followTC}
+                unFollowTC={this.props.unFollowTC}
             />
         </>
     }

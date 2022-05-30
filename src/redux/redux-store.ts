@@ -1,12 +1,12 @@
 import {combineReducers, createStore, Store, applyMiddleware} from "redux";
 import { composeWithDevTools} from "redux-devtools-extension";
-import {profileReducer} from './profileReducer/profileReducer';
-import {dialogsReducer} from './dialogReducer/dialogReducer'
-import {sideBarReducer} from "./sidebarReduser/sidebarReducer";
-import {usersReducer} from "./usersReducer/userReducer";
-import {authReducer} from "./auth-reducer/auth-reducer";
+import {profileReducer} from './profileReducer';
+import {dialogsReducer} from './dialogReducer'
+import {sideBarReducer} from "./sidebarReducer";
+import {usersReducer} from "./userReducer";
+import {authReducer} from "./auth-reducer";
 import thunk from "redux-thunk";
-import {appReducer} from "./app-reducer/app-reducer";
+import {appReducer} from "./app-reducer";
 
 // declare global {
 //     interface  Window {

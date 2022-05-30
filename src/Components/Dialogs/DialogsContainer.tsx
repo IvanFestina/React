@@ -7,7 +7,7 @@ import {withRouter} from "react-router-dom";
 import {withAuthRedirect} from "../../HOC/WithAuthRedirect";
 import {
     addNewMessageAC, DialogType, MessageType
-} from "../../redux/dialogReducer/dialogReducer";
+} from "../../redux/dialogReducer";
 
 type MapStatePropsType = {
     messages: Array<MessageType>

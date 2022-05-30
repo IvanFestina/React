@@ -1,7 +1,7 @@
 import {v1} from "uuid";
 import {Dispatch} from "redux";
-import {profileApi, usersAPI} from "../../api/api";
-import {setToggleFollowingProgressAC} from "../usersReducer/userReducer";
+import {profileApi, usersAPI} from "../api/api";
+import {setToggleFollowingProgressAC} from "./userReducer";
 
 const initialState = {
     posts: [
@@ -37,41 +37,39 @@ export const profileReducer = (state: initialStateProfilePageType = initialState
     }
 }
 
-//ACTIONS
+// A C T I O N S
 
-export const addPostAC = (messageForNewPost: string) => ({type: "ADD-POST", textForNewPost: messageForNewPost} as const)
-export const setUserProfileAC = (profile: ProfileType | null) => ({type: "SET-USER-PROFILE", profile,} as const)
+export const addPostAC = (messageForNewPost: string) => ({
+    type: "ADD-POST",
+    textForNewPost: messageForNewPost
+} as const)
+export const setUserProfileAC = (profile: ProfileType | null) => ({
+    type: "SET-USER-PROFILE",
+    profile,
+} as const)
 export const setStatusAC = (status: string) => ({type: "SET-STATUS", status,} as const)
 
-//THUNKS
+// T H U N K S
 
-export const getUserProfileTC = (userId: number) => (dispatch: Dispatch) => {
+export const getUserProfileTC = (userId: number) => async (dispatch: Dispatch) => {
 //описываем тип, который возвращается из userId - PathParamsType
-    return usersAPI.getProfile(userId)
-        .then(response => {
-        console.log(response)
-            dispatch(setUserProfileAC(response))
-        })
+    const response = await usersAPI.getProfile(userId)
+    dispatch(setUserProfileAC(response))
 }
 
-export const getStatusTC = (userId: number) => (dispatch: Dispatch) => {
-    return profileApi.getStatus(userId)
-        .then(response => {
-            dispatch(setStatusAC(response))
-        })
+export const getStatusTC = (userId: number) => async (dispatch: Dispatch) => {
+    const response = await profileApi.getStatus(userId)
+    dispatch(setStatusAC(response))
 }
 
-export const updateStatusTC = (status: string) => (dispatch: Dispatch) => {
-    return profileApi.updateStatus(status)
-        .then(response => {
-        if(response.data.resultCode === 0) {
+export const updateStatusTC = (status: string) => async (dispatch: Dispatch) => {
+    const response = await profileApi.updateStatus(status)
+    if (response.data.resultCode === 0) {
         dispatch(setStatusAC(status))
-        }
-        })
+    }
 }
 
-//TYPES
-
+// T Y P E S
 
 export type postsObjectType = {
     id: string;

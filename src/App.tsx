@@ -12,10 +12,10 @@ import UsersContainer from "./Components/Users/UsersContainer";
 import DialogsContainer from "./Components/Dialogs/DialogsContainer";
 import {ErrorSnackbar} from "./Components/common/ErrorSnackbar";
 import {connect} from "react-redux";
-import {getAuthUserDataTC} from "./redux/auth-reducer/auth-reducer";
+import {getAuthUserDataTC} from "./redux/auth-reducer";
 import {AppStateType} from "./redux/redux-store";
-import {initializeAppTC} from "./redux/app-reducer/app-reducer";
-import {Preloader} from "./Components/common/Preloader";
+import {initializeAppTC} from "./redux/app-reducer";
+import {Preloader} from "./Components/common/Preloader/Preloader";
 import {compose} from "redux";
 
 type AppType = {

@@ -1,7 +1,7 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom';
 import s from './Header.module.css'
-import {authInitialStateType} from "../../redux/auth-reducer/auth-reducer";
+import {authInitialStateType} from "../../redux/auth-reducer";
 import Button from "@material-ui/core/Button";
 import {useDispatch} from "react-redux";
 

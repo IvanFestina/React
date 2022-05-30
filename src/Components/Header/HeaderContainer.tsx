@@ -1,7 +1,7 @@
 import React from 'react';
 import {Header} from "./Header";
 import {connect} from 'react-redux';
-import {authInitialStateType, logoutTC} from "../../redux/auth-reducer/auth-reducer";
+import {authInitialStateType, logoutTC} from "../../redux/auth-reducer";
 import {AppStateType} from "../../redux/redux-store";
 
 // type HeaderContainerType = mapStateToPropsType & mapDispatchToPropsType

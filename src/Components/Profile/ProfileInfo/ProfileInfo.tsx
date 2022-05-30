@@ -1,20 +1,17 @@
 import React from "react";
 import s from './ProfileInfo.module.css'
-import {Preloader} from "../../common/Preloader";
-import {ProfileType} from "../../../redux/profileReducer/profileReducer";
-import ProfileStatus from "./ProfileStatus";
+import {Preloader} from "../../common/Preloader/Preloader";
+import {ProfileType} from "../../../redux/profileReducer";
 import {ProfileStatusWithHooks} from "./ProfileStatusWithHooks";
 
-
 type ProfileInfoPropsType = {
-     profile: ProfileType | null
-     status: string
-     updateStatusTC: (status: string) => void
+    profile: ProfileType | null
+    status: string
+    updateStatusTC: (status: string) => void
 }
 
-
-export const ProfileInfo = (props: ProfileInfoPropsType) => {
-    if (!props.profile) {
+export const ProfileInfo = ({profile, updateStatusTC, status}: ProfileInfoPropsType) => {
+    if (!profile) {
         return <Preloader/>
     }
     return (
@@ -28,8 +25,10 @@ export const ProfileInfo = (props: ProfileInfoPropsType) => {
                      src='https://www.nicepng.com/png/detail/914-9142519_doge-meme-dog-doggo-funny-sticker-momo-png.png'/>
             </div>
             <div className={s.descriptionBlock}>
-                <img alt={'avatar'} src={props.profile.photos.large}/>
-                 <ProfileStatusWithHooks status={props.status} updateStatusTC={props.updateStatusTC}/>
+                {profile.photos.large &&
+                <img alt={'avatar'} src={profile.photos.large}/>}
+                <ProfileStatusWithHooks status={status}
+                                        updateStatusTC={updateStatusTC}/>
             </div>
         </div>
     )

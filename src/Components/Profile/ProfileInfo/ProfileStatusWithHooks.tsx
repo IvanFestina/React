@@ -9,9 +9,9 @@ export function ProfileStatusWithHooks({updateStatusTC, ...props}: PropsType) {
 
     const [editMode, setEditMode] = useState<boolean>(false)
     const [status, setStatus] = useState<string>(props.status)
-    debugger
+
     useEffect(() => {
-            debugger
+
             setStatus(props.status)
         }, [props.status]
     )

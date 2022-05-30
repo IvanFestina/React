@@ -11,7 +11,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import * as yup from 'yup';
 import {yupResolver} from "@hookform/resolvers/yup";
 import {useDispatch, useSelector} from "react-redux";
-import {loginTC} from "../../redux/auth-reducer/auth-reducer";
+import {loginTC} from "../../redux/auth-reducer";
 import {AppStateType} from "../../redux/redux-store";
 import {Redirect} from "react-router-dom";
 
@@ -38,8 +38,6 @@ export const Login = (props: any) => {
     } = useForm<IFormInputs>({resolver: yupResolver(schema)})
 
     const formSubmitHandler: SubmitHandler<IFormInputs> = (data: IFormInputs) => {
-        console.log(data)
-        // alert(JSON.stringify(data))
         dispatch(loginTC(data.email, data.password, data.rememberMe))
     }
 
