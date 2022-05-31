@@ -1,9 +1,8 @@
 import React, {ChangeEvent} from "react";
-import s from './ProfileInfo.module.css'
 
 type ProfileStatusPropsType = { status: string, updateStatusTC: (status: string) => void }
 
-class ProfileStatus extends React.Component<ProfileStatusPropsType> {
+class EditableSpan extends React.Component<ProfileStatusPropsType> {
 
     state = {editMode: false, status: this.props.status}
 
@@ -27,7 +26,6 @@ class ProfileStatus extends React.Component<ProfileStatusPropsType> {
     }
 
     render() {
-
         return (<>
             {!this.state.editMode &&
             <div>
@@ -49,4 +47,4 @@ class ProfileStatus extends React.Component<ProfileStatusPropsType> {
     }
 }
 
-export default ProfileStatus
+export default EditableSpan

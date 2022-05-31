@@ -11,9 +11,9 @@ import {Login} from "./Components/Login/Login";
 import UsersContainer from "./Components/Users/UsersContainer";
 import DialogsContainer from "./Components/Dialogs/DialogsContainer";
 import {ErrorSnackbar} from "./Components/common/ErrorSnackbar";
-import {connect} from "react-redux";
+import {connect, Provider} from "react-redux";
 import {getAuthUserDataTC} from "./redux/auth-reducer";
-import {AppStateType} from "./redux/redux-store";
+import {AppStateType, store} from "./redux/redux-store";
 import {initializeAppTC} from "./redux/app-reducer";
 import {Preloader} from "./Components/common/Preloader/Preloader";
 import {compose} from "redux";
@@ -54,7 +54,8 @@ class App extends React.Component<AppType> {
                 <div className='app-wrapper-content'>
                     <Switch>
                         <Route path='/dialogs' render={() => <DialogsContainer/>}/>
-                        <Route path='/profile/:userId?' render={() => <ProfileContainer/>}/>
+                        <Route path='/profile/:userId?'
+                               render={() => <ProfileContainer/>}/>
                         <Route path='/news' render={() => <News/>}/>
                         <Route path='/music' render={() => <Music/>}/>
                         <Route path='/settings' render={() => <Settings/>}/>
@@ -71,10 +72,19 @@ const mapStateToProps = (state: AppStateType): MapStateToPropsType => ({
     initialized: state.app.initialized
 })
 
-export const AppContainer = compose<React.ComponentType>(
+const AppContainer = compose<React.ComponentType>(
     withRouter,
     connect<MapStateToPropsType, MapDispatchToPropsType, {}, AppStateType>(mapStateToProps, {
         getAuthUserDataTC,
         initializeAppTC
     }))(App)
+
+export const MainTSApp = (props: any) => {
+    return <BrowserRouter>
+        <Provider store={store}>
+            <AppContainer/>
+        </Provider>
+    </BrowserRouter>
+
+}
 
