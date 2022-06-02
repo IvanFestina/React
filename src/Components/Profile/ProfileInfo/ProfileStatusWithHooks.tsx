@@ -1,5 +1,6 @@
-import React, {ChangeEvent, useEffect, useState} from "react";
+import React, {ChangeEvent, useEffect, useRef, useState} from "react";
 import s from './ProfileInfo.module.css'
+import {Input} from "@mui/material";
 
 type PropsType = {
     status: string, updateStatusTC: (status: string) => void
@@ -9,6 +10,7 @@ export function ProfileStatusWithHooks({updateStatusTC, ...props}: PropsType) {
 
     const [editMode, setEditMode] = useState<boolean>(false)
     const [status, setStatus] = useState<string>(props.status)
+    const ref = useRef<HTMLElement>(null)
 
     useEffect(() => {
 
@@ -28,15 +30,17 @@ export function ProfileStatusWithHooks({updateStatusTC, ...props}: PropsType) {
     }
     return (<>
         {!editMode &&
-        <div>
-            <span onDoubleClick={activateMode}>
-                {status || '---'}
+        <div >
+                    <div className={s.doubleClickDirection}>Double click to edit status</div>
+
+            <span className={s.onDoubleClickStatus} onDoubleClick={activateMode}>
+               {status || '---'}
             </span>
         </div>
         }
         {editMode &&
         <div>
-            <input
+            <Input
                 autoFocus={true}
                 onBlur={deactivateMode}
                 value={status}
@@ -45,5 +49,3 @@ export function ProfileStatusWithHooks({updateStatusTC, ...props}: PropsType) {
         }
     </>)
 }
-
-

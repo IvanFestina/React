@@ -4,21 +4,25 @@ import {ProfileType} from "../../redux/profileReducer";
 import MyPostsContainer from "./MyPosts/Post/MyPostsContainer";
 
 type ProfilePropsType = {
+    isOwner: boolean
     profile: ProfileType | null
     status: string
     updateStatusTC: (status: string) => void
+        savePhotoTC: () => void
 }
 
-export const Profile = ({profile, status, updateStatusTC}: ProfilePropsType) => {
+export const Profile = ({profile, status, updateStatusTC, isOwner, savePhotoTC}: ProfilePropsType) => {
 
     return (
         <>
-            <ProfileInfo profile={profile}
+            <ProfileInfo isOwner={isOwner}
+                         profile={profile}
                          status={status}
                          updateStatusTC={updateStatusTC}
+                         savePhotoTC={savePhotoTC}
 
             />
-             {/*@ts-ignore*/}
+            {/*@ts-ignore*/}
             <MyPostsContainer/>
         </>
     )

@@ -9,7 +9,7 @@ const initialState = {
         {id: '2', message: "I'm fine, thanks", likesCount: 22},
         {id: '3', message: "I'm not fine", likesCount: 202},
     ],
-    profile: null,
+    profile: {} as ProfileType,
     status: '',
 }
 
@@ -32,6 +32,8 @@ export const profileReducer = (state: initialStateProfilePageType = initialState
             return {...state, profile: action.profile}
         case "SET-STATUS":
             return {...state, status: action.status}
+        case "SAVE-PHOTO-SUCCESS":
+            return {...state, profile: {...state.profile, photos: action.photos}}
         default:
             return state
     }
@@ -48,6 +50,7 @@ export const setUserProfileAC = (profile: ProfileType | null) => ({
     profile,
 } as const)
 export const setStatusAC = (status: string) => ({type: "SET-STATUS", status,} as const)
+export const savePhotoSuccessAC = (photos: PhotosType) => ({type: "SAVE-PHOTO-SUCCESS", photos} as const)
 
 // T H U N K S
 
@@ -56,16 +59,22 @@ export const getUserProfileTC = (userId: number) => async (dispatch: Dispatch) =
     const response = await usersAPI.getProfile(userId)
     dispatch(setUserProfileAC(response))
 }
-
 export const getStatusTC = (userId: number) => async (dispatch: Dispatch) => {
     const response = await profileApi.getStatus(userId)
     dispatch(setStatusAC(response))
 }
-
 export const updateStatusTC = (status: string) => async (dispatch: Dispatch) => {
     const response = await profileApi.updateStatus(status)
     if (response.data.resultCode === 0) {
         dispatch(setStatusAC(status))
+    }
+}
+export const savePhotoTC = (file: File) => async (dispatch: Dispatch) => {
+debugger
+    const response = await profileApi.savePhoto(file)
+    if (response.data.resultCode === 0) {
+    debugger
+        dispatch(savePhotoSuccessAC(response.data))
     }
 }
 
@@ -83,30 +92,31 @@ export type initialStateProfilePageType = {
 }
 
 export type ProfileType = {
-    aboutMe: string
-    userId: number
-    lookingForAJob: boolean
-    lookingForAJobDescription: string
-    fullName: string
-    contacts: ContactsPropsType
-    photos: PhotosType
+    aboutMe?: string
+    userId?: number
+    lookingForAJob?: boolean
+    lookingForAJobDescription?: string | null
+    fullName?: string | null
+    contacts?: ContactsPropsType
+    photos?: PhotosType
 }
 export type ContactsPropsType = {
-    github: string
-    vk: string
-    facebook: string
-    instagram: string
-    twitter: string
-    website: string
-    youtube: string
-    mainLink: string
+    github: string | null
+    vk: string | null
+    facebook: string | null
+    instagram: string | null
+    twitter: string | null
+    website: string | null
+    youtube: string | null
+    mainLink: string | null
 }
 export type PhotosType = {
-    small: string
-    large: string
+    small: string | null
+    large: string | null
 }
 
 export type ProfileActionsTypes = ReturnType<typeof addPostAC>
     | ReturnType<typeof setUserProfileAC>
     | ReturnType<typeof setToggleFollowingProgressAC>
     | ReturnType<typeof setStatusAC>
+    | ReturnType<typeof savePhotoSuccessAC>

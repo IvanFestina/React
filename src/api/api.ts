@@ -40,6 +40,11 @@ export const profileApi = {
     },
     updateStatus(status: string) {
         return instance.put<{ data: string }, AxiosResponse<ResponseType<{}>>>(`profile/status`, {status})
+    },
+    savePhoto(photoFile: File) {
+        const formData = new FormData();
+        formData.append('image', photoFile)
+        return instance.put('profile/photo', formData, {headers: {'Content-Type': 'multipart/form-data'}})
     }
     //отправляем на сервак объект со свойством status
 }

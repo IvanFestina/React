@@ -4,15 +4,49 @@
   height: 150px;
 }
 
-
-.ava img {
-width: 80px;
-height: 80px;
-border-radius: 30px;
-padding: 15px;
+.profileInfoBlock {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
-.descriptionBlock {
+.mainPhoto {
+width: 150px;
+height: 150px;
+border-radius: 50px;
+padding: 15px;
+}
+.uploadImageButton {
+    margin-bottom: 10px;
+}
+
+.profileInfoBlock {
   padding: 10px;
 }
 
+.profileInfo>* {
+  margin-bottom: 10px;
+}
+
+.doubleClickDirection {
+    margin-top: 20px;
+    font-size: 12px;
+    color: rgb(147, 163, 133);
+}
+.onDoubleClickStatus {
+        color: rgb(112, 167, 31);
+
+}
+.onDoubleClickStatus:hover {
+    font-weight: bolder;
+    color: purple;
+    cursor: pointer;
+}
+
+p {
+color: black;
+font-weight: bolder;
+font-family: Roboto, sans-serif;
+}

@@ -3,6 +3,7 @@ import s from "./User.module.css";
 import userPhoto from "../../assets/images/userPhoto.png";
 import {NavLink} from "react-router-dom";
 import {InitialStateUserType, UserObjectType} from "../../redux/userReducer";
+import Button from "@mui/material/Button";
 
 export type UsersPropsType = {
     user: UserObjectType
@@ -30,16 +31,16 @@ export const User = ({
                 {user.followed
                     //если хоть одна id из массива равна id пользователя - тогда disabled
                     ?
-                    <button disabled={usersPage.followingInProgress
+                    <Button variant='contained' size='small' disabled={usersPage.followingInProgress
                         .some(id => id === user.id)}
                             onClick={() => {
                                 unFollowTC(user.id)
-                            }}>Unfollow</button>
-                    : <button disabled={usersPage.followingInProgress
+                            }}>Unfollow</Button>
+                    : <Button variant='contained' size='small' disabled={usersPage.followingInProgress
                         .some(id => id === user.id)}
                               onClick={() => {
                                   followTC(user.id)
-                              }}>Follow</button>}
+                              }}>Follow</Button>}
             </div>
                 <div>
                     <div>{user.name}</div>
