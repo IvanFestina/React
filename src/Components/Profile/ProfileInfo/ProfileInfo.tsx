@@ -79,6 +79,7 @@ export const ProfileInfo = ({
                         <div className={s.contacts}>
                             <p>Contacts</p>: {profile.contacts && Object.entries(profile.contacts).map(value => {
                             return value[0] && <Contact key={value[0]} contactTitle={value[0]} contactValue={value[1]}/>
+
                             })}
                         </div>
                     </div>
