@@ -45,6 +45,10 @@ export const profileApi = {
         const formData = new FormData();
         formData.append('image', photoFile)
         return instance.put('profile/photo', formData, {headers: {'Content-Type': 'multipart/form-data'}})
+    },
+    saveProfile(profile: any) {
+        return instance.put<ResponseType<{}>>(`profile/`, profile)
+
     }
     //отправляем на сервак объект со свойством status
 }

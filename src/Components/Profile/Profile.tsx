@@ -8,10 +8,18 @@ type ProfilePropsType = {
     profile: ProfileType | null
     status: string
     updateStatusTC: (status: string) => void
-        savePhotoTC: () => void
+    savePhotoTC: (file: File) => void
+    saveProfileTC: () => void
 }
 
-export const Profile = ({profile, status, updateStatusTC, isOwner, savePhotoTC}: ProfilePropsType) => {
+export const Profile = ({
+                            profile,
+                            status,
+                            updateStatusTC,
+                            isOwner,
+                            savePhotoTC,
+                            saveProfileTC
+                        }: ProfilePropsType) => {
 
     return (
         <>
@@ -20,6 +28,7 @@ export const Profile = ({profile, status, updateStatusTC, isOwner, savePhotoTC}:
                          status={status}
                          updateStatusTC={updateStatusTC}
                          savePhotoTC={savePhotoTC}
+                         saveProfileTC={saveProfileTC}
 
             />
             {/*@ts-ignore*/}

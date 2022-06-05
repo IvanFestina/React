@@ -26,7 +26,8 @@ export type MapDispatchToPropsType = {
     getUserProfileTC: (userId: string) => void
     getStatusTC: (userId: string) => void
     updateStatusTC: (status: string) => void
-    savePhotoTC:() => void
+    savePhotoTC:(file: File) => void
+    saveProfileTC:() => void
 }
 type ProfileContainerPropsType =
     MapStatePropsType
@@ -68,6 +69,7 @@ class ProfileContainer extends React.Component<ProfileContainerPropsType> {
                          status={this.props.status}
                          updateStatusTC={this.props.updateStatusTC}
                          savePhotoTC={this.props.savePhotoTC}
+                         saveProfileTC={this.props.saveProfileTC}
                 />
             </>
         );
@@ -82,7 +84,7 @@ const mapStateToProps = (state: AppStateType): MapStatePropsType => ({
 })
 
 export default compose<React.ComponentType>(
-    connect(mapStateToProps, {getUserProfileTC, getStatusTC, updateStatusTC, savePhotoTC}),
+    connect(mapStateToProps, {getUserProfileTC, getStatusTC, updateStatusTC, savePhotoTC, saveProfileTC}),
     withRouter,
     withAuthRedirect
 )(ProfileContainer)

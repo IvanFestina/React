@@ -77,6 +77,14 @@ debugger
         dispatch(savePhotoSuccessAC(response.data))
     }
 }
+export const saveProfileTC = (profile: any) => async (dispatch: Dispatch) => {
+debugger
+    const response = await profileApi.saveProfile(file)
+    if (response.data.resultCode === 0) {
+    debugger
+        dispatch(savePhotoSuccessAC(response.data))
+    }
+}
 
 // T Y P E S
 

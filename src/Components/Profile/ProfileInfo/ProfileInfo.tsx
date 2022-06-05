@@ -1,4 +1,4 @@
-import React, {ChangeEvent, ChangeEventHandler, useRef, useState} from "react";
+import React, {useRef, useState} from "react";
 import s from './ProfileInfo.module.css'
 import {Preloader} from "../../common/Preloader/Preloader";
 import {ProfileType, savePhotoTC} from "../../../redux/profileReducer";
@@ -6,32 +6,41 @@ import {ProfileStatusWithHooks} from "./ProfileStatusWithHooks";
 import Button from "@mui/material/Button";
 import {AttachFile} from "@material-ui/icons";
 import {useDispatch} from "react-redux";
-import Typography from "@mui/material/Typography";
+import {ProfileDataForm} from "./ProfileDataForm";
+import {SubmitHandler} from "react-hook-form";
 
 type ProfileInfoPropsType = {
     isOwner: boolean
     profile: ProfileType | null
     status: string
     updateStatusTC: (status: string) => void
-    savePhotoTC: () => void
+    savePhotoTC: (file: File) => void
+    saveProfileTC: () => void
 }
 
 export const ProfileInfo = ({
                                 profile,
                                 updateStatusTC,
                                 status,
-                                isOwner
+                                isOwner,
+                                saveProfileTC
                             }: ProfileInfoPropsType) => {
     let dispatch = useDispatch()
-    const [image, setImage] = useState<string>('');
+    const [editMode, setEditMode] = useState<boolean>(false);
 
     const inputFileRef = useRef<HTMLInputElement>(null);
 
     const onChangeAttachMainPhoto = (target: HTMLInputElement) => {
-        debugger
         if (target.files && target.files.length) {
             dispatch(savePhotoTC(target.files[0]))
         }
+    }
+    const goToEditMode = () => {
+        setEditMode(true)
+    }
+
+    const onSubmit: SubmitHandler<any> = (formData: any) => {
+        // dispatch(saveProfileTC(formData))
     }
 
     if (!profile) {
@@ -63,30 +72,48 @@ export const ProfileInfo = ({
                         </Button>
                     </div>
                     }
-                    <div className={s.profileInfo}>
-                        <div>
-                            <p>Full name</p>: {profile.fullName}
-                        </div>
-                        <div>
-                            <p>Looking for a job</p>: {profile.lookingForAJob ? "yes" : "no"}
-                        </div>
-                        <div>
-                            <p>My professional skills</p>: {profile.lookingForAJob}
-                        </div>
-                        <div>
-                            <p>About me</p>: {profile.aboutMe}
-                        </div>
-                        <div className={s.contacts}>
-                            <p>Contacts</p>: {profile.contacts && Object.entries(profile.contacts).map(value => {
-                            return value[0] && <Contact key={value[0]} contactTitle={value[0]} contactValue={value[1]}/>
+                    {editMode ? <ProfileDataForm profile={profile} onSubmit={onSubmit}/> :
+                        <ProfileData profile={profile} isOwner={isOwner} goToEditMode={goToEditMode}/>}
 
-                            })}
-                        </div>
-                    </div>
+
                     <ProfileStatusWithHooks status={status}
                                             updateStatusTC={updateStatusTC}/>
                 </div>
 
+
+            </div>
+        </div>
+    )
+}
+
+type ProfileDataType = {
+    profile: ProfileType | null
+    isOwner?: boolean
+    goToEditMode?: () => void
+}
+
+export const ProfileData = ({profile, isOwner, goToEditMode}: ProfileDataType) => {
+
+    return (
+        <div className={s.profileInfo}>
+            {isOwner && <div><Button onClick={goToEditMode} variant='contained'>Edit</Button></div>}
+            <div>
+                <b>Full name</b>: {profile?.fullName}
+            </div>
+            <div>
+                <b>Looking for a job</b> : {profile?.lookingForAJob ? "yes" : "no"}
+            </div>
+            <div>
+                <b>My professional skills</b>: {profile?.lookingForAJob}
+            </div>
+            <div>
+                <b>About me</b>: {profile?.aboutMe}
+            </div>
+            <div className={s.contacts}>
+                <b>Contacts</b>: {profile?.contacts && Object.entries(profile?.contacts).map(value => {
+                return value[0] && <Contact key={value[0]} contactTitle={value[0]}
+                                            contactValue={value[1]}/>
+            })}
             </div>
         </div>
     )
@@ -99,5 +126,5 @@ type ContactPropsType = {
 }
 
 export const Contact = ({contactTitle, contactValue}: ContactPropsType) => {
-    return <div><p>{contactTitle}</p> : {contactValue}</div>
+    return <div className={s.contact}><b>{contactTitle}</b> : {contactValue}</div>
 }
