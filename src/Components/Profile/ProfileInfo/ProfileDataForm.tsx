@@ -13,10 +13,10 @@ type ProfileDataFormType = {
     onSubmit: (formData: any) => void
 }
 
-type FormInputs = {
-    fullName: string;
-    isLookingForAJob: boolean;
-    mySkills: string;
+export type FormInputs = {
+    fullName: string | null;
+    lookingForAJob: boolean;
+    lookingForAJobDescription: string | null;
     aboutMe: string
 };
 
@@ -28,13 +28,14 @@ export const ProfileDataForm = ({profile, onSubmit}: ProfileDataFormType) => {
 
     const {
         handleSubmit,
-        formState: {errors, isSubmitSuccessful},
-        register
+        register,
+        control
     } = useForm<FormInputs>({
         defaultValues: {
-            fullName: "Full Name",
-            mySkills: "My professional skills",
-            aboutMe: "About me"
+            fullName: profile?.fullName,
+            lookingForAJob: profile?.lookingForAJob,
+            lookingForAJobDescription: profile?.lookingForAJobDescription,
+            aboutMe: profile?.aboutMe
         }
     })
 
@@ -49,18 +50,18 @@ export const ProfileDataForm = ({profile, onSubmit}: ProfileDataFormType) => {
                 </div>
                 <div>
                     <label>Looking for a job</label>
-                    <input type={"checkbox"} {...register("isLookingForAJob")} />
+                    <input type={"checkbox"} {...register("lookingForAJob")} />
                 </div>
                 <div>
                     <label>My professional skills</label>
-                    <textarea {...register("mySkills")} />
+                    <textarea {...register("lookingForAJobDescription")} />
                 </div>
                 <div>
                     <label>About me</label>
                     <textarea {...register("aboutMe")} />
                 </div>
                 <div className={s.contacts}>
-                    <b>Contacts</b>: {profile?.contacts && Object.entries(profile?.contacts).map(value => {
+                    <label>Contacts</label>: {profile?.contacts && Object.entries(profile?.contacts).map(value => {
                     return value[0] && <Contact key={value[0]} contactTitle={value[0]}
                                                 contactValue={value[1]}/>
                 })}

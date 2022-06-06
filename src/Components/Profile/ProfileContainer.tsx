@@ -6,7 +6,7 @@ import {RouteComponentProps, withRouter} from "react-router-dom";
 import {
     getStatusTC,
     getUserProfileTC,
-    ProfileType, savePhotoTC,
+    ProfileType, savePhotoTC, saveProfileTC,
     updateStatusTC
 } from "../../redux/profileReducer";
 import {withAuthRedirect} from "../../HOC/WithAuthRedirect";

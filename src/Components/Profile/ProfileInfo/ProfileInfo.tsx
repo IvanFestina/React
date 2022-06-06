@@ -6,7 +6,7 @@ import {ProfileStatusWithHooks} from "./ProfileStatusWithHooks";
 import Button from "@mui/material/Button";
 import {AttachFile} from "@material-ui/icons";
 import {useDispatch} from "react-redux";
-import {ProfileDataForm} from "./ProfileDataForm";
+import {FormInputs, ProfileDataForm} from "./ProfileDataForm";
 import {SubmitHandler} from "react-hook-form";
 
 type ProfileInfoPropsType = {
@@ -15,7 +15,7 @@ type ProfileInfoPropsType = {
     status: string
     updateStatusTC: (status: string) => void
     savePhotoTC: (file: File) => void
-    saveProfileTC: () => void
+    saveProfileTC: (profile: any) => void
 }
 
 export const ProfileInfo = ({
@@ -25,9 +25,9 @@ export const ProfileInfo = ({
                                 isOwner,
                                 saveProfileTC
                             }: ProfileInfoPropsType) => {
+
     let dispatch = useDispatch()
     const [editMode, setEditMode] = useState<boolean>(false);
-
     const inputFileRef = useRef<HTMLInputElement>(null);
 
     const onChangeAttachMainPhoto = (target: HTMLInputElement) => {
@@ -39,50 +39,56 @@ export const ProfileInfo = ({
         setEditMode(true)
     }
 
-    const onSubmit: SubmitHandler<any> = (formData: any) => {
-        // dispatch(saveProfileTC(formData))
+    const onSubmit: SubmitHandler<FormInputs> = (data: FormInputs) => {
+
+        // setEditMode(false)
+        dispatch(saveProfileTC(data))
     }
 
-    if (!profile) {
-        return <Preloader/>
-    }
+    // if (!profile) {
+    //     return <Preloader/>
+    // }
 
-    return (
-        <div>
-            <div className={s.background}>
-                <img alt="background img"
-                     src="https://www.pikpng.com/pngl/b/603-6034862_header-banner-png-banner-images-header-png-clipart.png"/>
-            </div>
-
-            <div className={s.profileInfoBlock}>
-                <div>
-                    <img className={s.mainPhoto} alt='avatar'
-                         src={profile.photos?.large || 'https://www.nicepng.com/png/detail/914-9142519_doge-meme-dog-doggo-funny-sticker-momo-png.png'}/>
-                    {isOwner &&
-                    <div className={s.uploadImageButton}>
-                        <input ref={inputFileRef}
-                               type='file'
-                               accept='.image/jpeg, .png, .jpg'
-                               onChange={(e) => onChangeAttachMainPhoto(e.target)}
-                               style={{display: 'none'}}/>
-                        <Button color='secondary' endIcon={<AttachFile/>} size='small'
-                                className={s.downloadButton}
-                                onClick={() => inputFileRef.current && inputFileRef.current.click()}>
-                            <span>Change avatar </span>
-                        </Button>
-                    </div>
-                    }
-                    {editMode ? <ProfileDataForm profile={profile} onSubmit={onSubmit}/> :
-                        <ProfileData profile={profile} isOwner={isOwner} goToEditMode={goToEditMode}/>}
-
-
-                    <ProfileStatusWithHooks status={status}
-                                            updateStatusTC={updateStatusTC}/>
+    return (<>
+            {profile &&
+            <div>
+                <div className={s.background}>
+                    <img alt="background img"
+                         src="https://www.pikpng.com/pngl/b/603-6034862_header-banner-png-banner-images-header-png-clipart.png"/>
                 </div>
 
+                <div className={s.profileInfoBlock}>
+                    <div>
+                        <img className={s.mainPhoto} alt='avatar'
+                             src={profile.photos?.large || 'https://www.nicepng.com/png/detail/914-9142519_doge-meme-dog-doggo-funny-sticker-momo-png.png'}/>
+                        {isOwner &&
+                        <div className={s.uploadImageButton}>
+                            <input ref={inputFileRef}
+                                   type='file'
+                                   accept='.image/jpeg, .png, .jpg'
+                                   onChange={(e) => onChangeAttachMainPhoto(e.target)}
+                                   style={{display: 'none'}}/>
+                            <Button color='secondary' endIcon={<AttachFile/>} size='small'
+                                    className={s.downloadButton}
+                                    onClick={() => inputFileRef.current && inputFileRef.current.click()}>
+                                <span>Change avatar </span>
+                            </Button>
+                        </div>
+                        }
 
+                        {editMode ?
+                            <ProfileDataForm profile={profile} onSubmit={onSubmit}/> :
+                            <ProfileData profile={profile} isOwner={isOwner}
+                                         goToEditMode={goToEditMode}/>}
+
+                        <ProfileStatusWithHooks status={status}
+                                                updateStatusTC={updateStatusTC}/>
+                    </div>
+                </div>
             </div>
-        </div>
+            }
+        </>
+
     )
 }
 
@@ -96,7 +102,8 @@ export const ProfileData = ({profile, isOwner, goToEditMode}: ProfileDataType) =
 
     return (
         <div className={s.profileInfo}>
-            {isOwner && <div><Button onClick={goToEditMode} variant='contained'>Edit</Button></div>}
+            {isOwner &&
+            <div><Button onClick={goToEditMode} variant='contained'>Edit</Button></div>}
             <div>
                 <b>Full name</b>: {profile?.fullName}
             </div>
@@ -104,7 +111,7 @@ export const ProfileData = ({profile, isOwner, goToEditMode}: ProfileDataType) =
                 <b>Looking for a job</b> : {profile?.lookingForAJob ? "yes" : "no"}
             </div>
             <div>
-                <b>My professional skills</b>: {profile?.lookingForAJob}
+                <b>My professional skills</b>: {profile?.lookingForAJobDescription}
             </div>
             <div>
                 <b>About me</b>: {profile?.aboutMe}

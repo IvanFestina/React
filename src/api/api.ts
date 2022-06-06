@@ -25,14 +25,14 @@ export const usersAPI = {
         return instance.delete<ResponseType<{}>>(`follow/${userId}`)
             .then(response => response.data)
     },
-    getProfile(userId: number) {
+    getProfile(userId: number | null) {
         console.warn('Obsolete method. Please profileAPI object')
         return profileApi.getProfile(userId)
     }
 }
 
 export const profileApi = {
-    getProfile(userId: number) {
+    getProfile(userId: number | null) {
         return instance.get<ProfileType>(`profile/${userId}`).then(res => res.data)
     },
     getStatus(userId: number) {
@@ -46,8 +46,8 @@ export const profileApi = {
         formData.append('image', photoFile)
         return instance.put('profile/photo', formData, {headers: {'Content-Type': 'multipart/form-data'}})
     },
-    saveProfile(profile: any) {
-        return instance.put<ResponseType<{}>>(`profile/`, profile)
+    saveProfile(profile: Omit<ProfileType, "photos">) {
+        return instance.put(`profile`, profile)
 
     }
     //отправляем на сервак объект со свойством status

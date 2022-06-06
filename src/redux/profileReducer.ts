@@ -2,6 +2,8 @@ import {v1} from "uuid";
 import {Dispatch} from "redux";
 import {profileApi, usersAPI} from "../api/api";
 import {setToggleFollowingProgressAC} from "./userReducer";
+import {ThunkDispatch} from "redux-thunk";
+import {AppStateType} from "./redux-store";
 
 const initialState = {
     posts: [
@@ -50,11 +52,14 @@ export const setUserProfileAC = (profile: ProfileType | null) => ({
     profile,
 } as const)
 export const setStatusAC = (status: string) => ({type: "SET-STATUS", status,} as const)
-export const savePhotoSuccessAC = (photos: PhotosType) => ({type: "SAVE-PHOTO-SUCCESS", photos} as const)
+export const savePhotoSuccessAC = (photos: PhotosType) => ({
+    type: "SAVE-PHOTO-SUCCESS",
+    photos
+} as const)
 
 // T H U N K S
 
-export const getUserProfileTC = (userId: number) => async (dispatch: Dispatch) => {
+export const getUserProfileTC = (userId: number | null) => async (dispatch: Dispatch) => {
 //описываем тип, который возвращается из userId - PathParamsType
     const response = await usersAPI.getProfile(userId)
     dispatch(setUserProfileAC(response))
@@ -70,19 +75,17 @@ export const updateStatusTC = (status: string) => async (dispatch: Dispatch) => 
     }
 }
 export const savePhotoTC = (file: File) => async (dispatch: Dispatch) => {
-debugger
     const response = await profileApi.savePhoto(file)
     if (response.data.resultCode === 0) {
-    debugger
         dispatch(savePhotoSuccessAC(response.data))
     }
 }
-export const saveProfileTC = (profile: any) => async (dispatch: Dispatch) => {
-debugger
-    const response = await profileApi.saveProfile(file)
+export const saveProfileTC = (profile: Omit<ProfileType, "photos">) => async (dispatch: ThunkDispatch<AppStateType, null, ProfileActionsTypes>, getState: () => AppStateType) => {
+
+    const response = await profileApi.saveProfile(profile)
     if (response.data.resultCode === 0) {
-    debugger
-        dispatch(savePhotoSuccessAC(response.data))
+        const userId = getState().auth.userId
+        dispatch(getUserProfileTC(userId))
     }
 }
 

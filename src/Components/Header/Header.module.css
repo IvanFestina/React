@@ -3,7 +3,7 @@
   grid-area: h;
   background-color: #39395f;
   border:1px solid black;
-  margin: 0px 5px;
+  margin: 0 5px;
 }
 .header img {
   width: 60px;
@@ -13,4 +13,8 @@
 }
 .loginBlock a {
     color: white;
+}
+.loginNameAndLogOut {
+  color: white;
+  font-size: 18px;
 }

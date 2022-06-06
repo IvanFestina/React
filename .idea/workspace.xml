@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c956244b-a0e1-476c-b061-bbbbba213990" name="Changes" comment="refactoring 94">
-      <change afterPath="$PROJECT_DIR$/src/Components/Profile/ProfileInfo/ProfileDataForm.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Profile/ProfileInfo/ProfileDataForm.tsx" afterDir="false" />
+    <list default="true" id="c956244b-a0e1-476c-b061-bbbbba213990" name="Changes" comment="refactoring 97">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Header/Header.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Header/Header.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Header/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Header/Header.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Profile/Profile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Profile/Profile.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Profile/ProfileContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Profile/ProfileContainer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Profile/ProfileInfo/ProfileInfo.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Profile/ProfileInfo/ProfileInfo.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Profile/ProfileInfo/ProfileDataForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Profile/ProfileInfo/ProfileDataForm.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Profile/ProfileInfo/ProfileInfo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Profile/ProfileInfo/ProfileInfo.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/api.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/profileReducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/profileReducer.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,7 +159,7 @@
       <workItem from="1654079373620" duration="13006000" />
       <workItem from="1654171211025" duration="11278000" />
       <workItem from="1654374520448" duration="9026000" />
-      <workItem from="1654458618054" duration="1903000" />
+      <workItem from="1654458618054" duration="15513000" />
     </task>
     <task id="LOCAL-00001" summary="refactoring 90">
       <created>1653943270600</created>
@@ -187,7 +189,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654374539735</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="refactoring 97">
+      <created>1654461155271</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1654461155271</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -209,6 +218,7 @@
     <MESSAGE value="refactoring 90" />
     <MESSAGE value="refactoring 93" />
     <MESSAGE value="refactoring 94" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactoring 94" />
+    <MESSAGE value="refactoring 97" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactoring 97" />
   </component>
 </project>

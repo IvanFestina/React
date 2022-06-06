@@ -9,7 +9,7 @@ type ProfilePropsType = {
     status: string
     updateStatusTC: (status: string) => void
     savePhotoTC: (file: File) => void
-    saveProfileTC: () => void
+    saveProfileTC: (profile: Omit<ProfileType, "photos">) => void
 }
 
 export const Profile = ({
