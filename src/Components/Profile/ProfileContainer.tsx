@@ -27,7 +27,7 @@ export type MapDispatchToPropsType = {
     getStatusTC: (userId: string) => void
     updateStatusTC: (status: string) => void
     savePhotoTC:(file: File) => void
-    saveProfileTC:() => void
+    saveProfileTC:(profile: Omit<ProfileType, "photos">) => void
 }
 type ProfileContainerPropsType =
     MapStatePropsType
@@ -60,7 +60,6 @@ class ProfileContainer extends React.Component<ProfileContainerPropsType> {
 
 
     render() {
-
         return (
             <>
                 <Profile {...this.props}

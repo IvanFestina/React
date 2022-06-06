@@ -85,7 +85,7 @@ export const saveProfileTC = (profile: Omit<ProfileType, "photos">) => async (di
     const response = await profileApi.saveProfile(profile)
     if (response.data.resultCode === 0) {
         const userId = getState().auth.userId
-        dispatch(getUserProfileTC(userId))
+        await dispatch(getUserProfileTC(userId))
     }
 }
 

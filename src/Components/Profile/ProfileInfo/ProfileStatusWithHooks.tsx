@@ -1,4 +1,4 @@
-import React, {ChangeEvent, useEffect, useRef, useState} from "react";
+import React, {ChangeEvent, useEffect, useState} from "react";
 import s from './ProfileInfo.module.css'
 import {Input} from "@mui/material";
 
@@ -10,7 +10,6 @@ export function ProfileStatusWithHooks({updateStatusTC, ...props}: PropsType) {
 
     const [editMode, setEditMode] = useState<boolean>(false)
     const [status, setStatus] = useState<string>(props.status)
-    const ref = useRef<HTMLElement>(null)
 
     useEffect(() => {
 

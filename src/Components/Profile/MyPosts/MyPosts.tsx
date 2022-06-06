@@ -1,11 +1,11 @@
-import React, {ChangeEvent, useEffect} from "react";
+import React, {useEffect} from "react";
 import s from './MyPosts.module.css'
 import {Post} from "./Post/Post";
 import {postsObjectType} from "../../../redux/profileReducer";
 import FormGroup from "@material-ui/core/FormGroup";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
-import {SubmitHandler, useForm, Controller} from "react-hook-form";
+import {Controller, SubmitHandler, useForm} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
@@ -21,7 +21,7 @@ export const MyPosts = ({posts, addPostAC}: PropsType) => {
     return (
         <div className={s.postsBlock}>
             <h3>My posts</h3>
-            <AddPostForm addPostAC={addPostAC}/>
+            {/*<AddPostForm addPostAC={addPostAC}/>*/}
             <div className={s.posts}>
                 {postsElements}
             </div>
