@@ -13,17 +13,14 @@ const instance = axios.create({
 export const usersAPI = {
     getUsers(currentPage: number = 1, pageSize: number = 10) {
         return instance.get<ResponseUserType>(`users?Page=${currentPage}&count=${pageSize}`)
-            .then(response => response.data)
 // если функция должна получить данные, которых у нее нет, эта фунция должна получить данные из параметров.
 // axios догадываемся возвращается промис и мы должны return то, что возвращаем get
     },
     follow(userId: number) {
         return instance.post<ResponseType<{}>>(`follow/${userId}`)
-            .then(response => response.data)
     },
     unfollow(userId: number) {
         return instance.delete<ResponseType<{}>>(`follow/${userId}`)
-            .then(response => response.data)
     },
     getProfile(userId: number | null) {
         console.warn('Obsolete method. Please profileAPI object')
@@ -33,10 +30,10 @@ export const usersAPI = {
 
 export const profileApi = {
     getProfile(userId: number | null) {
-        return instance.get<ProfileType>(`profile/${userId}`).then(res => res.data)
+        return instance.get<ProfileType>(`profile/${userId}`)
     },
     getStatus(userId: number) {
-        return instance.get<string>(`profile/status/${userId}`).then(res => res.data)
+        return instance.get<string>(`profile/status/${userId}`)
     },
     updateStatus(status: string) {
         return instance.put<{ data: string }, AxiosResponse<ResponseType<{}>>>(`profile/status`, {status})
@@ -56,18 +53,19 @@ export const profileApi = {
 export const authAPI = {
     me() {
         return instance.get<ResponseType<{ id: number, email: string, login: string }>>(`auth/me`)
-            .then(response => response.data)
         //теперь наш Header знает, что мы авторизованы,
         // нужно эту информацию из data задиспачить в authReducer
     },
-    login(email: string, password: string, rememberMe = false) {
+    login(email: string, password: string, rememberMe = false, captcha: string | null) {
         return instance.post<ResponseType<{ userId: number }>, AxiosResponse<ResponseType<{ userId: number }>>, RequestLoginType>(`auth/login`, {
             email,
             password,
-            rememberMe
-        }).then(res => res.data)
+            rememberMe,
+            captcha
+        })
     },
-    logout: () => instance.delete<ResponseType<{}>>(`auth/login`).then(res => res.data)
+    logout: () => instance.delete(`auth/login`),
+    getCaptcha: () => instance.get<ResponseCaptchaType>(`/security/get-captcha-url`)
 }
 
 
@@ -81,7 +79,7 @@ type RequestLoginType = {
     email: string
     password: string
     rememberMe: boolean
-    captcha?: boolean
+    captcha?: string | null
 }
 
 type ResponseUserType = {
@@ -89,14 +87,6 @@ type ResponseUserType = {
     totalCount: number
     error: string
 }
-// type UserType = {
-//     name: string
-//     id: number
-//     uniqueUrlName: string
-//     photos: {
-//     small: string
-//     large: string
-//     }
-//     status: string
-//     fallowed: boolean
-// }
+type ResponseCaptchaType = {
+    url: string
+}

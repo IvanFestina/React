@@ -1,5 +1,5 @@
 import React from 'react'
-import {useForm, SubmitHandler, Controller} from "react-hook-form";
+import {Controller, SubmitHandler, useForm} from "react-hook-form";
 import Grid from "@material-ui/core/Grid";
 import FormGroup from "@material-ui/core/FormGroup";
 import TextField from "@material-ui/core/TextField";
@@ -14,11 +14,13 @@ import {useDispatch, useSelector} from "react-redux";
 import {loginTC} from "../../redux/auth-reducer";
 import {AppStateType} from "../../redux/redux-store";
 import {Redirect} from "react-router-dom";
+import Input from "@mui/material/Input";
 
 type IFormInputs = {
     email: string
     password: string
     rememberMe: boolean
+    captchaSymbols: string | null
 }
 const schema = yup.object().shape({
     email: yup.string().email("Invalid email address").required("Required"),
@@ -30,6 +32,7 @@ export const Login = (props: any) => {
 
     const dispatch = useDispatch()
     const isAuth = useSelector<AppStateType, boolean>(state => state.auth.isAuth)
+    const captchaUrl = useSelector<AppStateType, string | null>(state => state.auth.captchaUrl)
 
     const {
         handleSubmit,
@@ -38,7 +41,7 @@ export const Login = (props: any) => {
     } = useForm<IFormInputs>({resolver: yupResolver(schema)})
 
     const formSubmitHandler: SubmitHandler<IFormInputs> = (data: IFormInputs) => {
-        dispatch(loginTC(data.email, data.password, data.rememberMe))
+        dispatch(loginTC(data.email, data.password, data.rememberMe, data.captchaSymbols))
     }
 
     if (isAuth) {
@@ -48,39 +51,48 @@ export const Login = (props: any) => {
     return (
         <Grid container justifyContent={'center'} style={{marginTop: '100px'}}>
             <Grid item justifyContent={'center'}>
-                <Avatar>
+                <Avatar style={{alignSelf: 'center'}}>
                     <LockOutlinedIcon color={"action"}/>
                 </Avatar>
-                <form onSubmit={handleSubmit(formSubmitHandler)}>
-                    <FormGroup>
-                        <Controller name={'email'} control={control}
-                                    render={({field}) => (
-                                        <TextField {...field} label="Email"
-                                                   type='email'
-                                                   margin="normal"
+                <FormGroup>
+                    <Controller name={'email'} control={control}
+                                render={({field}) => (
+                                    <TextField {...field} label="Email"
+                                               type='email'
+                                               margin="normal"
 
-                                                   error={!!errors.email}
-                                                   helperText={errors?.email ? errors?.email?.message : ''}
-                                        />)}/>
-                        <Controller name={'password'} control={control}
+                                               error={!!errors.email}
+                                               helperText={errors?.email ? errors?.email?.message : ''}
+                                    />)}/>
+                    <Controller name={'password'} control={control}
+                                render={({field}) => (
+                                    <TextField {...field} type="password"
+                                               label="Password"
+                                               margin="normal"
+                                               error={!!errors.password}
+                                               helperText={errors?.password ? errors?.password?.message : ''}
+                                    />)}/>
+                    <FormControlLabel label={'Remember me'} control={
+                        <Controller name={'rememberMe'} control={control} render={
+                            ({field}) => (<Checkbox {...field}/>)
+                        }/>
+                    }
+                    />
+                    <Button variant={'contained'} color={'primary'}
+                            onClick={handleSubmit(formSubmitHandler)}>
+                        Sign in
+                    </Button>
+                    {captchaUrl &&
+                    <div style={{marginTop: '15px'}}>
+                        <Controller name={'captchaSymbols'} control={control}
                                     render={({field}) => (
-                                        <TextField {...field} type="password"
-                                                   label="Password"
-                                                   margin="normal"
-                                                   error={!!errors.password}
-                                                   helperText={errors?.password ? errors?.password?.message : ''}
-                                        />)}/>
-                        <FormControlLabel label={'Remember me'} control={
-                            <Controller name={'rememberMe'} control={control} render={
-                                ({field}) => (<Checkbox {...field}/>)
-                            }/>
-                        }
-                        />
-                        <Button type={'submit'} variant={'contained'} color={'primary'}>
-                            Sign in
-                        </Button>
-                    </FormGroup>
-                </form>
+                                        <Input {...field} type="text"
+                                               placeholder="Type symbols here"/>)}/>
+                        <br/>
+                        <img src={captchaUrl}
+                             alt={'captcha'}/>
+                    </div>}
+                </FormGroup>
             </Grid>
         </Grid>
     )

@@ -80,14 +80,14 @@ export const getUsersTC = (page: number, pageSize: number) => async (dispatch: D
     dispatch(setCurrentPageAC(page))
     const response = await usersAPI.getUsers(page, pageSize)
     dispatch(setToggleIsFetchingAC(false))
-    dispatch(setUsersAC(response.items));
-    dispatch(setUsersTotalCountAC(response.totalCount))
+    dispatch(setUsersAC(response.data.items));
+    dispatch(setUsersTotalCountAC(response.data.totalCount))
 }
 
 export const followTC = (userId: number) => async (dispatch: Dispatch) => {
     dispatch(setToggleFollowingProgressAC(true, userId))
     const data = await usersAPI.follow(userId)   //axios
-    if (data.resultCode === 0) {
+    if (data.data.resultCode === 0) {
         dispatch(followUnfollowAC(userId, true));
     }
     dispatch(setToggleFollowingProgressAC(false, userId))
@@ -96,7 +96,7 @@ export const followTC = (userId: number) => async (dispatch: Dispatch) => {
 export const unFollowTC = (userID: number) => async (dispatch: Dispatch) => {
     dispatch(setToggleFollowingProgressAC(true, userID))
     const data = await usersAPI.unfollow(userID)  //axios
-    if (data.resultCode === 0) {
+    if (data.data.resultCode === 0) {
         dispatch(followUnfollowAC(userID, false));
     }
     dispatch(setToggleFollowingProgressAC(false, userID))

@@ -62,11 +62,11 @@ export const savePhotoSuccessAC = (photos: PhotosType) => ({
 export const getUserProfileTC = (userId: number | null) => async (dispatch: Dispatch) => {
 //описываем тип, который возвращается из userId - PathParamsType
     const response = await usersAPI.getProfile(userId)
-    dispatch(setUserProfileAC(response))
+    dispatch(setUserProfileAC(response.data))
 }
 export const getStatusTC = (userId: number) => async (dispatch: Dispatch) => {
     const response = await profileApi.getStatus(userId)
-    dispatch(setStatusAC(response))
+    dispatch(setStatusAC(response.data))
 }
 export const updateStatusTC = (status: string) => async (dispatch: Dispatch) => {
     const response = await profileApi.updateStatus(status)

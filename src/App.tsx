@@ -93,6 +93,5 @@ export const MainTSApp = (props: any) => {
             <AppContainer/>
         </Provider>
     </BrowserRouter>
-
 }
 
