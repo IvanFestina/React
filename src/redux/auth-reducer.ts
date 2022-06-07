@@ -55,12 +55,14 @@ export const getAuthUserDataTC = () => async (dispatch: Dispatch) => {
 
 export const loginTC = (email: string, password: string, rememberMe: boolean) => async (dispatch: Dispatch) => {
     const response = await authAPI.login(email, password, rememberMe)
-    if (response.resultCode === 0) {
-        dispatch(getAuthUserDataTC() as any)
-    }
-    if (response.messages.length) {
-        dispatch(setAppErrorAC(response.messages[0]))
-    } else {
+    try {
+        if (response.resultCode === 0) {
+            dispatch(getAuthUserDataTC() as any)
+        }
+        if (response.messages.length) {
+            dispatch(setAppErrorAC(response.messages[0]))
+        }
+    } catch (error) {
         dispatch(setAppErrorAC('Some error occurred'))
     }
 }

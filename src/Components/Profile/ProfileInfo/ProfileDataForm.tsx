@@ -17,7 +17,6 @@ type ProfileDataFormType = {
     isOwner?: boolean
     goToEditMode?: () => void
     setEditMode: (editMode: boolean) => void
-    // onSubmit: (formData: any) => void
 }
 
 export type FormInputs = {
@@ -29,9 +28,7 @@ export type FormInputs = {
 };
 
 export const ProfileDataForm = ({profile, setEditMode}: ProfileDataFormType) => {
-    // const schema = yup.object().shape({
-    //     input: yup.string(),
-    // })
+
 
     const {
         handleSubmit,
@@ -47,7 +44,6 @@ export const ProfileDataForm = ({profile, setEditMode}: ProfileDataFormType) => 
         }
     )
 
-    //const [editMode, setEditMode] = useState<boolean>(false);
     const dispatch = useDispatch()
     const onSubmit: SubmitHandler<FormInputs> = async (data: FormInputs) => {
         console.log('submit')
@@ -58,7 +54,6 @@ export const ProfileDataForm = ({profile, setEditMode}: ProfileDataFormType) => 
     return (
         <div className={s.profileDataForm}>
             <div>
-                {/*<div><Button variant='contained' type='submit'>Save</Button></div>*/}
                 <div><Button variant='contained'
                              onClick={handleSubmit(onSubmit)}>Save</Button></div>
                 <div>

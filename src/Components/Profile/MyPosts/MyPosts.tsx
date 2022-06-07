@@ -16,12 +16,13 @@ type PropsType = {
 }
 
 export const MyPosts = ({posts, addPostAC}: PropsType) => {
-    const postsElements = posts.map(p => <Post key={p.id} message={p.message} likesCount={p.likesCount}/>)
+    const postsElements = posts.map(p => <Post key={p.id} message={p.message}
+                                               likesCount={p.likesCount}/>)
 
     return (
         <div className={s.postsBlock}>
             <h3>My posts</h3>
-            {/*<AddPostForm addPostAC={addPostAC}/>*/}
+            <AddPostForm addPostAC={addPostAC}/>
             <div className={s.posts}>
                 {postsElements}
             </div>
@@ -29,7 +30,11 @@ export const MyPosts = ({posts, addPostAC}: PropsType) => {
     )
 }
 
-// NEW COMPONENT
+
+
+
+// N E W   C O M P O N E N T
+
 type AddPostFormPropsType = {
     addPostAC: (textForNewPost: string) => void
 }
@@ -50,15 +55,16 @@ export const AddPostForm = ({addPostAC}: AddPostFormPropsType) => {
         reset
     } = useForm<IFormInputs>({resolver: yupResolver(schema)})
 
-        useEffect(() => {
-        reset({post_area: ''})}, [isSubmitSuccessful, reset])
+    useEffect(() => {
+        reset({post_area: ''})
+    }, [isSubmitSuccessful, reset])
 
     const formSubmitHandler: SubmitHandler<any> = (data: IFormInputs) => {
         addPostAC(data.post_area)
     }
 
     return (
-        <form onSubmit={handleSubmit(formSubmitHandler)}>
+        <div>
             <FormGroup style={{maxWidth: '300px'}}>
                 <Controller name={'post_area'} control={control}
                             render={({field}) => (
@@ -68,8 +74,9 @@ export const AddPostForm = ({addPostAC}: AddPostFormPropsType) => {
                                            error={!!errors.post_area}
 
                                 />)}/>
-                <Button type='submit' variant={"contained"}>Add post</Button>
+                <Button variant={"contained"} onClick={handleSubmit(formSubmitHandler)}>Add
+                    post</Button>
             </FormGroup>
-        </form>
+        </div>
     )
 }
