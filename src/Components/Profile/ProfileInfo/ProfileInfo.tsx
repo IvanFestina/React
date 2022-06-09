@@ -5,8 +5,7 @@ import {ProfileStatusWithHooks} from "./ProfileStatusWithHooks";
 import Button from "@mui/material/Button";
 import {AttachFile} from "@material-ui/icons";
 import {useDispatch} from "react-redux";
-import {FormInputs, ProfileDataForm} from "./ProfileDataForm";
-import {SubmitHandler} from "react-hook-form";
+import {ProfileDataForm} from "./ProfileDataForm";
 import {ProfileData} from "./PrifleData";
 
 type ProfileInfoPropsType = {

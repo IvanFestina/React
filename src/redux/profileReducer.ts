@@ -4,6 +4,7 @@ import {profileApi, usersAPI} from "../api/api";
 import {setToggleFollowingProgressAC} from "./userReducer";
 import {ThunkDispatch} from "redux-thunk";
 import {AppStateType} from "./redux-store";
+import {setAppErrorAC, SetAppErrorActionType} from "./auth-reducer";
 
 const initialState = {
     posts: [
@@ -61,31 +62,49 @@ export const savePhotoSuccessAC = (photos: PhotosType) => ({
 
 export const getUserProfileTC = (userId: number | null) => async (dispatch: Dispatch) => {
 //описываем тип, который возвращается из userId - PathParamsType
-    const response = await usersAPI.getProfile(userId)
-    dispatch(setUserProfileAC(response.data))
+    try {
+        const response = await usersAPI.getProfile(userId)
+        dispatch(setUserProfileAC(response.data))
+    } catch (error) {
+        dispatch(setAppErrorAC('Some error occurred getting userProfile'))
+    }
+
 }
 export const getStatusTC = (userId: number) => async (dispatch: Dispatch) => {
-    const response = await profileApi.getStatus(userId)
-    dispatch(setStatusAC(response.data))
+    try {
+        const response = await profileApi.getStatus(userId)
+        dispatch(setStatusAC(response.data))
+    } catch (error) {
+        dispatch(setAppErrorAC('Some error occurred getting userStatus'))
+    }
+
 }
 export const updateStatusTC = (status: string) => async (dispatch: Dispatch) => {
-    const response = await profileApi.updateStatus(status)
-    if (response.data.resultCode === 0) {
-        dispatch(setStatusAC(status))
+    try {
+        const response = await profileApi.updateStatus(status)
+        response.data.resultCode === 0 && dispatch(setStatusAC(status))
+    } catch (error) {
+        dispatch(setAppErrorAC('Some error occurred updating userStatus'))
     }
 }
+
 export const savePhotoTC = (file: File) => async (dispatch: Dispatch) => {
-    const response = await profileApi.savePhoto(file)
-    if (response.data.resultCode === 0) {
-        dispatch(savePhotoSuccessAC(response.data))
+    try {
+        const response = await profileApi.savePhoto(file)
+        response.data.resultCode === 0 && dispatch(savePhotoSuccessAC(response.data))
+    } catch (error) {
+        dispatch(setAppErrorAC('Some error occurred saving userPhoto'))
     }
 }
 export const saveProfileTC = (profile: Omit<ProfileType, "photos">) => async (dispatch: ThunkDispatch<AppStateType, null, ProfileActionsTypes>, getState: () => AppStateType) => {
-
-    const response = await profileApi.saveProfile(profile)
-    if (response.data.resultCode === 0) {
-        const userId = getState().auth.userId
-        await dispatch(getUserProfileTC(userId))
+    try {
+        const response = await profileApi.saveProfile(profile)
+        if (response.data.resultCode === 0) {
+            const userId = getState().auth.userId
+            await dispatch(getUserProfileTC(userId))
+        }
+    } catch (error) {
+        dispatch(setAppErrorAC('Some error occurred saving userProfile'))
     }
 }
 
@@ -131,3 +150,4 @@ export type ProfileActionsTypes = ReturnType<typeof addPostAC>
     | ReturnType<typeof setToggleFollowingProgressAC>
     | ReturnType<typeof setStatusAC>
     | ReturnType<typeof savePhotoSuccessAC>
+    | SetAppErrorActionType

@@ -1,4 +1,8 @@
-import {getAuthUserDataTC, SetAuthUserDataActionType} from "./auth-reducer";
+import {
+    getAuthUserDataTC,
+    setAppErrorAC, SetAppErrorActionType,
+    SetAuthUserDataActionType
+} from "./auth-reducer";
 import {ThunkDispatch} from "redux-thunk";
 import {AppStateType} from "./redux-store";
 
@@ -6,7 +10,8 @@ const authInitialState = {
     initialized: false
 }
 
-// R E D U C ER
+// R E D U C E R
+
 export const appReducer = (state = authInitialState, action: ActionType) => {
     switch (action.type) {
         case 'INITIALIZED-SUCCESS':
@@ -26,9 +31,13 @@ export const initializedSuccessAC = (initialized: boolean) => ({
 //THUNKS
 
 //типизация thunk dispatch: ThunkDispatch<AppStateType, null (ExtraThunkArg), ActionType>
-export const initializeAppTC = () => (dispatch: ThunkDispatch<AppStateType, null, ActionType>) => {
-    const promise = dispatch(getAuthUserDataTC())
-    Promise.all([promise]).then( () => dispatch(initializedSuccessAC(true) ))
+export const initializeAppTC = () => async (dispatch: ThunkDispatch<AppStateType, null, ActionType>) => {
+    try {
+        const promise = dispatch(getAuthUserDataTC())
+        Promise.all([promise]).then(() => dispatch(initializedSuccessAC(true)))
+    } catch (error) {
+        dispatch(setAppErrorAC("Initializing Error"))
+    }
 }
 
 //TYPES
@@ -37,3 +46,4 @@ export type InitializedSuccessActionType = ReturnType<typeof initializedSuccessA
 
 type ActionType = InitializedSuccessActionType
     | SetAuthUserDataActionType
+    | SetAppErrorActionType

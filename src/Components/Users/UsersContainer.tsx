@@ -2,7 +2,6 @@ import React from "react";
 import {connect} from "react-redux";
 import {AppStateType} from "../../redux/redux-store";
 import {Users} from "./Users";
-import {Preloader} from "../common/Preloader/Preloader";
 import {
     followTC,
     getUsersTC,
@@ -14,6 +13,7 @@ import {compose} from "redux";
 import {withRouter} from "react-router-dom";
 import {withAuthRedirect} from "../../HOC/WithAuthRedirect";
 import {getUserPage} from "./users-selectors";
+import LinearProgress from "@mui/material/LinearProgress";
 
 type MapStatePropsType = {
     usersPage: InitialStateUserType
@@ -41,7 +41,7 @@ export class UsersAPIComponent extends React.Component<UsersPropsType> {
     render = () => {
 
         return <>
-            {this.props.usersPage.isFetching ? <Preloader/> : null}
+            {this.props.usersPage.isFetching ? <LinearProgress/> : null}
             <Users
                 usersPage={this.props.usersPage}
                 onPageChanged={this.onPageChanged}

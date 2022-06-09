@@ -1,5 +1,6 @@
 import {Dispatch} from "redux";
 import {usersAPI} from "../api/api";
+import {setAppErrorAC} from "./auth-reducer";
 
 const initialState = {
     users: [] as UserObjectType[],
@@ -77,29 +78,41 @@ export const setToggleFollowingProgressAC = (isFetching: boolean, userId: number
 //ThunckCreator функция, которая может что-то принимать и возвращать Thunk
 export const getUsersTC = (page: number, pageSize: number) => async (dispatch: Dispatch) => {
     dispatch(setToggleIsFetchingAC(true))
-    dispatch(setCurrentPageAC(page))
-    const response = await usersAPI.getUsers(page, pageSize)
-    dispatch(setToggleIsFetchingAC(false))
-    dispatch(setUsersAC(response.data.items));
-    dispatch(setUsersTotalCountAC(response.data.totalCount))
+    try {
+        dispatch(setCurrentPageAC(page))
+        const response = await usersAPI.getUsers(page, pageSize)
+        dispatch(setUsersAC(response.data.items));
+        dispatch(setUsersTotalCountAC(response.data.totalCount))
+    } catch (error) {
+        dispatch(setAppErrorAC('Some error occurred related to pagination'))
+    } finally {
+        dispatch(setToggleIsFetchingAC(false))
+    }
 }
 
 export const followTC = (userId: number) => async (dispatch: Dispatch) => {
     dispatch(setToggleFollowingProgressAC(true, userId))
-    const data = await usersAPI.follow(userId)   //axios
-    if (data.data.resultCode === 0) {
-        dispatch(followUnfollowAC(userId, true));
+    try {
+        const data = await usersAPI.follow(userId)   //axios
+        data.data.resultCode === 0 && dispatch(followUnfollowAC(userId, true))
+    } catch (error) {
+        dispatch(setAppErrorAC('error occurred toggling fallow'))
+    } finally {
+        dispatch(setToggleFollowingProgressAC(false, userId))
     }
-    dispatch(setToggleFollowingProgressAC(false, userId))
+
 }
 
-export const unFollowTC = (userID: number) => async (dispatch: Dispatch) => {
-    dispatch(setToggleFollowingProgressAC(true, userID))
-    const data = await usersAPI.unfollow(userID)  //axios
-    if (data.data.resultCode === 0) {
-        dispatch(followUnfollowAC(userID, false));
+export const unFollowTC = (userId: number) => async (dispatch: Dispatch) => {
+    dispatch(setToggleFollowingProgressAC(true, userId))
+    try {
+        const data = await usersAPI.unfollow(userId)  //axios
+        data.data.resultCode === 0 && dispatch(followUnfollowAC(userId, false));
+    } catch (error) {
+        dispatch(setAppErrorAC('error occurred toggling unFallow'))
+    } finally {
+        dispatch(setToggleFollowingProgressAC(false, userId))
     }
-    dispatch(setToggleFollowingProgressAC(false, userID))
 }
 
 // TYPES
