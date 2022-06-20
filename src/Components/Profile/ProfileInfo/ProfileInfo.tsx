@@ -47,10 +47,10 @@ export const ProfileInfo = ({
     return (<>
             {profile &&
             <div>
-                <div className={s.background}>
-                    <img alt="background img"
-                         src="https://www.pikpng.com/pngl/b/603-6034862_header-banner-png-banner-images-header-png-clipart.png"/>
-                </div>
+                {/*<div className={s.background}>*/}
+                {/*    <img alt="background img"*/}
+                {/*         src="https://www.pikpng.com/pngl/b/603-6034862_header-banner-png-banner-images-header-png-clipart.png"/>*/}
+                {/*</div>*/}
 
                 <div className={s.profileInfoBlock}>
                     <div>

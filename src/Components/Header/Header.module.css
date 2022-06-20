@@ -1,9 +1,6 @@
 
 .header {
-  grid-area: h;
-  background-color: #39395f;
-  border:1px solid black;
-  margin: 0 5px;
+  background-color: #34421e;
 }
 .header img {
   width: 60px;
@@ -11,10 +8,7 @@
 .loginBlock {
   float: right;
 }
-.loginBlock a {
-    color: white;
-}
 .loginNameAndLogOut {
-  color: white;
+  color: #F1F1EF;
   font-size: 18px;
 }

@@ -96,7 +96,7 @@ export const LoginPage = (props: any) => {
                             <img src={captchaUrl}
                                  alt={'captcha'}/>
                         </div>}
-                        <div className={s.logingHelper}>
+                        <div className={s.loginHelper}>
                             <Typography>To log in get registered <a href={'https://social-network.samuraijs.com/'}>here</a>
                                 <br/> or use common test account credentials:
                                 Email: free@samuraijs.com

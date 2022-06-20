@@ -1,6 +1,6 @@
 import React, {Suspense} from 'react';
 import './App.css';
-import {Sidebar} from "./Components/Navbar/Sidebar";
+import {Navbar} from "./Components/Navbar/Navbar";
 import {Settings} from "./Components/Settings/Settings";
 import {Music} from "./Components/Music/Music";
 import {News} from "./Components/News/News";
@@ -16,6 +16,7 @@ import {initializeAppTC} from "./bll/app-reducer";
 import {compose} from "redux";
 import LinearProgress from "@mui/material/LinearProgress";
 import {Error404Page} from "./Components/Error404/Error404Page";
+import Grid from '@mui/material/Grid';
 
 type AppType = MapStateToPropsType & {
     getAuthUserDataTC: () => void
@@ -57,33 +58,37 @@ class App extends React.Component<AppType> {
             return <LinearProgress/>
         }
         return (
-            <div className='app-wrapper'>
-                <ErrorSnackbar/>
-                {this.props.isAuth && <HeaderContainer/>}
-                {this.props.isAuth && <Sidebar/>}
-                <div className='app-wrapper-content'>
-                    <Switch>
-                        <Route exact path='/' render={() => <Redirect to={'/login'}/>}/>
-                        <Route path='/login' render={() => <LoginPage/>}/>
-                        <Route path='/dialogs'
-                               render={() =>
-                                   <Suspense fallback={<LinearProgress/>}>
-                                       <DialogsContainer/>
-                                   </Suspense>}/>
-                        <Route path='/profile/:userId?'
-                               render={() =>
-                                   <Suspense fallback={<LinearProgress/>}>
-                                       <ProfileContainer/>
-                                   </Suspense>}/>
-                        <Route path='/news' component={News}/>
-                        <Route path='/music' render={() => <Music/>}/>
-                        <Route path='/settings' render={() => <Settings/>}/>
-                        <Route path='/users' render={() => <UsersContainer/>}/>
-                        <Route path='*' render={() => <Error404Page/>}/>
-                    </Switch>
-                </div>
+            <div>
+                <Grid container>
+                    <ErrorSnackbar/>
+                    {this.props.isAuth && <Grid item xs={12}><HeaderContainer/></Grid>}
+                    {this.props.isAuth && <Grid item xs={3}><Navbar/></Grid>}
+                    <Grid item xs={9} className='core'>
+                        <Switch>
+                            <Route exact path='/'
+                                   render={() => <Redirect to={'/login'}/>}/>
+                            <Route path='/login' render={() => <LoginPage/>}/>
+                            <Route path='/dialogs'
+                                   render={() =>
+                                       <Suspense fallback={<LinearProgress/>}>
+                                           <DialogsContainer/>
+                                       </Suspense>}/>
+                            <Route path='/profile/:userId?'
+                                   render={() =>
+                                       <Suspense fallback={<LinearProgress/>}>
+                                           <ProfileContainer/>
+                                       </Suspense>}/>
+                            <Route path='/news' component={News}/>
+                            <Route path='/music' render={() => <Music/>}/>
+                            <Route path='/settings' render={() => <Settings/>}/>
+                            <Route path='/users' render={() => <UsersContainer/>}/>
+                            <Route path='*' render={() => <Error404Page/>}/>
+                        </Switch>
+                    </Grid>
+                </Grid>
             </div>
-        );
+        )
+            ;
     }
 }
 

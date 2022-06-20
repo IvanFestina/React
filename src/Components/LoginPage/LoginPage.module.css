@@ -8,14 +8,14 @@
     width: 100%;
     height: 100%;
 }
-.logingHelper p {
+.loginHelper p {
     margin-top: 40px;
     font-weight: bolder;
     font-size: 18px;
     color: black;
     text-align: center;
 }
-.logingHelper a {
+.loginHelper a {
     text-decoration: none;
     color: #1976d2;
 }

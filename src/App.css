@@ -1,20 +1,4 @@
-.app-wrapper {
-    margin: 0;
-    display: grid;
-    grid-template-areas:
-  /*По какому шаблому grid будет выстроен*/ "h h"
-  "n c";
-    grid-template-rows: 60px 1fr;
-    grid-template-columns: minmax(min-content, max-content) 1fr;
-    grid-gap: 5px;
+
+.core {
+    background: #F1F1EF;
 }
-
-.app-wrapper-content {
-    grid-area: c;
-    background-color: #f;
-    margin-right: 5px;
-    color: #416a59;
-    font-weight: bold;
-}
-
-

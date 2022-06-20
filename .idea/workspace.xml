@@ -1,39 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c956244b-a0e1-476c-b061-bbbbba213990" name="Changes" comment="made try catch structure in thunks">
-      <change afterPath="$PROJECT_DIR$/src/Components/LoginPage/LoginPage.module.css" afterDir="false" />
+    <list default="true" id="c956244b-a0e1-476c-b061-bbbbba213990" name="Changes" comment="made login page better and before applying Mui grid">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Dialogs/Dialogs.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Dialogs/Dialogs.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Dialogs/DialogsContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Dialogs/DialogsContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Header/Header.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Header/Header.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Header/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Header/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Header/HeaderContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Header/HeaderContainer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Login/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/LoginPage/LoginPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Navbar/Sidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Navbar/Sidebar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Profile/MyPosts/MyPosts.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Profile/MyPosts/MyPosts.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Profile/MyPosts/Post/MyPostsContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Profile/MyPosts/Post/MyPostsContainer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Profile/Profile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Profile/Profile.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Profile/ProfileContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Profile/ProfileContainer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Profile/ProfileInfo/PrifleData.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Profile/ProfileInfo/PrifleData.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Profile/ProfileInfo/ProfileDataForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Profile/ProfileInfo/ProfileDataForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/LoginPage/LoginPage.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/LoginPage/LoginPage.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/LoginPage/LoginPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/LoginPage/LoginPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Navbar/Friends/Friends.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Navbar/Friends/Friends.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Navbar/Navbar.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Navbar/Navbar.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Navbar/Sidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Navbar/Navbar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Profile/ProfileInfo/ProfileInfo.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Profile/ProfileInfo/ProfileInfo.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Profile/ProfileInfo/ProfileInfo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Profile/ProfileInfo/ProfileInfo.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Users/User.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Users/User.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Users/Users.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Users/Users.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Users/UsersContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Users/UsersContainer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Users/users-selectors.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Users/users-selectors.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/common/ErrorSnackbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/common/ErrorSnackbar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HOC/WithAuthRedirect.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/HOC/WithAuthRedirect.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/api.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/app-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/app-reducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/auth-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/auth-reducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/dialogReducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/dialogReducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/old-store/old-store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/old-store/old-store.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/profileReducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/profileReducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/redux-store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/redux-store.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/sidebarReducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/sidebarReducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/userReducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/userReducer.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -188,7 +168,7 @@
       <workItem from="1654725742629" duration="4803000" />
       <workItem from="1654893677178" duration="16000" />
       <workItem from="1655663449859" duration="4646000" />
-      <workItem from="1655737698094" duration="3491000" />
+      <workItem from="1655737698094" duration="11470000" />
     </task>
     <task id="LOCAL-00001" summary="refactoring 90">
       <created>1653943270600</created>
@@ -260,7 +240,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654893687235</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="made login page better and before applying Mui grid">
+      <created>1655755107728</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1655755107728</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -286,6 +273,7 @@
     <MESSAGE value="refactoring 98" />
     <MESSAGE value="captcha" />
     <MESSAGE value="made try catch structure in thunks" />
-    <option name="LAST_COMMIT_MESSAGE" value="made try catch structure in thunks" />
+    <MESSAGE value="made login page better and before applying Mui grid" />
+    <option name="LAST_COMMIT_MESSAGE" value="made login page better and before applying Mui grid" />
   </component>
 </project>
