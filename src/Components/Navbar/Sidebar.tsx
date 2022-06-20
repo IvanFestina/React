@@ -3,8 +3,8 @@ import s from './Navbar.module.css'
 import {NavLink} from "react-router-dom";
 import {Friends} from "./Friends/Friends";
 import {useSelector} from "react-redux";
-import {AppStateType} from "../../redux/redux-store";
-import {friends} from "../../redux/sidebarReducer";
+import {AppStateType} from "../../bll/redux-store";
+import {friends} from "../../bll/sidebarReducer";
 
 export const Sidebar = () => {
     const friends = useSelector<AppStateType, friends[]>(state => state.sideBar.friends)

@@ -1,6 +1,6 @@
 import React, {useRef, useState} from "react";
 import s from './ProfileInfo.module.css'
-import {ProfileType, savePhotoTC} from "../../../redux/profileReducer";
+import {ProfileType, savePhotoTC} from "../../../bll/profileReducer";
 import {ProfileStatusWithHooks} from "./ProfileStatusWithHooks";
 import Button from "@mui/material/Button";
 import {AttachFile} from "@material-ui/icons";

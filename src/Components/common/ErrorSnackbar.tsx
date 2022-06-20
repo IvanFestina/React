@@ -1,7 +1,7 @@
 import React, {SyntheticEvent} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {AppStateType} from "../../redux/redux-store";
-import {setAppErrorAC} from "../../redux/auth-reducer";
+import {AppStateType} from "../../bll/redux-store";
+import {setAppErrorAC} from "../../bll/auth-reducer";
 import MuiAlert, { AlertProps } from '@mui/material/Alert';
 import Snackbar from '@mui/material/Snackbar';
 

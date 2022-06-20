@@ -6,21 +6,20 @@ import {Music} from "./Components/Music/Music";
 import {News} from "./Components/News/News";
 import {BrowserRouter, Redirect, Route, Switch, withRouter} from 'react-router-dom';
 import HeaderContainer from "./Components/Header/HeaderContainer";
-import {Login} from "./Components/Login/Login";
+import {LoginPage} from "./Components/LoginPage/LoginPage";
 import UsersContainer from "./Components/Users/UsersContainer";
 import {ErrorSnackbar} from "./Components/common/ErrorSnackbar";
 import {connect, Provider} from "react-redux";
-import {getAuthUserDataTC, setAppErrorAC} from "./redux/auth-reducer";
-import {AppStateType, store} from "./redux/redux-store";
-import {initializeAppTC} from "./redux/app-reducer";
+import {getAuthUserDataTC, setAppErrorAC} from "./bll/auth-reducer";
+import {AppStateType, store} from "./bll/redux-store";
+import {initializeAppTC} from "./bll/app-reducer";
 import {compose} from "redux";
 import LinearProgress from "@mui/material/LinearProgress";
 import {Error404Page} from "./Components/Error404/Error404Page";
 
-type AppType = {
+type AppType = MapStateToPropsType & {
     getAuthUserDataTC: () => void
     initializeAppTC: () => void
-    initialized: boolean
 }
 
 type MapDispatchToPropsType = {
@@ -30,6 +29,7 @@ type MapDispatchToPropsType = {
 }
 type MapStateToPropsType = {
     initialized: boolean
+    isAuth: boolean
 }
 
 const DialogsContainer = React.lazy(() => import("./Components/Dialogs/DialogsContainer"))
@@ -46,6 +46,7 @@ class App extends React.Component<AppType> {
 
         // window.addEventListener("unhandledrejection", this.catchAllUnhandledErrors)
     }
+
     // componentWillUnmount() {
     //      window.removeEventListener("unhandledrejection", this.catchAllUnhandledErrors)
     //
@@ -58,11 +59,12 @@ class App extends React.Component<AppType> {
         return (
             <div className='app-wrapper'>
                 <ErrorSnackbar/>
-                <HeaderContainer/>
-                <Sidebar/>
+                {this.props.isAuth && <HeaderContainer/>}
+                {this.props.isAuth && <Sidebar/>}
                 <div className='app-wrapper-content'>
                     <Switch>
-                        <Route exact path='/' render={() => <Redirect to={'/profile'}/>}/>
+                        <Route exact path='/' render={() => <Redirect to={'/login'}/>}/>
+                        <Route path='/login' render={() => <LoginPage/>}/>
                         <Route path='/dialogs'
                                render={() =>
                                    <Suspense fallback={<LinearProgress/>}>
@@ -77,7 +79,6 @@ class App extends React.Component<AppType> {
                         <Route path='/music' render={() => <Music/>}/>
                         <Route path='/settings' render={() => <Settings/>}/>
                         <Route path='/users' render={() => <UsersContainer/>}/>
-                        <Route path='/login' render={() => <Login/>}/>
                         <Route path='*' render={() => <Error404Page/>}/>
                     </Switch>
                 </div>
@@ -87,7 +88,8 @@ class App extends React.Component<AppType> {
 }
 
 const mapStateToProps = (state: AppStateType): MapStateToPropsType => ({
-    initialized: state.app.initialized
+    initialized: state.app.initialized,
+    isAuth: state.auth.isAuth,
 })
 
 const AppContainer = compose<React.ComponentType>(

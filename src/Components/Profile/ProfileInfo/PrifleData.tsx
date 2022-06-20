@@ -1,4 +1,4 @@
-import {ProfileType} from "../../../redux/profileReducer";
+import {ProfileType} from "../../../bll/profileReducer";
 import s from "./ProfileInfo.module.css";
 import Button from "@mui/material/Button";
 import React from "react";

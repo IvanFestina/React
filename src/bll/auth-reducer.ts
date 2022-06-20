@@ -55,11 +55,13 @@ export const getAuthUserDataTC = () => async (dispatch: Dispatch) => {
     const response = await authAPI.me()
     try {
         if (response.data.resultCode === 0) {
-        let {id, email, login} = response.data.data //на сервере приходит id, а у нас в action userId
-        dispatch(setAuthUserDataAC(id, email, login, true))
-    }
-    }
-    catch (error) {
+            let {id, email, login} = response.data.data //на сервере приходит id, а у нас в action userId
+            dispatch(setAuthUserDataAC(id, email, login, true))
+        }
+        if (response.data.messages && response.data.messages.length > 0) {
+            dispatch(setAppErrorAC(response.data.messages[0]))
+        }
+    } catch (error) {
         dispatch(setAppErrorAC("Some error occurred getting user data"))
     }
     //теперь наш Header знает, что мы авторизованы,

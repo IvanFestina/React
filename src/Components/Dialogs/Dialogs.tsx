@@ -2,7 +2,7 @@ import React, {ChangeEvent, useEffect} from 'react';
 import s from './Dialogs.module.css'
 import {DialogItem} from "./DialogItem/DialogItem";
 import {Message} from "./Message/Message";
-import {DialogType,  MessageType} from "../../redux/dialogReducer";
+import {DialogType,  MessageType} from "../../bll/dialogReducer";
 import * as yup from "yup";
 import {Controller, SubmitHandler, useForm} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup";

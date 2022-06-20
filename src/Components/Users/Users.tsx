@@ -1,6 +1,6 @@
 import React from "react";
 import s from "./Users.module.css";
-import {InitialStateUserType} from "../../redux/userReducer";
+import {InitialStateUserType} from "../../bll/userReducer";
 import Pagination from "@mui/material/Pagination";
 import {User} from "./User";
 

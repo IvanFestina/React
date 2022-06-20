@@ -2,7 +2,7 @@ import React from "react";
 import s from "./User.module.css";
 import userPhoto from "../../assets/images/userPhoto.png";
 import {NavLink} from "react-router-dom";
-import {InitialStateUserType, UserObjectType} from "../../redux/userReducer";
+import {InitialStateUserType, UserObjectType} from "../../bll/userReducer";
 import Button from "@mui/material/Button";
 
 export type UsersPropsType = {

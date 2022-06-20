@@ -1,6 +1,6 @@
 import React from "react";
 import {connect} from "react-redux";
-import {AppStateType} from "../../redux/redux-store";
+import {AppStateType} from "../../bll/redux-store";
 import {Profile} from "./Profile";
 import {RouteComponentProps, withRouter} from "react-router-dom";
 import {
@@ -8,7 +8,7 @@ import {
     getUserProfileTC,
     ProfileType, savePhotoTC, saveProfileTC,
     updateStatusTC
-} from "../../redux/profileReducer";
+} from "../../bll/profileReducer";
 import {withAuthRedirect} from "../../HOC/WithAuthRedirect";
 import {compose} from "redux";
 

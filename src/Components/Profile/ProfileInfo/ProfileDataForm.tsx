@@ -4,7 +4,7 @@ import {
     ContactsPropsType,
     ProfileType,
     saveProfileTC
-} from "../../../redux/profileReducer";
+} from "../../../bll/profileReducer";
 import {Controller, SubmitHandler, useForm} from "react-hook-form";
 import Button from "@material-ui/core/Button";
 import Input from "@mui/material/Input";

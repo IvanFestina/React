@@ -1,6 +1,6 @@
 import React from "react";
 import {connect} from "react-redux";
-import {AppStateType} from "../../redux/redux-store";
+import {AppStateType} from "../../bll/redux-store";
 import {Users} from "./Users";
 import {
     followTC,
@@ -8,7 +8,7 @@ import {
     InitialStateUserType,
     setCurrentPageAC,
     unFollowTC
-} from "../../redux/userReducer";
+} from "../../bll/userReducer";
 import {compose} from "redux";
 import {withRouter} from "react-router-dom";
 import {withAuthRedirect} from "../../HOC/WithAuthRedirect";

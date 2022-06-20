@@ -1,0 +1,24 @@
+.logoBlock {
+    margin: 0 auto;
+    width: 120px;
+    height: 120px;
+}
+
+.logoBlock img {
+    width: 100%;
+    height: 100%;
+}
+.logingHelper p {
+    margin-top: 40px;
+    font-weight: bolder;
+    font-size: 18px;
+    color: black;
+    text-align: center;
+}
+.logingHelper a {
+    text-decoration: none;
+    color: #1976d2;
+}
+a:hover {
+   color: #28c6e2;
+    }

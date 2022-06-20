@@ -1,7 +1,7 @@
 import React, {useEffect} from "react";
 import s from './MyPosts.module.css'
 import {Post} from "./Post/Post";
-import {postsObjectType} from "../../../redux/profileReducer";
+import {postsObjectType} from "../../../bll/profileReducer";
 import FormGroup from "@material-ui/core/FormGroup";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
