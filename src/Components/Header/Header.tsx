@@ -5,6 +5,7 @@ import {authInitialStateType} from "../../bll/auth-reducer";
 import Button from "@material-ui/core/Button";
 import {useDispatch} from "react-redux";
 import {AppBar, Box, Toolbar} from "@mui/material";
+import logo from '../../assets/images/logo.png'
 
 type HeaderPropsType = {
     authState: authInitialStateType
@@ -19,7 +20,7 @@ export const Header = ({logoutTC, ...props}: HeaderPropsType) => {
             <AppBar position="static" style={{background: '#34421e'}}>
                 <Toolbar>
                     <img alt="Лого"
-                         src="https://images.squarespace-cdn.com/content/v1/575a6067b654f9b902f452f4/1552683653140-0UUVQSSUEWVC73AWAEQG/300Logo.png"/>
+                         src={logo}/>
                     <div className={s.loginBlock}>
                         {props.authState.isAuth
                             ?
