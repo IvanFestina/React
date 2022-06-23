@@ -24,7 +24,7 @@ export const Dialogs = ({addNewMessageAC, dialogs,messages, ...props}: PropsType
 
 
     return (
-        <div className={s.dialogs}>
+        <div className={s.dialogsBlock}>
             <div className={s.dialogsItems}>
                 {dialogElements}
             </div>

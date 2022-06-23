@@ -1,4 +1,8 @@
+.usersBlock {
+    margin-left: 40px;
+}
 .pagination {
+    margin-top: 30px;
     margin-bottom: 15px;
 }
 .usersList {

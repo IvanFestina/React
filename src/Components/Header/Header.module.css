@@ -1,14 +1,23 @@
-
 .header {
-  background-color: #34421e;
+    position: fixed;
+    width: 100%;
+    z-index: 4;
 }
-.header img {
-  width: 60px;
+
+.toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 1px 1px 4px rgba(40, 36, 36, 0.82);
 }
+
 .loginBlock {
-  float: right;
+
 }
+
 .loginNameAndLogOut {
-  color: #F1F1EF;
-  font-size: 18px;
+    display: flex;
+    align-items: center;
+    color: #F1F1EF;
+    font-size: 25px;
 }

@@ -37,6 +37,7 @@ const DialogsContainer = React.lazy(() => import("./Components/Dialogs/DialogsCo
 const ProfileContainer = React.lazy(() => import("./Components/Profile/ProfileContainer"))
 
 class App extends React.Component<AppType> {
+
     // catchAllUnhandledErrors = (promiseRejectionEvent: PromiseRejectionEvent) => {
     //     setAppErrorAC("some error occurred")
     // }
@@ -63,7 +64,7 @@ class App extends React.Component<AppType> {
                     <ErrorSnackbar/>
                     {this.props.isAuth && <Grid item xs={12}><HeaderContainer/></Grid>}
                     {this.props.isAuth && <Grid item xs={3}><Navbar/></Grid>}
-                    <Grid item xs={9} className='core'>
+                    <Grid item xs={9} className='rightBar'>
                         <Switch>
                             <Route exact path='/'
                                    render={() => <Redirect to={'/login'}/>}/>
@@ -112,4 +113,3 @@ export const MainTSApp = (props: any) => {
         </Provider>
     </BrowserRouter>
 }
-

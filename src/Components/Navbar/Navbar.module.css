@@ -1,9 +1,11 @@
-
 .nav {
     background-color: #c19434;
+    margin-top: 60px;
+    /*position: fixed;*/
     padding: 20px;
     font-size: 25px;
     height: 100vh;
+    z-index: -1;
 }
 
 .nav a {

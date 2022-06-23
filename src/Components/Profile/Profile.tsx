@@ -2,6 +2,7 @@ import React from "react";
 import {ProfileInfo} from "./ProfileInfo/ProfileInfo";
 import {ProfileType} from "../../bll/profileReducer";
 import MyPostsContainer from "./MyPosts/Post/MyPostsContainer";
+import s from './Profile.module.css'
 
 type ProfilePropsType = {
     isOwner: boolean
@@ -22,7 +23,7 @@ export const Profile = ({
                         }: ProfilePropsType) => {
 
     return (
-        <>
+        <div className={s.profileBlock}>
             <ProfileInfo isOwner={isOwner}
                          profile={profile}
                          status={status}
@@ -33,6 +34,6 @@ export const Profile = ({
             />
             {/*@ts-ignore*/}
             <MyPostsContainer/>
-        </>
+        </div>
     )
 }
