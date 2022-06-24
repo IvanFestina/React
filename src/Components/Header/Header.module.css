@@ -1,7 +1,5 @@
 .header {
-    position: fixed;
     width: 100%;
-    z-index: 4;
 }
 
 .toolbar {
@@ -9,6 +7,10 @@
     justify-content: space-between;
     align-items: center;
     box-shadow: 1px 1px 4px rgba(40, 36, 36, 0.82);
+}
+.toolbar img {
+    width: 55px;
+    height: 55px;
 }
 
 .loginBlock {

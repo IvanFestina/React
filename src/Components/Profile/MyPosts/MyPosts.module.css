@@ -1,15 +1,9 @@
 .postsBlock {
+    margin-top: 60px;
     padding: 10px;
+    text-align: center;
 }
 
 .posts {
-    margin-top: 10px;
-}
-
-textarea {
-    padding: 10px;
-}
-
-.button {
-    padding: 10px;
+    margin-top: 30px;
 }

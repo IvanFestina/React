@@ -1,18 +1,27 @@
 .youStyle {
- display: flex;
- align-items: center;
+    display: flex;
+    align-items: center;
     justify-content: end;
     flex-direction: row-reverse;
+    flex-wrap: wrap;
 }
 
 .theyStyle {
- display: flex;
- align-items: center;
+    display: flex;
+    align-items: center;
     justify-content: start;
+    flex-wrap: wrap;
+
 }
 
 img {
     width: 70px;
     height: 70px
+}
+
+.textMessage {
+    padding-left: 10px;
+    padding-right: 10px;
+    color: rgb(52 66 30);
 }
 

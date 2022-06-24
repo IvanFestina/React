@@ -17,8 +17,8 @@
 }
 .loginHelper a {
     text-decoration: none;
-    color: #1976d2;
+    color: rgb(52 66 30);
 }
 a:hover {
-   color: #28c6e2;
+   color: rgba(227, 255, 229, 0.97);
     }

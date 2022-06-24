@@ -32,7 +32,6 @@ export const Profile = ({
                          saveProfileTC={saveProfileTC}
 
             />
-            {/*@ts-ignore*/}
             <MyPostsContainer/>
         </div>
     )

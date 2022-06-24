@@ -1,11 +1,13 @@
+.link {
+    color: rgb(52 66 30);
+}
+
 .nav {
     background-color: #c19434;
-    margin-top: 60px;
-    /*position: fixed;*/
     padding: 20px;
     font-size: 25px;
-    height: 100vh;
-    z-index: -1;
+    height: calc(100vh - 64px);
+    border-right: 3px solid rgba(222, 220, 217, 0.82);
 }
 
 .nav a {

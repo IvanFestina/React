@@ -1,8 +1,16 @@
 .profileDataForm {
-    display: flex;;
+    display: flex;
+    text-align: left;
+}
+.button {
+    text-align: center;
 }
 
 
 .contact {
+    text-align: center;
     padding-left: 10px;
+}
+.contacts label {
+    text-align: center;
 }

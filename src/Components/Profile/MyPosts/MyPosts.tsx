@@ -21,7 +21,7 @@ export const MyPosts = ({posts, addPostAC}: PropsType) => {
 
     return (
         <div className={s.postsBlock}>
-            <h3>My posts</h3>
+            <h2>My posts</h2>
             <AddPostForm addPostAC={addPostAC}/>
             <div className={s.posts}>
                 {postsElements}
@@ -65,7 +65,7 @@ export const AddPostForm = ({addPostAC}: AddPostFormPropsType) => {
 
     return (
         <div>
-            <FormGroup style={{maxWidth: '300px'}}>
+            <FormGroup style={{maxWidth: '300px', display: "flex", alignItems: "center"}}>
                 <Controller name={'post_area'} control={control}
                             render={({field}) => (
                                 <TextField {...field} label="Type your post here"
@@ -74,7 +74,7 @@ export const AddPostForm = ({addPostAC}: AddPostFormPropsType) => {
                                            error={!!errors.post_area}
 
                                 />)}/>
-                <Button variant={"contained"} onClick={handleSubmit(formSubmitHandler)}>Add
+                <Button style={{width: '50%'}} variant={"contained"} onClick={handleSubmit(formSubmitHandler)}>Add
                     post</Button>
             </FormGroup>
         </div>

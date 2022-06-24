@@ -1,14 +1,15 @@
-import React, {ChangeEvent, useEffect} from 'react';
+import React, {useEffect} from 'react';
 import s from './Dialogs.module.css'
 import {DialogItem} from "./DialogItem/DialogItem";
 import {Message} from "./Message/Message";
-import {DialogType,  MessageType} from "../../bll/dialogReducer";
+import {DialogType, MessageType} from "../../bll/dialogReducer";
 import * as yup from "yup";
 import {Controller, SubmitHandler, useForm} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup";
 import FormGroup from "@material-ui/core/FormGroup";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
+import Grid from "@mui/material/Grid";
 
 type PropsType = {
     messages: Array<MessageType>
@@ -17,26 +18,28 @@ type PropsType = {
     addNewMessageAC: (textForMessageInDialog: string) => void
 }
 
-export const Dialogs = ({addNewMessageAC, dialogs,messages, ...props}: PropsType) => {
-    let dialogElements = dialogs.map((d) => <DialogItem name={d.name} key={d.id} id={d.id}/>)
-    let messageElements = messages.map(m => <Message message={m.message} img={m.img} isYou={m.isYou}
-                                                                 key={m.id}/>)
+export const Dialogs = ({addNewMessageAC, dialogs, messages, ...props}: PropsType) => {
+    let dialogElements = dialogs.map((d) => <DialogItem name={d.name} key={d.id}
+                                                        id={d.id}/>)
+    let messageElements = messages.map(m => <Message message={m.message} img={m.img}
+                                                     isYou={m.isYou}
+                                                     key={m.id}/>)
 
 
     return (
-        <div className={s.dialogsBlock}>
-            <div className={s.dialogsItems}>
+        <Grid container className={s.dialogsBlock}>
+            <Grid item xs={2} className={s.dialogsItems}>
                 {dialogElements}
-            </div>
-            <div className={s.dialogsContent}>
-                <div className={s.messages}>
+            </Grid>
+            <Grid item container xs={10} className={s.dialogsContent}>
+                <Grid item xs={12} className={s.messages}>
                     {messageElements}
-                </div>
-                <div className={s.typeAndSend}>
+                </Grid>
+                <Grid item xs={12} className={s.typeAndSend}>
                     <AddMessageForm addNewMessageAC={addNewMessageAC}/>
-                </div>
-            </div>
-        </div>
+                </Grid>
+            </Grid>
+        </Grid>
     )
 }
 
@@ -70,19 +73,22 @@ export const AddMessageForm = ({addNewMessageAC, ...props}: AddPostFormPropsType
     }
 
     return (
-        <form onSubmit={handleSubmit(formSubmitHandler)}>
-            <FormGroup>
-                <Controller name={'message_area'} control={control}
-                            render={({field}) => (
-                                <TextField {...field} label="Type your message here"
-                                           type='text'
-                                           margin="normal"
-                                           error={!!errors.message_area}
-                                           defaultValue=""
-                                />
-                            )}/>
-                <Button type='submit' variant={"contained"}>Send</Button>
-            </FormGroup>
-        </form>
+        <div style={{textAlign: "center"}}>
+            <form onSubmit={handleSubmit(formSubmitHandler)}>
+                <FormGroup>
+                    <Controller name={'message_area'} control={control}
+                                render={({field}) => (
+                                    <TextField {...field} label="Type your message here"
+                                               type='text'
+                                               margin="normal"
+                                               error={!!errors.message_area}
+                                               defaultValue=""
+                                    />
+                                )}/>
+                    <Button style={{width: '50%'}} type='submit'
+                            variant={"contained"}>Send</Button>
+                </FormGroup>
+            </form>
+        </div>
     )
 }

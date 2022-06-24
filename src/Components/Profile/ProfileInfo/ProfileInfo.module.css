@@ -26,18 +26,25 @@
     padding: 10px;
 }
 
+.profileInfo {
+    text-align: left;
+}
 .profileInfo > * {
     margin-bottom: 10px;
+}
+.button {
+    text-align: center;
 }
 
 .doubleClickDirection {
     margin-top: 20px;
-    font-size: 12px;
+    font-size: 15px;
     color: rgb(147, 163, 133);
 }
 
 .onDoubleClickStatus {
-    color: rgb(112, 167, 31);
+    font-size: 25px;
+    color: rgb(52 66 30);
 
 }
 
@@ -47,9 +54,18 @@
     cursor: pointer;
 }
 
+.contacts {
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    margin-top: 30px;
+}
+
 b {
+    text-align: center;
     color: black;
     font-weight: bolder;
     font-family: Roboto, sans-serif;
 }
+
 

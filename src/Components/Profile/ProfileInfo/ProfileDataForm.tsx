@@ -24,7 +24,6 @@ export type FormInputs = {
     lookingForAJob: boolean;
     lookingForAJobDescription: string | null;
     aboutMe: string
-    contacts?: ContactsPropsType
 };
 
 export const ProfileDataForm = ({profile, setEditMode}: ProfileDataFormType) => {
@@ -33,7 +32,7 @@ export const ProfileDataForm = ({profile, setEditMode}: ProfileDataFormType) => 
     const {
         handleSubmit,
         control
-    } = useForm<FormInputs>(
+    } = useForm <FormInputs & any>(
         {
             defaultValues: {
                 fullName: profile?.fullName,
@@ -54,7 +53,7 @@ export const ProfileDataForm = ({profile, setEditMode}: ProfileDataFormType) => 
     return (
         <div className={s.profileDataForm}>
             <div>
-                <div><Button variant='contained'
+                <div className={s.button}><Button variant='contained'
                              onClick={handleSubmit(onSubmit)}>Save</Button></div>
                 <div>
                     <label>Full Name</label>
@@ -76,10 +75,10 @@ export const ProfileDataForm = ({profile, setEditMode}: ProfileDataFormType) => 
                     <Controller name="aboutMe" control={control}
                                 render={({field}) => <TextField {...field} />}/>
                 </div>
-                <div>
-                    <label>Contacts</label>: {profile?.contacts && Object.entries(profile?.contacts).map(value => {
+                <div className={s.contacts}>
+                    <label>Contacts</label>: {profile?.contacts && Object.keys(profile?.contacts).map(key => {
                     return <div className={s.contacts}>
-                        <b>{value[0]} : <Controller name={'contacts'} control={control}
+                        <b>{key} : <Controller name={key} control={control}
                                                     render={({field}) =>
                                                         <Input {...field} />}/></b>
                     </div>

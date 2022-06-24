@@ -15,23 +15,27 @@ export const Navbar = () => {
     return (
         <nav className={s.nav}>
             <div>
-                <NavLink to={'/profile'} activeClassName={s.activeStyle}>Profile</NavLink>
+                <NavLink to={'/profile'} className={s.link}
+                         activeClassName={s.activeStyle}>Profile</NavLink>
             </div>
             <div>
-                <NavLink to={'/dialogs'}
+                <NavLink to={'/dialogs'} className={s.link}
                          activeClassName={s.activeStyle}>Messages</NavLink>
             </div>
             <div>
-                <NavLink to={'/users'} activeClassName={s.activeStyle}>Users</NavLink>
+                <NavLink className={s.link} to={'/users'}
+                         activeClassName={s.activeStyle}>Users</NavLink>
             </div>
             <div>
-                <NavLink to={'/news'} activeClassName={s.activeStyle}>News</NavLink>
+                <NavLink className={s.link} to={'/news'}
+                         activeClassName={s.activeStyle}>News</NavLink>
             </div>
             <div>
-                <NavLink to={'/music'} activeClassName={s.activeStyle}>Music</NavLink>
+                <NavLink className={s.link} to={'/music'}
+                         activeClassName={s.activeStyle}>Music</NavLink>
             </div>
             <div>
-                <NavLink to={'/settings'}
+                <NavLink className={s.link} to={'/settings'}
                          activeClassName={s.activeStyle}>Settings</NavLink>
             </div>
             <div className={s.friendsBlock}>
