@@ -38,7 +38,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Components/Profile/ProfileInfo" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -163,6 +163,9 @@
       <workItem from="1655918511124" duration="3806000" />
       <workItem from="1656016955529" duration="32000" />
       <workItem from="1656017595290" duration="16130000" />
+      <workItem from="1656255683702" duration="1569000" />
+      <workItem from="1656285541293" duration="52000" />
+      <workItem from="1656534029016" duration="348000" />
     </task>
     <task id="LOCAL-00001" summary="refactoring 90">
       <created>1653943270600</created>
@@ -285,7 +288,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="refactoring 90" />

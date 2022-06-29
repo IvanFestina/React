@@ -13,8 +13,6 @@ const instance = axios.create({
 export const usersAPI = {
     getUsers(currentPage: number = 1, pageSize: number = 10) {
         return instance.get<ResponseUserType>(`users?Page=${currentPage}&count=${pageSize}`)
-// если функция должна получить данные, которых у нее нет, эта фунция должна получить данные из параметров.
-// axios догадываемся возвращается промис и мы должны return то, что возвращаем get
     },
     follow(userId: number) {
         return instance.post<ResponseType<{}>>(`follow/${userId}`)
