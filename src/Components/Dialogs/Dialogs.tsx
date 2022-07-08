@@ -73,9 +73,9 @@ export const AddMessageForm = ({addNewMessageAC, ...props}: AddPostFormPropsType
     }
 
     return (
-        <div style={{textAlign: "center"}}>
+        <div style={{textAlign: "center", width: '100%'}}>
             <form onSubmit={handleSubmit(formSubmitHandler)}>
-                <FormGroup style={{width: '100%'}}>
+                <FormGroup>
                     <Controller name={'message_area'} control={control}
                                 render={({field}) => (
                                     <TextField {...field} label="Type your message here"
@@ -85,7 +85,7 @@ export const AddMessageForm = ({addNewMessageAC, ...props}: AddPostFormPropsType
                                                defaultValue=""
                                     />
                                 )}/>
-                    <Button style={{width: '50%'}} type='submit'
+                    <Button style={{width: '100%'}} type='submit'
                             variant={"contained"}>Send</Button>
                 </FormGroup>
             </form>
