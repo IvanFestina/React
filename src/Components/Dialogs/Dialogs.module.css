@@ -1,6 +1,5 @@
 .dialogsBlock {
     height: calc(100vh - 64px);
-    overflow: auto;
     padding-top: 50px;
 }
 
@@ -12,11 +11,17 @@
 .dialogsContent {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    flex-wrap: nowrap;
+    height: 100%;
+    overflow: hidden;
 }
 
 .messages {
     padding: 10px;
+    border: 2px solid;
+    height: 100%;
+    flex: 1;
+    overflow: auto;
 }
 
 .typeAndSend {
@@ -24,4 +29,6 @@
     align-items: center;
     flex-direction: column;
     justify-self: flex-end;
+    flex: 0;
+    width: 100%;
 }

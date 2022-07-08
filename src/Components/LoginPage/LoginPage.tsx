@@ -73,6 +73,7 @@ export const LoginPage = (props: any) => {
                                         <TextField {...field} type="password"
                                                    label="Password"
                                                    margin="normal"
+
                                                    error={!!errors.password}
                                                    helperText={errors?.password ? errors?.password?.message : ''}
                                         />)}/>

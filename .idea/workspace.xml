@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c956244b-a0e1-476c-b061-bbbbba213990" name="Changes" comment="polishing..." />
+    <list default="true" id="c956244b-a0e1-476c-b061-bbbbba213990" name="Changes" comment="polishing...">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Dialogs/Dialogs.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Dialogs/Dialogs.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Dialogs/Dialogs.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Dialogs/Dialogs.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/LoginPage/LoginPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/LoginPage/LoginPage.tsx" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -60,6 +65,11 @@
       <recent name="C:\Users\IVanf\IT\social-network\src\redux\old-store" />
       <recent name="C:\Users\IVanf\IT\social-network\src\redux" />
     </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="    width: 100%;" />
+    </option>
   </component>
   <component name="RunManager" selected="Jest.Profile status component.after creation &lt;input&gt; should not be displayed">
     <configuration name="Profile status component" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
@@ -167,6 +177,9 @@
       <workItem from="1656255683702" duration="1569000" />
       <workItem from="1656285541293" duration="52000" />
       <workItem from="1656534029016" duration="528000" />
+      <workItem from="1656621565500" duration="51000" />
+      <workItem from="1656923091568" duration="44000" />
+      <workItem from="1657287585016" duration="1950000" />
     </task>
     <task id="LOCAL-00001" summary="refactoring 90">
       <created>1653943270600</created>
@@ -280,7 +293,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656534529355</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="polishing...">
+      <created>1656621587998</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1656621587998</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
