@@ -18,7 +18,6 @@ import s from './LoginPage.module.css'
 import Typography from "@mui/material/Typography";
 import {Paper} from "@mui/material";
 
-
 type IFormInputs = {
     email: string
     password: string
@@ -43,7 +42,8 @@ export const LoginPage = (props: any) => {
         formState: {errors},
     } = useForm<IFormInputs>({resolver: yupResolver(schema)})
 
-    const formSubmitHandler: SubmitHandler<IFormInputs> = (data: IFormInputs) => {
+    const onSubmit: SubmitHandler<IFormInputs> = (data: IFormInputs) => {
+        debugger
         dispatch(loginTC(data.email, data.password, data.rememberMe, data.captchaSymbols))
     }
 
@@ -58,13 +58,13 @@ export const LoginPage = (props: any) => {
                     <div className={s.logoBlock}>
                         <img src={Logo} alt={'Logo'}/>
                     </div>
-                    <FormGroup style={{marginTop: '15px'}}>
+                    <FormGroup onSubmit={handleSubmit(onSubmit)}
+                               style={{marginTop: '15px'}}>
                         <Controller name={'email'} control={control}
                                     render={({field}) => (
                                         <TextField {...field} label="Email"
                                                    type='email'
                                                    margin="normal"
-
                                                    error={!!errors.email}
                                                    helperText={errors?.email ? errors?.email?.message : ''}
                                         />)}/>
@@ -73,7 +73,6 @@ export const LoginPage = (props: any) => {
                                         <TextField {...field} type="password"
                                                    label="Password"
                                                    margin="normal"
-
                                                    error={!!errors.password}
                                                    helperText={errors?.password ? errors?.password?.message : ''}
                                         />)}/>
@@ -83,8 +82,10 @@ export const LoginPage = (props: any) => {
                             }/>
                         }
                         />
-                        <Button style={{marginTop: '15px', width: '50%', alignSelf: 'center'}} variant={'contained'} color={'primary'}
-                                onClick={handleSubmit(formSubmitHandler)}>
+                        <Button
+                            style={{marginTop: '15px', width: '50%', alignSelf: 'center'}}
+                            variant={'contained'} color={'primary'}
+                            onClick={handleSubmit(onSubmit)}>
                             Sign in
                         </Button>
                         {captchaUrl &&
@@ -98,9 +99,10 @@ export const LoginPage = (props: any) => {
                                  alt={'captcha'}/>
                         </div>}
                         <div className={s.loginHelper}>
-                            <Typography>To log in get registered <a href={'https://social-network.samuraijs.com/'}>here</a>
+                            <Typography>To log in get registered <a
+                                href={'https://social-network.samuraijs.com/'}>here</a>
                                 <br/> or use common test account credentials:
-                                Email: free@samuraijs.com
+                                Email: ivanfestina@gmail.com
                                 Password: free
                             </Typography>
                         </div>
