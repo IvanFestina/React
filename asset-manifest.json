@@ -1,0 +1,32 @@
+{
+  "files": {
+    "main.css": "/TS-React-Social-NetWork/static/css/main.f765c6c0.chunk.css",
+    "main.js": "/TS-React-Social-NetWork/static/js/main.6cdbf6c7.chunk.js",
+    "main.js.map": "/TS-React-Social-NetWork/static/js/main.6cdbf6c7.chunk.js.map",
+    "runtime-main.js": "/TS-React-Social-NetWork/static/js/runtime-main.d25e44e0.js",
+    "runtime-main.js.map": "/TS-React-Social-NetWork/static/js/runtime-main.d25e44e0.js.map",
+    "static/js/2.4c1e3195.chunk.js": "/TS-React-Social-NetWork/static/js/2.4c1e3195.chunk.js",
+    "static/js/2.4c1e3195.chunk.js.map": "/TS-React-Social-NetWork/static/js/2.4c1e3195.chunk.js.map",
+    "static/css/3.f344ce88.chunk.css": "/TS-React-Social-NetWork/static/css/3.f344ce88.chunk.css",
+    "static/js/3.62683a86.chunk.js": "/TS-React-Social-NetWork/static/js/3.62683a86.chunk.js",
+    "static/js/3.62683a86.chunk.js.map": "/TS-React-Social-NetWork/static/js/3.62683a86.chunk.js.map",
+    "static/css/4.7fb3d9b1.chunk.css": "/TS-React-Social-NetWork/static/css/4.7fb3d9b1.chunk.css",
+    "static/js/4.2b8d189b.chunk.js": "/TS-React-Social-NetWork/static/js/4.2b8d189b.chunk.js",
+    "static/js/4.2b8d189b.chunk.js.map": "/TS-React-Social-NetWork/static/js/4.2b8d189b.chunk.js.map",
+    "static/js/5.0d813b56.chunk.js": "/TS-React-Social-NetWork/static/js/5.0d813b56.chunk.js",
+    "static/js/5.0d813b56.chunk.js.map": "/TS-React-Social-NetWork/static/js/5.0d813b56.chunk.js.map",
+    "index.html": "/TS-React-Social-NetWork/index.html",
+    "static/css/3.f344ce88.chunk.css.map": "/TS-React-Social-NetWork/static/css/3.f344ce88.chunk.css.map",
+    "static/css/4.7fb3d9b1.chunk.css.map": "/TS-React-Social-NetWork/static/css/4.7fb3d9b1.chunk.css.map",
+    "static/css/main.f765c6c0.chunk.css.map": "/TS-React-Social-NetWork/static/css/main.f765c6c0.chunk.css.map",
+    "static/js/2.4c1e3195.chunk.js.LICENSE.txt": "/TS-React-Social-NetWork/static/js/2.4c1e3195.chunk.js.LICENSE.txt",
+    "static/media/cat.959920fc.png": "/TS-React-Social-NetWork/static/media/cat.959920fc.png",
+    "static/media/logoSmaller.9659fc17.jpg": "/TS-React-Social-NetWork/static/media/logoSmaller.9659fc17.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d25e44e0.js",
+    "static/js/2.4c1e3195.chunk.js",
+    "static/css/main.f765c6c0.chunk.css",
+    "static/js/main.6cdbf6c7.chunk.js"
+  ]
+}
