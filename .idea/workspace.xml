@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c956244b-a0e1-476c-b061-bbbbba213990" name="Changes" comment="polishing..." />
+    <list default="true" id="c956244b-a0e1-476c-b061-bbbbba213990" name="Changes" comment="gh">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,6 +20,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="gh-pages" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitSEFilterConfiguration">
@@ -25,6 +34,11 @@
       <filtered-out-file-type name="TAG" />
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/node_modules/react-scripts/lib/react-app.d.ts" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/node_modules/@material-ui/core/FormGroup/FormGroup.d.ts" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/node_modules/@types/react/index.d.ts" root0="SKIP_INSPECTION" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -39,14 +53,14 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Components/Profile/ProfileInfo" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs.jest.jest_package" value="$PROJECT_DIR$/node_modules/react-scripts" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Color Scheme Font" />
-    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2021.3.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+    <property name="ts.external.directory.path" value="C:\Users\IVanf\IT\social-network\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -61,39 +75,7 @@
       <recent name="C:\Users\IVanf\IT\social-network\src\redux" />
     </key>
   </component>
-  <component name="RunAnythingCache">
-    <option name="myCommands">
-      <command value="    width: 100%;" />
-    </option>
-  </component>
-  <component name="RunManager" selected="Jest.Profile status component.after creation &lt;input&gt; should not be displayed">
-    <configuration name="Profile status component" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
-      <node-interpreter value="project" />
-      <node-options value="" />
-      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
-      <working-dir value="$PROJECT_DIR$" />
-      <envs />
-      <scope-kind value="SUITE" />
-      <test-file value="$PROJECT_DIR$/src/Components/Profile/ProfileInfo/EditableSpan.test.tsx" />
-      <test-names>
-        <test-name value="Profile status component" />
-      </test-names>
-      <method v="2" />
-    </configuration>
-    <configuration name="Profile status component.after creation &lt;input&gt; should not be displayed" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
-      <node-interpreter value="project" />
-      <node-options value="" />
-      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
-      <working-dir value="$PROJECT_DIR$" />
-      <envs />
-      <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/src/Components/Profile/ProfileInfo/EditableSpan.test.tsx" />
-      <test-names>
-        <test-name value="Profile status component" />
-        <test-name value="after creation &lt;input&gt; should not be displayed" />
-      </test-names>
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="npm.eject">
     <configuration name="Profile status component.after creation &lt;span&gt; should be displayed" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
@@ -122,6 +104,26 @@
       </test-names>
       <method v="2" />
     </configuration>
+    <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="build" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="eject" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="eject" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -135,10 +137,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="npm.start" />
-        <item itemvalue="Jest.Profile status component.after creation &lt;input&gt; should not be displayed" />
-        <item itemvalue="Jest.Profile status component.after creation &lt;span&gt; should be displayed" />
+        <item itemvalue="npm.eject" />
+        <item itemvalue="npm.build" />
         <item itemvalue="Jest.Profile status component.status from props should be in the state" />
-        <item itemvalue="Jest.Profile status component" />
+        <item itemvalue="Jest.Profile status component.after creation &lt;span&gt; should be displayed" />
       </list>
     </recent_temporary>
   </component>
@@ -169,12 +171,8 @@
       <workItem from="1655918511124" duration="3806000" />
       <workItem from="1656016955529" duration="32000" />
       <workItem from="1656017595290" duration="16130000" />
-      <workItem from="1656255683702" duration="1569000" />
-      <workItem from="1656285541293" duration="52000" />
-      <workItem from="1656534029016" duration="528000" />
-      <workItem from="1656621565500" duration="51000" />
-      <workItem from="1656923091568" duration="44000" />
-      <workItem from="1657287585016" duration="4246000" />
+      <workItem from="1658065954075" duration="6101000" />
+      <workItem from="1658412873578" duration="302000" />
     </task>
     <task id="LOCAL-00001" summary="refactoring 90">
       <created>1653943270600</created>
@@ -309,7 +307,28 @@
       <option name="project" value="LOCAL" />
       <updated>1657295338468</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="polishing...">
+      <created>1658153202411</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1658153202411</updated>
+    </task>
+    <task id="LOCAL-00021" summary="polishing...">
+      <created>1658153632626</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1658153632626</updated>
+    </task>
+    <task id="LOCAL-00022" summary="gh">
+      <created>1658154240072</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1658154240072</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -325,6 +344,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="refactoring 90" />
@@ -336,6 +356,7 @@
     <MESSAGE value="made try catch structure in thunks" />
     <MESSAGE value="made login page better and before applying Mui grid" />
     <MESSAGE value="polishing..." />
-    <option name="LAST_COMMIT_MESSAGE" value="polishing..." />
+    <MESSAGE value="gh" />
+    <option name="LAST_COMMIT_MESSAGE" value="gh" />
   </component>
 </project>
