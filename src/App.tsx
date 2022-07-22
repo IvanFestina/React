@@ -4,7 +4,14 @@ import {Navbar} from "./Components/Navbar/Navbar";
 import {Settings} from "./Components/Settings/Settings";
 import {Music} from "./Components/Music/Music";
 import {News} from "./Components/News/News";
-import {BrowserRouter, Redirect, Route, Switch, withRouter} from 'react-router-dom';
+import {
+    BrowserRouter,
+    HashRouter,
+    Redirect,
+    Route,
+    Switch,
+    withRouter
+} from 'react-router-dom';
 import HeaderContainer from "./Components/Header/HeaderContainer";
 import {LoginPage} from "./Components/LoginPage/LoginPage";
 import UsersContainer from "./Components/Users/UsersContainer";
@@ -107,9 +114,9 @@ const AppContainer = compose<React.ComponentType>(
     }))(App)
 
 export const MainTSApp = (props: any) => {
-    return <BrowserRouter>
+    return <HashRouter>
         <Provider store={store}>
             <AppContainer/>
         </Provider>
-    </BrowserRouter>
+    </HashRouter>
 }

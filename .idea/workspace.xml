@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c956244b-a0e1-476c-b061-bbbbba213990" name="Changes" comment="gh">
+    <list default="true" id="c956244b-a0e1-476c-b061-bbbbba213990" name="Changes" comment="gh add">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -172,7 +171,8 @@
       <workItem from="1656016955529" duration="32000" />
       <workItem from="1656017595290" duration="16130000" />
       <workItem from="1658065954075" duration="6101000" />
-      <workItem from="1658412873578" duration="302000" />
+      <workItem from="1658412873578" duration="1636000" />
+      <workItem from="1658487233640" duration="30000" />
     </task>
     <task id="LOCAL-00001" summary="refactoring 90">
       <created>1653943270600</created>
@@ -328,7 +328,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658154240072</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="gh add">
+      <created>1658413306515</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1658413306515</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -357,6 +364,7 @@
     <MESSAGE value="made login page better and before applying Mui grid" />
     <MESSAGE value="polishing..." />
     <MESSAGE value="gh" />
-    <option name="LAST_COMMIT_MESSAGE" value="gh" />
+    <MESSAGE value="gh add" />
+    <option name="LAST_COMMIT_MESSAGE" value="gh add" />
   </component>
 </project>
