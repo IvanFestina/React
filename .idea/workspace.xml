@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c956244b-a0e1-476c-b061-bbbbba213990" name="Changes" comment="gh add">
+    <list default="true" id="c956244b-a0e1-476c-b061-bbbbba213990" name="Changes" comment="wrote HashRouter">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Dialogs/Dialogs.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Dialogs/Dialogs.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Dialogs/Dialogs.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Dialogs/Dialogs.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,20 +76,6 @@
     </key>
   </component>
   <component name="RunManager" selected="npm.eject">
-    <configuration name="Profile status component.after creation &lt;span&gt; should be displayed" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
-      <node-interpreter value="project" />
-      <node-options value="" />
-      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
-      <working-dir value="$PROJECT_DIR$" />
-      <envs />
-      <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/src/Components/Profile/ProfileInfo/EditableSpan.test.tsx" />
-      <test-names>
-        <test-name value="Profile status component" />
-        <test-name value="after creation &lt;span&gt; should be displayed" />
-      </test-names>
-      <method v="2" />
-    </configuration>
     <configuration name="Profile status component.status from props should be in the state" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
@@ -108,6 +95,16 @@
       <command value="run" />
       <scripts>
         <script value="build" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="deploy" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="deploy" />
       </scripts>
       <node-interpreter value="project" />
       <envs />
@@ -136,10 +133,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="npm.start" />
+        <item itemvalue="npm.deploy" />
         <item itemvalue="npm.eject" />
         <item itemvalue="npm.build" />
         <item itemvalue="Jest.Profile status component.status from props should be in the state" />
-        <item itemvalue="Jest.Profile status component.after creation &lt;span&gt; should be displayed" />
       </list>
     </recent_temporary>
   </component>
@@ -172,7 +169,8 @@
       <workItem from="1656017595290" duration="16130000" />
       <workItem from="1658065954075" duration="6101000" />
       <workItem from="1658412873578" duration="1636000" />
-      <workItem from="1658487233640" duration="30000" />
+      <workItem from="1658487233640" duration="355000" />
+      <workItem from="1658488228151" duration="1453000" />
     </task>
     <task id="LOCAL-00001" summary="refactoring 90">
       <created>1653943270600</created>
@@ -335,7 +333,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658413306515</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="wrote HashRouter">
+      <created>1658487282443</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1658487282443</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -365,6 +370,7 @@
     <MESSAGE value="polishing..." />
     <MESSAGE value="gh" />
     <MESSAGE value="gh add" />
-    <option name="LAST_COMMIT_MESSAGE" value="gh add" />
+    <MESSAGE value="wrote HashRouter" />
+    <option name="LAST_COMMIT_MESSAGE" value="wrote HashRouter" />
   </component>
 </project>

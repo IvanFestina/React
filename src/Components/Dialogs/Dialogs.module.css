@@ -5,7 +5,6 @@
 
 .dialogsItems {
     padding: 10px;
-
 }
 
 .dialogsContent {
@@ -18,17 +17,15 @@
 
 .messages {
     padding: 10px;
-    border: 2px solid;
     height: 100%;
     flex: 1;
+    border: 1px solid #c9c9c9;
     overflow: auto;
+    margin-right: 10px;
+    box-shadow: 1px 2px 6px rgba(0, 0, 0, .25);
 }
 
 .typeAndSend {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-self: flex-end;
-    flex: 0;
+    flex: 1;
     width: 100%;
 }
